@@ -1,4 +1,5 @@
 import './App.css';
+import MainPage from './components/MainPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -7,6 +8,9 @@ function App() {
       <header className="App-header">
 
       </header>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
     </div>
   );
 }
