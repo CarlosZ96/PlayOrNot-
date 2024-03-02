@@ -1,20 +1,17 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Cambiado a BrowserRouter
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <h1>La tatuateria</h1>
-        </div>
+      <header>
+        <img src="https://cdn-icons-png.flaticon.com/128/921/921490.png" alt="planet img" />
+        <h1>Play Or Not?</h1>
       </header>
-      <Router> 
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-        </Routes>
-      </Router> {}
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
     </div>
   );
 }

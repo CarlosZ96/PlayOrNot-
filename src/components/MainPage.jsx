@@ -1,8 +1,16 @@
 function MainPage() {
   return (
-    <div>
-      <h1>La tatuateria</h1>
-    </div>
+  <body>
+   <div className="Releases">
+   
+   </div>
+   <div className="Ranking">
+
+   </div>
+   <div className="Consoles">
+
+   </div>
+  </body>
   );
 }
 
