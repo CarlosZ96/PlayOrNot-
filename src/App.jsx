@@ -6,8 +6,16 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src="https://cdn-icons-png.flaticon.com/128/921/921490.png" alt="planet img" />
-        <h1>Play Or Not?</h1>
+        <div className='logo'>
+          <h1>Play Or Not?</h1>
+        </div>
+        <div>
+          <button>Review</button>
+          <button>Reviews</button>
+          <button>Rankings</button>
+        </div>
+        <input type="text" className="search" placeholder="Search.." />
+        <button>Login</button>
       </header>
       <Routes>
         <Route path="/" element={<MainPage />} />
