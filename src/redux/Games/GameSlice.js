@@ -2,21 +2,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const headers = {
-  'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-  'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm'
-};
-
-const requestBody = {
-  fields: '*',
-  where: 'id = 1281242'
-};
-
 export const getReleases = createAsyncThunk(
   'Games/getReleases',
   async (_, { rejectWithValue }) => {
     try { 
-      const response = await axios.post('https://api.igdb.com/v4/games', requestBody, { headers });
+      const response = await axios.get('https://api.rawg.io/api/games/final-fantasy-vii-rebirth?key=f40cb22a32854188aa4cbf6538242b50');
       console.log(response);
       return response.data;
     } catch (error) {

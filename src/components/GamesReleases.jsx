@@ -5,15 +5,9 @@ function GameReleases() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('https://api.igdb.com/v4/games', {
-          fields: '*',
-        }, {
-          headers: {
-            'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-            'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm'
-          }
-        });
-        console.log(response);
+        const response = await axios.get('https://api.rawg.io/api/games?key=f40cb22a32854188aa4cbf6538242b50');
+        console.log(response.data);
+        return response.data;
       } catch (error) {
         console.error('Error fetching data:', error);
       }
