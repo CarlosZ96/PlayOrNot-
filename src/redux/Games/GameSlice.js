@@ -1,14 +1,19 @@
-/* eslint-disable prefer-destructuring */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getReleases = createAsyncThunk(
   'Games/getReleases',
   async (_, { rejectWithValue }) => {
-    try { 
-      const response = await axios.get('https://api.rawg.io/api/games/1?key=f40cb22a32854188aa4cbf6538242b50');
-      console.log(response);
-      return response.data;
+    try {
+      const releases = [];
+      for (let id = 1; id <= 96700; id++) {
+        const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=f40cb22a32854188aa4cbf6538242b50`);
+        if (response.data.metacritic >= 80) {
+          releases.push(response.data);
+        }
+      }
+      console.log(releases);
+      return releases;
     } catch (error) {
       return rejectWithValue(error.response);
     }
@@ -23,7 +28,7 @@ const GameSlice = createSlice({
     error: null
   },
   reducers: {
-    
+
   },
   extraReducers: (builder) => {
     builder
