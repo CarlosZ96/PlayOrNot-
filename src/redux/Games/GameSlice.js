@@ -6,7 +6,7 @@ export const getReleases = createAsyncThunk(
   'Games/getReleases',
   async (_, { rejectWithValue }) => {
     try { 
-      const response = await axios.get('https://api.rawg.io/api/games/final-fantasy-vii-rebirth?key=f40cb22a32854188aa4cbf6538242b50');
+      const response = await axios.get('https://api.rawg.io/api/games/1?key=f40cb22a32854188aa4cbf6538242b50');
       console.log(response);
       return response.data;
     } catch (error) {
