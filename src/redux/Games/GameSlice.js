@@ -6,12 +6,34 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const releases = [];
-      const Rkall = []; 
-      for (let id = 1; id <= 864000; id++) {
-        const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=f40cb22a32854188aa4cbf6538242b50`);
-        const agame = response.data;       
-        if (agame.metacritic >= 80) {
-          releases.push(response.data);
+      const currentDate = new Date('2024-03-10');
+      for (let id = 1; id <= 864300; id++) {
+        try {
+          const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=f40cb22a32854188aa4cbf6538242b50`);
+          const agame = response.data;
+          const name = agame.name;
+          const idg = agame.id;
+          const metacritic = agame.metacritic;
+          const background_image = agame.background_image;
+          const description = agame.description;
+          const release_date = agame.released;
+          const parent_platforms = agame.parent_platforms.map(platform => platform.platform.name); // Assuming you want platform names only
+          const gameReleaseDate = new Date(agame.released); 
+          if (gameReleaseDate < currentDate && gameReleaseDate.getFullYear() === 2024) {
+            releases.push({
+              idg,
+              name,
+              metacritic,
+              background_image,
+              release_date,
+              description,
+              parent_platforms,
+            }); 
+          }
+        } catch (error) {
+          if (error.response && error.response.status === 404) {
+            continue;
+          }
         }
       }
       console.log(releases);
@@ -26,7 +48,6 @@ const GameSlice = createSlice({
   name: 'games',
   initialState: {
     releases: [],
-    apiGames: [],
     status: 'idle',
     error: null
   },
@@ -49,5 +70,4 @@ const GameSlice = createSlice({
   },
 });
 
-export const { response } = GameSlice.actions;
 export default GameSlice.reducer;

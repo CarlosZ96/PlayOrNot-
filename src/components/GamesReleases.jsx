@@ -1,25 +1,17 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReleases} from '../redux/Games/GameSlice';
+
 
 function GameReleases() {
+  const releases = useSelector(state => state.games.releases);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://api.rawg.io/api/games/dragons-dogma-2?key=f40cb22a32854188aa4cbf6538242b50');
-        const agame = response.data;
-        console.log(agame);
-        console.log(agame.id);
-        console.log(agame.name);
-        console.log(agame.parent_platforms[0].platform.name);
-        return response.data;
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    dispatch(getReleases()); // Despacha la acción para obtener los lanzamientos
+  }, [dispatch]);
 
-    fetchData();
-  }, []);
-
+  console.log(releases);
   return (
     <div>
      Hola
