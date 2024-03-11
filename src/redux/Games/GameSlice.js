@@ -6,9 +6,11 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const releases = [];
-      for (let id = 1; id <= 96700; id++) {
+      const Rkall = []; 
+      for (let id = 1; id <= 864000; id++) {
         const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=f40cb22a32854188aa4cbf6538242b50`);
-        if (response.data.metacritic >= 80) {
+        const agame = response.data;       
+        if (agame.metacritic >= 80) {
           releases.push(response.data);
         }
       }
@@ -24,6 +26,7 @@ const GameSlice = createSlice({
   name: 'games',
   initialState: {
     releases: [],
+    apiGames: [],
     status: 'idle',
     error: null
   },
