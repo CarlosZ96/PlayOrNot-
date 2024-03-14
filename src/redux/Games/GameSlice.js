@@ -1,13 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const getReleases = createAsyncThunk(
   'Games/getReleases',
   async (_, { rejectWithValue }) => {
     try {
       const releases = [];
-      const currentDate = new Date('2024-03-10');
-      console.log(releases);
       return releases;
     } catch (error) {
       return rejectWithValue(error.response);
