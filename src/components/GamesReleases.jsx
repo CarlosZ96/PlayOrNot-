@@ -4,20 +4,15 @@ function GameReleases() {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = async () => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-      const body = JSON.stringify({
-        fields: 'name, id, first_release_date, platforms, cover.url, summary, platforms.name, involved_companies.company.name, videos.video_id',
-        where: 'id = 1942',
-        fields: 'name, cover.url',
-      });
-
+      const body = `fields id,name,artworks,cover,game_modes,platforms,rating,screenshots,similar_games,summary,videos; where id=230369;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain',
       };
 
       const response = await fetch(url, {
@@ -26,12 +21,11 @@ function GameReleases() {
         body: body,
       });
 
-      console.log('Request:', response.url);
+      console.log('Request:', response);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
       const data = await response.json();
       console.log('Response:', data);
     } catch (error) {
