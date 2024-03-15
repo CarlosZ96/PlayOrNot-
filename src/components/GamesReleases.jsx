@@ -1,37 +1,28 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReleases } from '../redux/Games/GameSlice';
 
 function GameReleases() {
+  const dispatch = useDispatch();
+  const releases = useSelector(state => state.games.releases);
+  const status = useSelector(state => state.games.status);
+  const error = useSelector(state => state.games.error);
+
   useEffect(() => {
-    fetchData();
-  }, []);
-  
-  const fetchData = async () => {
-    try {
-      const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-      const body = `fields id,name,artworks,cover,game_modes,platforms,rating,screenshots,similar_games,summary,videos; where id=230369;`;
-      const headers = {
-        'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-        'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
-        'Content-Type': 'text/plain',
-      };
+    dispatch(getReleases());
+  }, [dispatch]);
 
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: body,
-      });
-
-      console.log('Request:', response);
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      console.log('Response:', data);
-    } catch (error) {
-      console.error('There was a problem fetching the data:', error);
+  useEffect(() => {
+    if (status === 'failed') {
+      console.error("Error fetching releases:", error);
     }
-  };
+  }, [status, error]);
+
+  useEffect(() => {
+    if (status === 'succeeded') {
+      console.log("Releases:", releases);
+    }
+  }, [status, releases]);
 
   return (
     <div>
