@@ -32,7 +32,7 @@ export const getReleases = createAsyncThunk(
       const body2 = 'fields id,name,artworks,cover,game_modes,platforms,rating,screenshots,similar_games,summary,videos; where id=230369;';
       const response2 = await axios.post(url2, body2, { headers });
       console.log(response2);
-      return releases;
+      return gameReleasesData;
     } catch (error) {
       return rejectWithValue(error.response);
     }
@@ -47,7 +47,9 @@ const GameSlice = createSlice({
     error: null
   },
   reducers: {
-
+    setReleases: (state, action) => {
+      state.releases = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
