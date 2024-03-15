@@ -67,4 +67,5 @@ const GameSlice = createSlice({
   },
 });
 
+export const { setReleases } = GameSlice.actions;
 export default GameSlice.reducer;
