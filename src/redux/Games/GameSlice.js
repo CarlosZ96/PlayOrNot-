@@ -6,33 +6,73 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/release_dates/';
-      const body = `fields game,date,human; where game.platforms = {169,130,167} & date < 1710378000; sort date desc;limit 11;`;
+      const body = `fields game,date,human; where game.platforms = {169,130,167} & date < 1710378000; sort date desc;limit 20;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
         'Content-Type': 'text/plain',
       };
       const response = await axios.post(url, body, { headers });
-      const gameReleasesData = await response.json();
+      const gameReleasesData = response.data;
       const releases = [];
+      const uniqueGameIds = new Set();
       gameReleasesData.forEach(gameD => {
-      const gameId = gameD.game;
-      const millisecondsDate = gameD.date;
-      const date = gameD.human;
-      releases.push(
-        {
-          gameId,
-          millisecondsDate,
-          date
-        },
-      );
+        const gameId = gameD.game;
+        if (!uniqueGameIds.has(gameId)) {
+          const millisecondsDate = gameD.date;
+          const date = gameD.human;
+          releases.push({
+            gameId,
+            millisecondsDate,
+            date
+          });
+          uniqueGameIds.add(gameId);
+        }
       });
-      console.log(releases);
+
       const url2 = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-      const body2 = 'fields id,name,artworks,cover,game_modes,platforms,rating,screenshots,similar_games,summary,videos; where id=230369;';
-      const response2 = await axios.post(url2, body2, { headers });
-      console.log(response2);
-      return gameReleasesData;
+      const ReleasesFinal = [];
+      for (const gameD of releases) {
+        try {
+          const body2 = `fields total_rating,name,artworks,cover,game_modes,platforms,screenshots,similar_games,summary,videos; where id=${gameD.gameId};`;
+          const response2 = await axios.post(url2, body2, { headers });
+          const gameReleasesData2 = response2.data;
+          gameReleasesData2.forEach(gameD2 => {
+            const id = gameD.gameId;
+            const date = gameD.date;
+            const millisecondsDate = gameD.millisecondsDate;
+            const name = gameD2.name;
+            const artworks = gameD2.artworks[0];
+            const cover = gameD2.cover;
+            const game_modes = gameD2.game_modes;
+            const platformsIDs = gameD2.platforms;
+            const rating = gameD2.total_rating;
+            const screenshots = gameD2.screenshots;
+            const similar_gamesIDs = gameD2.similar_games;
+            const description = gameD2.summary;
+            const videos = gameD2.videos;
+            ReleasesFinal.push({
+              id,
+              date,
+              millisecondsDate,
+              name,
+              artworks,
+              cover,
+              game_modes,
+              platformsIDs,
+              rating,
+              screenshots,
+              similar_gamesIDs,
+              description,
+              videos,
+            });
+          });
+        } catch (error) {
+          // Manejo de errores interno al bucle
+        }
+      }
+      console.log('Despues de cargar datos:', ReleasesFinal);
+      return ReleasesFinal;
     } catch (error) {
       return rejectWithValue(error.response);
     }
