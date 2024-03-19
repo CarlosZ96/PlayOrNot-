@@ -31,12 +31,16 @@ export const getReleases = createAsyncThunk(
       });
 
       const url2 = 'http://localhost:8080/https://api.igdb.com/v4/games/';
+      const url3 = 'http://localhost:8080/https://api.igdb.com/v4/screenshots';
       const ReleasesFinal = [];
       for (const gameD of releases) {
         try {
           const body2 = `fields total_rating,name,artworks,cover,game_modes,platforms,screenshots,similar_games,summary,videos; where id=${gameD.gameId};`;
+          const body3 = `fields alpha_channel,animated,checksum,game,height,image_id,url,width; where game=${gameD.gameId};`;
           const response2 = await axios.post(url2, body2, { headers });
+          const response3 = await axios.post(url3, body3, { headers });
           const gameReleasesData2 = response2.data;
+          const screenshots = response3.data;
           gameReleasesData2.forEach(gameD2 => {
             const id = gameD.gameId;
             const date = gameD.date;
@@ -67,8 +71,14 @@ export const getReleases = createAsyncThunk(
               videos,
             });
           });
+          screenshots.forEach(screenshot => {
+            const url = screenshot.url;
+            ReleasesFinal.push({
+              url
+            });
+          });
         } catch (error) {
-          // Manejo de errores interno al bucle
+
         }
       }
       console.log('Despues de cargar datos:', ReleasesFinal);
