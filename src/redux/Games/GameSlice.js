@@ -6,7 +6,7 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/release_dates/';
-      const body = `fields game,date,human; where game.platforms = {169,130,167} & date < 1710378000; sort date desc;limit 20;`;
+      const body = `fields game,date,human; where game.platforms = {169,130,167,6} & date > 1704133725000 & date < 1710872925000; sort date desc;limit 20;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
@@ -31,16 +31,17 @@ export const getReleases = createAsyncThunk(
       });
 
       const url2 = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-      const url3 = 'http://localhost:8080/https://api.igdb.com/v4/screenshots';
+      const url3 = 'http://localhost:8080/https://api.igdb.com/v4/covers';
       const ReleasesFinal = [];
       for (const gameD of releases) {
         try {
-          const body2 = `fields total_rating,name,artworks,cover,game_modes,platforms,screenshots,similar_games,summary,videos; where id=${gameD.gameId};`;
-          const body3 = `fields alpha_channel,animated,checksum,game,height,image_id,url,width; where game=${gameD.gameId};`;
+          const body2 = `fields total_rating,name,artworks,cover,game_modes,platforms,screenshots,similar_games,summary; where id=${gameD.gameId};`;
+          const body3 = `fields alpha_channel,animated,checksum,game,height,image_id,url,width; where game=${gameD.gameId}; limit 6;`;
           const response2 = await axios.post(url2, body2, { headers });
           const response3 = await axios.post(url3, body3, { headers });
           const gameReleasesData2 = response2.data;
-          const screenshots = response3.data;
+          console.log(gameReleasesData2);
+          const screenshotsr = response3.data;
           gameReleasesData2.forEach(gameD2 => {
             const id = gameD.gameId;
             const date = gameD.date;
@@ -54,7 +55,7 @@ export const getReleases = createAsyncThunk(
             const screenshots = gameD2.screenshots;
             const similar_gamesIDs = gameD2.similar_games;
             const description = gameD2.summary;
-            const videos = gameD2.videos;
+            const url = screenshotsr[0].url;
             ReleasesFinal.push({
               id,
               date,
@@ -68,12 +69,6 @@ export const getReleases = createAsyncThunk(
               screenshots,
               similar_gamesIDs,
               description,
-              videos,
-            });
-          });
-          screenshots.forEach(screenshot => {
-            const url = screenshot.url;
-            ReleasesFinal.push({
               url
             });
           });

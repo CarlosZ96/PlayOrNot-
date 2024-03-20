@@ -1,0 +1,4 @@
+.releases{
+  display: flex;
+  flex-direction: row;
+}
