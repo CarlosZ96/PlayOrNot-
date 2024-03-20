@@ -4,7 +4,10 @@ import { getReleases } from '../redux/Games/GameSlice';
 import { nanoid } from 'nanoid';
 
 function GamesTop()  {
-
+   
+  return(
+  <div></div>
+);
 }
 
 export default GamesTop;
