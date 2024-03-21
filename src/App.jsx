@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage';
-import GameReleases from './components/GamesReleases';
+
 
 function App() {
   return (

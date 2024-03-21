@@ -6,7 +6,9 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/release_dates/';
-      const body = `fields game,date,human; where game.platforms = {169,130,167,6} & date > 1704133725000 & date < 1710872925000; sort date desc;limit 20;`;
+      const body = `fields game,date,human; where 
+      game.platforms = {167,6} & date > 17040852000 & date < 1709355600 & category=0;
+      sort date desc;limit 10;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
@@ -40,7 +42,6 @@ export const getReleases = createAsyncThunk(
           const response2 = await axios.post(url2, body2, { headers });
           const response3 = await axios.post(url3, body3, { headers });
           const gameReleasesData2 = response2.data;
-          console.log(gameReleasesData2);
           const screenshotsr = response3.data;
           gameReleasesData2.forEach(gameD2 => {
             const id = gameD.gameId;
