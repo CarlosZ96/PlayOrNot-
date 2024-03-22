@@ -6,9 +6,9 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/release_dates/';
-      const body = `fields game,date,human; where 
-      game.platforms = {167,6} & date > 17040852000 & date < 1709355600 & category=0;
-      sort date desc;limit 10;`;
+      const body = `fields *,human; where 
+      game.platforms = {167,6} & date > 1706763600 & date < 1710997200 & category = 0;
+      sort date desc;limit 5;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
@@ -16,6 +16,7 @@ export const getReleases = createAsyncThunk(
       };
       const response = await axios.post(url, body, { headers });
       const gameReleasesData = response.data;
+      console.log(gameReleasesData);
       const releases = [];
       const uniqueGameIds = new Set();
       gameReleasesData.forEach(gameD => {
@@ -38,7 +39,7 @@ export const getReleases = createAsyncThunk(
       for (const gameD of releases) {
         try {
           const body2 = `fields total_rating,name,artworks,cover,game_modes,platforms,screenshots,similar_games,summary; where id=${gameD.gameId};`;
-          const body3 = `fields alpha_channel,animated,checksum,game,height,image_id,url,width; where game=${gameD.gameId}; limit 6;`;
+          const body3 = `fields alpha_channel,animated,checksum,game,height,image_id,url,width; where game=${gameD.gameId}; limit 5;`;
           const response2 = await axios.post(url2, body2, { headers });
           const response3 = await axios.post(url3, body3, { headers });
           const gameReleasesData2 = response2.data;
@@ -56,7 +57,7 @@ export const getReleases = createAsyncThunk(
             const screenshots = gameD2.screenshots;
             const similar_gamesIDs = gameD2.similar_games;
             const description = gameD2.summary;
-            const url = screenshotsr[0].url;
+            const url = screenshotsr[0].image_id;
             ReleasesFinal.push({
               id,
               date,

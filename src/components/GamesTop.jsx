@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+import '../stylesheets/gamestop.css';
 
 function GamesTop()  {
-   
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const body = `fields name,total_rating,total_rating_count; where total_rating >= 86 & total_rating_count >= 2000 & category=0; sort total_rating desc;limit 10;`;
   const headers = {
@@ -36,15 +36,14 @@ function GamesTop()  {
 
   return (
     <div className='top-container'>
-      <h1>Top 10 Games</h1>
+      <h1 className='top-title'>Top 10 All time</h1>
       <ul>
-        {top10.map(game => (
-          <li key={nanoid()}>
-            <h2>{game.name}</h2>
-            <p>Total Rating: {game.total_rating}</p>
-            <p>Total Rating Count: {game.total_rating_count}</p>
-          </li>
-        ))}
+      {top10.map((game, index) => (
+  <li key={nanoid()} className='top-list'>
+    <h2>{`${index + 1}. ${game.name}`}</h2>
+    <p>Total Rating: {game.total_rating}</p>
+  </li>
+))}
       </ul>
     </div>
   );
