@@ -37,11 +37,11 @@ function GamesTop()  {
   return (
     <div className='top-container'>
       <h1 className='top-title'>Top 10 All time</h1>
-      <ul>
+      <ul className='list-top-container'>
       {top10.map((game, index) => (
   <li key={nanoid()} className='top-list'>
-    <h2>{`${index + 1}. ${game.name}`}</h2>
-    <p>Total Rating: {game.total_rating}</p>
+    <h2 className='list-item'>{`${index + 1}. ${game.name}`}</h2>
+    <p className='list-item'>Total Rating: {game.total_rating}</p>
   </li>
 ))}
       </ul>

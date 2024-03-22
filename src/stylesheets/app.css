@@ -1,6 +1,8 @@
 .releases-top{
   display: flex;
   flex-direction: row;
+  height: 594px;
+  overflow: hidden;
 }
 
 .header-container {
@@ -85,4 +87,24 @@
 .LogIn{
   background: none;
   border: none;
+}
+
+.Consoles{
+  display: flex;
+}
+
+.platform{
+  width: 25%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px #00F3FF solid;
+  background-color: #01012B;
+}
+
+.platform-img{
+  width: 150px;
+  height: 150px;
 }

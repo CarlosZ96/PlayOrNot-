@@ -18,19 +18,19 @@ function MainPage() {
    </section> 
    <div className="Consoles">
     <div className='platform'>
-    <img src={PC} alt="" />
+    <img src={PC} alt="" className='platform-img'/>
     </div>
     <div className='platform'>
-    <img src={ANDROID} alt="" />    
+    <img src={ANDROID} alt="" className='platform-img'/>    
     </div>
     <div className='platform'>
-    <img src={SWITCH} alt="" />   
+    <img src={SWITCH} alt="" className='platform-img'/>   
     </div>
     <div className='platform'>
-    <img src={PLAY} alt="" />   
+    <img src={PLAY} alt="" className='platform-img'/>   
     </div>
     <div className='platform'>
-    <img src={XBOX} alt="" />   
+    <img src={XBOX} alt="" className='platform-img' />   
     </div>
    </div>
   </body>
