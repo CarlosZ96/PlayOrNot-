@@ -1,7 +1,7 @@
 .releases-top{
   display: flex;
   flex-direction: row;
-  height: 594px;
+  height: 592px;
   overflow: hidden;
 }
 
@@ -64,6 +64,7 @@
   background-color: #01012B;
   border-top-left-radius: 23px;
   border-bottom-left-radius: 23px;
+  color: #00F3FF;
 }
 
 .header {
@@ -107,4 +108,8 @@
 .platform-img{
   width: 150px;
   height: 150px;
+}
+
+.find-games-container{
+  color: #00F3FF;
 }
