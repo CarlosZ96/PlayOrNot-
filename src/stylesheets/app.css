@@ -95,8 +95,8 @@
 }
 
 .platform{
-  width: 25%;
-  height: 300px;
+  width: 20%;
+  height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;

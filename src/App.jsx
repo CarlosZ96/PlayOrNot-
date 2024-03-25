@@ -32,7 +32,6 @@ function App() {
         console.error('There was a problem with fetch operation:', error);
       }
     };
-
     fetchData();
   }, [gameName]);
 
