@@ -4,6 +4,7 @@ import MainPage from './components/MainPage';
 import Search from './img/search.png';
 import LogIn from './img/Muhamad Ulum.png';
 import './stylesheets/app.css';
+import Categories from './components/Categories';
 
 function App() {
   const [gameName, setGameName] = useState('');
@@ -73,6 +74,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<MainPage games={games} />} />
+        <Route path="/Categories" element={<Categories />}/>
       </Routes>
     </div>
   );
