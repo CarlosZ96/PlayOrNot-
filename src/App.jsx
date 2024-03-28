@@ -42,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className='search-header-container'>
       <header className='header-container'>
         <div className='options'>
           <div className='logo'>
@@ -53,7 +54,9 @@ function App() {
             <button className='options-button'>Rankings</button>
           </div>
         </div>
-        <div className='search-container'>
+      </header>
+        <div className={gameName ? 'expand' : 'search-container'}>
+          <div className='search-bar'>
           <input
             type="text"
             className="searchi"
@@ -63,7 +66,8 @@ function App() {
           />
           <button className='search-button'><img src={Search} alt="" className='search' /></button>
           <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
-          <ul className='find-games-container'>
+          </div>
+          <ul className={gameName ? 'find-games-container' : 'hide'}>
             {games.map(game => (
               <li key={game.id}>
                 <span>{game.name}</span>
@@ -71,7 +75,7 @@ function App() {
             ))}
           </ul>
         </div>
-      </header>
+      </div>
       <Routes>
         <Route path="/" element={<MainPage games={games} />} />
         <Route path="/Categories" element={<Categories />}/>
