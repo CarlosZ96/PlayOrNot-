@@ -77,7 +77,7 @@ function App() {
         </div>
       </div>
       <Routes>
-        <Route path="/" element={<MainPage games={games} />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />}/>
       </Routes>
     </div>

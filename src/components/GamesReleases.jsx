@@ -21,6 +21,7 @@ function GameReleases() {
             <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.url}.png`} alt="" className='game-image' />
             </div>
             <h2 className='new'>NEW!</h2>
+            <h2 className='new'>{release.date}</h2>
           </div>
         ))}
       </div>
