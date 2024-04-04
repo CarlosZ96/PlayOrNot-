@@ -27,7 +27,11 @@ function GamesTop()  {
     })
     .then(data => {
       console.log('Top data:', data);
-      setTop10(data);
+      const roundedData = data.map(game => ({
+        ...game,
+        total_rating: Math.round(game.total_rating)
+      }));
+      setTop10(roundedData);
     })
     .catch(error => {
       console.error('There was a problem with fetch operation:', error);
@@ -38,12 +42,12 @@ function GamesTop()  {
     <div className='top-container'>
       <h1 className='top-title'>Top 10 All time</h1>
       <ul className='list-top-container'>
-      {top10.map((game, index) => (
-  <li key={nanoid()} className='top-list'>
-    <h2 className='list-item'>{`${index + 1}. ${game.name}`}</h2>
-    <p className='list-item'>Total Rating: {game.total_rating}</p>
-  </li>
-))}
+        {top10.map((game, index) => (
+          <li key={nanoid()} className='top-list'>
+            <h2 className='list-item'>#{`${index + 1}  ${game.name}`}</h2>
+            <p className='list-item-r'>{game.total_rating}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );

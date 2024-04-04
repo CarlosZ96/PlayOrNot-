@@ -1,14 +1,19 @@
 .releases-container{
   display: flex;
   flex-direction: column;
-  background-color:brown;
   width: 65%;
-  max-width: 505;
 }
 
 .releases-title{
   color: #00F3FF;
   margin: 0;
+  text-align: center;
+  font-size: 45px;
+  border: 5px #00f3ff solid;
+  background-color: #01012B;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .releases{

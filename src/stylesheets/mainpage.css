@@ -1,0 +1,10 @@
+.mid{
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+.Consoles{
+  display: flex;
+  height: 20%;
+}
