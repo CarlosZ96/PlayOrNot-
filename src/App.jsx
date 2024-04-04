@@ -42,8 +42,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className='search-header-container'>
-        <header className='header-container'>
+      <header className='search-header-container'>
+        <div className='header-container'>
           <div className='options'>
             <div className='logo'>
               <h1 className='tittle'>Play Or Not?</h1>
@@ -54,7 +54,7 @@ function App() {
               <button className='options-button'>Rankings</button>
             </div>
           </div>
-        </header>
+        </div>
         <div className={gameName ? 'expand' : 'search-container'}>
           <div className='search-bar-container'>
             <div className='search-bar'>
@@ -79,7 +79,7 @@ function App() {
             </ul>
           </div>
         </div>
-      </div>
+      </header>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />} />

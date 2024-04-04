@@ -1,13 +1,14 @@
 .releases-container{
   display: flex;
   flex-direction: column;
-  background-color: #001b51;
+  background-color:brown;
   width: 65%;
-  height: 100%;
+  max-width: 505;
 }
 
 .releases-title{
   color: #00F3FF;
+  margin: 0;
 }
 
 .releases{

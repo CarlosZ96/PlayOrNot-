@@ -6,6 +6,7 @@ import ANDROID from '../img/mobile.png';
 import SWITCH from '../img/console.png';
 import PLAY from '../img/playstation.png';
 import XBOX from '../img/buttons.png';
+import '../stylesheets/app.css';
 
 function MainPage() {
   return (
