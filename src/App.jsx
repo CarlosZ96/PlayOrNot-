@@ -43,42 +43,46 @@ function App() {
   return (
     <div className="App">
       <div className='search-header-container'>
-      <header className='header-container'>
-        <div className='options'>
-          <div className='logo'>
-            <h1 className='tittle'>Play Or Not?</h1>
+        <header className='header-container'>
+          <div className='options'>
+            <div className='logo'>
+              <h1 className='tittle'>Play Or Not?</h1>
+            </div>
+            <div className='options-buttons'>
+              <button className='options-button'>Category</button>
+              <button className='options-button'>Reviews</button>
+              <button className='options-button'>Rankings</button>
+            </div>
           </div>
-          <div className='options-buttons'>
-            <button className='options-button'>Category</button>
-            <button className='options-button'>Reviews</button>
-            <button className='options-button'>Rankings</button>
-          </div>
-        </div>
-      </header>
+        </header>
         <div className={gameName ? 'expand' : 'search-container'}>
-          <div className='search-bar'>
-          <input
-            type="text"
-            className="searchi"
-            placeholder="  Search.."
-            value={gameName}
-            onChange={handleInputChange}
-          />
-          <button className='search-button'><img src={Search} alt="" className='search' /></button>
-          <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
+          <div className='search-bar-container'>
+            <div className='search-bar'>
+              <input
+                type="text"
+                className="searchi"
+                placeholder="  Search.."
+                value={gameName}
+                onChange={handleInputChange}
+              />
+              <button className='search-button'><img src={Search} alt="" className='search' /></button>
+              <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
+            </div>
           </div>
-          <ul className={gameName ? 'find-games-container' : 'hide'}>
-            {games.map(game => (
-              <li key={game.id}>
-                <span>{game.name}</span>
-              </li>
-            ))}
-          </ul>
+          <div className='finded-games-list-container'>
+            <ul className={gameName ? 'find-games-container' : 'hide'}>
+              {games.map(game => (
+                <li key={game.id}>
+                  <span>{game.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/Categories" element={<Categories />}/>
+        <Route path="/Categories" element={<Categories />} />
       </Routes>
     </div>
   );

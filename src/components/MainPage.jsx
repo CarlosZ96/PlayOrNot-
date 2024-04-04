@@ -9,7 +9,7 @@ import XBOX from '../img/buttons.png';
 
 function MainPage() {
   return (
-  <body>
+  <body className='mid'>
    <section className='releases-top'>
    <GameReleases />
    <div className="Ranking">

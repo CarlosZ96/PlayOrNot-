@@ -1,46 +1,57 @@
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
 .search-header-container{
   width: 100%;
   display: flex;
-  height: 170px;
+  height: 20%;
+  position: fixed;
 }
 
 .releases-top {
   display: flex;
   flex-direction: row;
-  height: 592px;
-  overflow: hidden;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-container {
   display: flex;
-  width: 100%;
+  width: 65%;
+  height: 100px;
   flex-wrap: wrap;
   align-items: center;
   gap: 0;
   background-color: #01012B;
 }
 
+.search-bar-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
 .search-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
   margin-right: 1%;
-  background-color: brown;
+  background-color: #01012b;
   margin: 0;
-  width: 30%;
-  height: 170px;
+  width: 35%;
+  height: 100px;
 }
 
 .expand {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-right: 1%;
-  background-color: brown;
+  background-color: #01012b;
   margin: 0;
-  width: 30%;
+  width: 40%;
   height: 270px;
 }
 
@@ -48,14 +59,15 @@
   color: #00F3FF;
   margin-left: 2%;
   width: 200px;
+  margin: 0;
 }
 
 .search-button {
-  width: 29px;
-  height: 32px;
+  width: 45px;
+  height: 55px;
   padding: 0;
   margin: 0;
-  border: 2px hsl(183, 100%, 50%) solid;
+  border: 5px #00F3FF solid;
   color: #00F3FF;
   background-color: #01012B;
   border-top-right-radius: 23px;
@@ -79,15 +91,16 @@
 }
 
 .searchi {
-  height: 30px;
-  width: 70%;
+  height: 45px;
+  width: 80%;
   margin: 0;
   padding: 0;
-  border: 2px #00F3FF solid;
-  background-color: #01012B;
+  border: 5px #00F3FF solid;
+  background-color: #01012b;
   border-top-left-radius: 23px;
   border-bottom-left-radius: 23px;
   color: #00F3FF;
+  padding-left: 10px;
 }
 
 .search-bar {
@@ -95,6 +108,10 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  background-color: #01012b;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -122,11 +139,12 @@
 
 .Consoles {
   display: flex;
+  height: 40%;
 }
 
 .platform {
   width: 20%;
-  height: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,15 +154,15 @@
 }
 
 .platform-img {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .find-games-container {
   color: #00F3FF;
   list-style: none;
   padding: 0;
-  margin-left: 10%;
+  margin: 0 0 0 10%;
 }
 
 .hide{
