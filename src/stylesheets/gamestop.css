@@ -52,9 +52,9 @@
 }
 
 .top-list:nth-child(odd) {
-  background-color: #001B51;
+  background-color: #001b51;
 }
 
 .top-list:nth-child(even) {
-  background-color: #1F3154;
+  background-color: #1f3154;
 }

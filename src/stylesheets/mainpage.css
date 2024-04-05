@@ -1,10 +1,10 @@
-.mid{
+.mid {
   display: flex;
   flex-direction: column;
   height: 90%;
 }
 
-.Consoles{
+.Consoles {
   display: flex;
   height: 20%;
 }
