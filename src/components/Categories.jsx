@@ -40,12 +40,19 @@ export default function Categories() {
 
   return (
     <div className='Categories-container'>
-      {categoriesApi.map(category => (
-        <div key={category.id} className='categorie-card'>
-          <img src={Shooter} alt="" className='cat-img' />
-          <h1 className='categorie-name'>{category.name}</h1>
-        </div>
-      ))}
+      <div className='Cards-Container'>
+        {categoriesApi.map(category => (
+          <div key={category.id} className='categorie-card'>
+            <div className='img-container'>
+              <img src={Shooter} alt="" className='cat-img' />
+            </div>
+            <h1 className='categorie-name'>{category.name}</h1>
+          </div>
+        ))}
+      </div>
+      <div className='Categories-Container'>
+        <h2 className='categories-title'>Game Categories</h2>
+      </div>
     </div>
   );
 }
