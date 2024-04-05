@@ -1,3 +1,4 @@
+/* eslint-disable */
 const cors_proxy = require('cors-anywhere');
 
 const PORT = process.env.PORT || 8080;
