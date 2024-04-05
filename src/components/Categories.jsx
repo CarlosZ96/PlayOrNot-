@@ -42,7 +42,7 @@ export default function Categories() {
     <div className='Categories-container'>
       {categoriesApi.map(category => (
         <div key={category.id} className='categorie-card'>
-          <img src={Shooter} alt="" className='cat-img'/>
+          <img src={Shooter} alt="" className='cat-img' />
           <h1 className='categorie-name'>{category.name}</h1>
         </div>
       ))}

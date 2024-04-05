@@ -1,4 +1,4 @@
-.Categories-container{
+.Categories-container {
   width: 100%;
   height: 60%;
   display: flex;
@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.categorie-card{
+.categorie-card {
   background-color: #6398ff;
   border-radius: 30px;
   width: 209px;
@@ -18,12 +18,12 @@
   align-items: center;
 }
 
-.cat-img{
+.cat-img {
   width: 161px;
   height: 155px;
 }
 
-.categorie-name{
+.categorie-name {
   background-color: #000229;
   color: #00f3ff;
   width: 100%;
