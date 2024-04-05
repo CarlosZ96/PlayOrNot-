@@ -26,7 +26,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0;
-  background-color: #01012B;
+  background-color: #01012b;
 }
 
 .search-bar-container {
@@ -40,7 +40,6 @@
 .search-container {
   display: flex;
   flex-direction: column;
-  margin-right: 1%;
   background-color: #01012b;
   margin: 0;
   width: 35%;
@@ -59,8 +58,7 @@
 }
 
 .tittle {
-  color: #00F3FF;
-  margin-left: 2%;
+  color: #00f3ff;
   width: 200px;
   margin: 0;
 }
@@ -70,16 +68,16 @@
   height: 55px;
   padding: 0;
   margin: 0;
-  border: 5px #00F3FF solid;
-  color: #00F3FF;
-  background-color: #01012B;
+  border: 5px #00f3ff solid;
+  color: #00f3ff;
+  background-color: #01012b;
   border-top-right-radius: 23px;
   border-bottom-right-radius: 23px;
 }
 
 .options-button {
-  background-color: #1F3154;
-  color: #0BFF6C;
+  background-color: #1f3154;
+  color: #0bff6c;
   border: none;
   border-radius: 15px;
   height: 60px;
@@ -101,11 +99,11 @@
   width: 80%;
   margin: 0;
   padding: 0;
-  border: 5px #00F3FF solid;
+  border: 5px #00f3ff solid;
   background-color: #01012b;
   border-top-left-radius: 23px;
   border-bottom-left-radius: 23px;
-  color: #00F3FF;
+  color: #00f3ff;
   padding-left: 10px;
 }
 
@@ -150,8 +148,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 4px #00F3FF solid;
-  background-color: #01012B;
+  border: 4px #00f3ff solid;
+  background-color: #01012b;
   padding: 5px;
 }
 
@@ -161,7 +159,7 @@
 }
 
 .find-games-container {
-  color: #00F3FF;
+  color: #00f3ff;
   list-style: none;
   padding: 0;
   margin: 0 0 0 10%;
