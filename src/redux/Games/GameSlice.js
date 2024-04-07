@@ -44,6 +44,7 @@ export const getReleases = createAsyncThunk(
           const response3 = await axios.post(url3, body3, { headers });
           const gameReleasesData2 = response2.data;
           const screenshotsr = response3.data;
+          console.log(screenshotsr);
           gameReleasesData2.forEach(gameD2 => {
             const id = gameD.gameId;
             const date = gameD.date;
