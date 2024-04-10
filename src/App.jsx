@@ -5,6 +5,7 @@ import Search from './img/search.png';
 import LogIn from './img/Muhamad Ulum.png';
 import './stylesheets/app.css';
 import Categories from './components/Categories';
+import Test from './components/Test';
 
 function App() {
   const [gameName, setGameName] = useState('');
@@ -22,7 +23,8 @@ function App() {
         const response = await fetch(url, {
           method: 'POST',
           headers: headers,
-          body: `fields *; where name ~ *"${gameName}"*; limit 5;`
+          body: `fields name,cover.image_id; where name ~ *"${gameName}"* & category = 0; sort total_rating_count desc;
+          limit 5;`
         });
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -42,8 +44,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className='search-header-container'>
-        <div className='header-container'>
+      <header className= 'search-header-container'>
+        <div className={gameName ? 'reduce' : 'header-container'}>
           <div className='options'>
             <div className='logo'>
               <h1 className='tittle'>Play Or Not?</h1>
@@ -71,11 +73,15 @@ function App() {
           </div>
           <div className='finded-games-list-container'>
             <ul className={gameName ? 'find-games-container' : 'hide'}>
-              {games.map(game => (
-                <li key={game.id}>
-                  <span>{game.name}</span>
-                </li>
-              ))}
+              {games.map(game => {
+                console.log('Datos del juego:', game);
+                return (
+                  <li key={game.id} className='Game-Find-Container'>
+                    {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
+                    <span className='Game-Name'>{game.name}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -83,6 +89,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </div>
   );

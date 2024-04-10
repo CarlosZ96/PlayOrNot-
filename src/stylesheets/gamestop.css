@@ -4,7 +4,7 @@
 
 .Ranking {
   width: 35%;
-  height: 95%;
+  height: 100%;
 }
 
 .top-title {
@@ -18,14 +18,19 @@
   height: 12%;
   text-align: center;
   border: 5px #00f3ff solid;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-size: 4vh;
 }
 
 .list-top-container {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 5px #00f3ff solid;
-  height: 85%;
+  border-width: 0 5px 0 5px; /* top right bottom left */
+  border-style: solid;
+  border-color: #00f3ff;
+  height: 87%;
 }
 
 .top-list {

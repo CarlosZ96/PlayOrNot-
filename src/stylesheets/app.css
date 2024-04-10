@@ -18,9 +18,19 @@
   justify-content: center;
   align-items: center;
   height: 80%;
+  padding-top: 2%;
 }
 
 .header-container {
+  display: flex;
+  width: 65%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  background-color: #01012b;
+}
+
+.reduce {
   display: flex;
   width: 65%;
   flex-wrap: wrap;
@@ -43,18 +53,19 @@
   background-color: #01012b;
   margin: 0;
   width: 35%;
-  height: 100px;
+  height: 100%;
 }
 
 .expand {
   display: flex;
   flex-direction: column;
-  background-color: #01012b;
+  background-color: #01012bf5;
   margin: 0;
-  width: 40%;
+  width: 35%;
   height: max-content;
   position: fixed;
   left: 65%;
+  border-radius: 10px;
 }
 
 .tittle {
@@ -159,12 +170,45 @@
 }
 
 .find-games-container {
+  height: 240px;
   color: #00f3ff;
   list-style: none;
   padding: 0;
-  margin: 0 0 0 10%;
+  margin: 0 0 0 4%;
+  overflow-y: scroll;
+}
+
+.find-games-container::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+.find-games-container::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 8px;
+  background-color:#153fd7;
+  border-radius: 10px;
 }
 
 .hide {
   display: none;
+}
+
+.Game-Find-Container {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Game-Name {
+  color: #153fd7;
+  font-size: 3vh;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+}
+
+.gamef-image {
+  width: 80px;
+  height: 100px;
+  margin-right: 4%;
 }

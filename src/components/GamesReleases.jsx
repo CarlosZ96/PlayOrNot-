@@ -18,7 +18,7 @@ function GameReleases() {
         {releases.map((release) => (
           <div key={nanoid()} className='release-card'>
             <div className='card-container'>
-              <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.url}.png`} alt="" className='game-image' />
+              <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.cover}.png`} alt="" className='game-image' />
             </div>
             <h2 className='new'>NEW!</h2>
             <h2 className='new'>{release.date}</h2>
