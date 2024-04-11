@@ -1,7 +1,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 906px;
+  height: 96.9vh;
   background-color: #001b51;
   justify-content: center;
 }
@@ -18,7 +18,7 @@
   justify-content: center;
   align-items: center;
   height: 80%;
-  padding-top: 2%;
+  padding-top: 1%;
 }
 
 .header-container {
@@ -72,6 +72,7 @@
   color: #00f3ff;
   width: 200px;
   margin: 0;
+  font-size: 4vh;
 }
 
 .search-button {
@@ -91,10 +92,10 @@
   color: #0bff6c;
   border: none;
   border-radius: 15px;
-  height: 60px;
   padding: 0;
+  height: 7vh;
   width: 30%;
-  font-size: x-large;
+  font-size: 3vh;
   font-family: "Paytone One", sans-serif;
   font-weight: 400;
   font-style: normal;

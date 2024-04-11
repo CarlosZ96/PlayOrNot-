@@ -9,7 +9,7 @@ export const getReleases = createAsyncThunk(
       const body = `fields name,first_release_date,release_dates.date,platforms.name,release_dates.human,cover.image_id; 
       where first_release_date >= 1709269200 & first_release_date <= 1711861200 & platforms = (167,6,130,169) & total_rating_count >= 5 & category=0; 
       sort first_release_date desc;
-      limit 10;`;
+      limit 5;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
         'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
