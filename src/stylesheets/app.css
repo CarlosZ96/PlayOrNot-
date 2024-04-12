@@ -119,6 +119,14 @@
   padding-left: 10px;
 }
 
+.searchi::placeholder{
+  font-size: medium;
+  color: #00f3ff;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+  opacity: 0.5;
+}
+
 .search-bar {
   display: flex;
   flex-direction: row;

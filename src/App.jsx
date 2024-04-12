@@ -5,7 +5,6 @@ import Search from './img/search.png';
 import LogIn from './img/Muhamad Ulum.png';
 import './stylesheets/app.css';
 import Categories from './components/Categories';
-import Test from './components/Test';
 
 function App() {
   const [gameName, setGameName] = useState('');
@@ -74,7 +73,6 @@ function App() {
           <div className='finded-games-list-container'>
             <ul className={gameName ? 'find-games-container' : 'hide'}>
               {games.map(game => {
-                console.log('Datos del juego:', game);
                 return (
                   <li key={game.id} className='Game-Find-Container'>
                     {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
@@ -89,7 +87,6 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />} />
-        <Route path="/test" element={<Test />} />
       </Routes>
     </div>
   );

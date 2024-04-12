@@ -10,7 +10,7 @@ import '../stylesheets/mainpage.css';
 
 function MainPage() {
   return (
-    <body className='mid'>
+    <div className='mid'>
       <section className='releases-top'>
         <GameReleases />
         <div className="Ranking">
@@ -34,7 +34,7 @@ function MainPage() {
           <img src={XBOX} alt="" className='platform-img' />
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 

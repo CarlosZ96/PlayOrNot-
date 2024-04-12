@@ -44,6 +44,7 @@ export const getReleases = createAsyncThunk(
             uniqueGameIds.add(gameId);
         }
     });
+    console.log(releases);
       return releases;
     } catch (error) {
       return rejectWithValue(error.response);

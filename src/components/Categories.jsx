@@ -44,7 +44,7 @@ export default function Categories() {
         {categoriesApi.map(category => (
           <div key={category.id} className='categorie-card'>
             <div className='img-container'>
-              <img src={Shooter} alt="" className='cat-img' />
+              <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
             </div>
             <h1 className='categorie-name'>{category.name}</h1>
           </div>

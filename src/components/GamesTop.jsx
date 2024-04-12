@@ -4,7 +4,7 @@ import '../stylesheets/gamestop.css';
 
 function GamesTop() {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-  const body = `fields name,total_rating,total_rating_count; where total_rating >= 86 & total_rating_count >= 2000 & category=0; sort total_rating desc;limit 10;`;
+  const body = `fields name,cover.image_id,total_rating,total_rating_count,release_dates.human; where total_rating >= 86 & total_rating_count >= 2000 & category=0; sort total_rating desc;limit 10;`;
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
     'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
@@ -26,7 +26,6 @@ function GamesTop() {
         return response.json();
       })
       .then(data => {
-        console.log('Top data:', data);
         const roundedData = data.map(game => ({
           ...game,
           total_rating: Math.round(game.total_rating)
@@ -44,8 +43,16 @@ function GamesTop() {
       <ul className='list-top-container'>
         {top10.map((game, index) => (
           <li key={nanoid()} className='top-list'>
-            <h2 className='list-item'>#{`${index + 1}  ${game.name}`}</h2>
-            <p className='list-item-r'>{game.total_rating}</p>
+            <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='top-image' />
+            <div className='top-info-container'>
+              <div className='top-title-container'>
+                <h2 className='list-item'>#{`${index + 1}  ${game.name}`}</h2>
+              </div>
+              <h3 className='game-date'>{game.release_dates[0].human}</h3>
+            </div>
+            <div className='game-rating-container'>
+              <p className='list-item-r'>{game.total_rating}</p>
+            </div>
           </li>
         ))}
       </ul>
