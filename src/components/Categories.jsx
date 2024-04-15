@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Shooter from '../img/Duck_Hunt.gif';
 import '../stylesheets/Categories.css';
+import '../stylesheets/app.css';
 
 export default function Categories() {
   const [categoriesApi, setCategoriesApi] = useState([]);
