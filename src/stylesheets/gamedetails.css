@@ -1,0 +1,29 @@
+.game-details-containerd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.game-details-containerd-blur {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #3560afa7;
+}
+
+.game-container {
+  width: 90%;
+  height: 95%;
+  background-color: #00278a87;
+  border-radius: 20px;
+  text-align: center;
+}

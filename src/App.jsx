@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import Search from './img/search.png';
 import LogIn from './img/Muhamad Ulum.png';
 import './stylesheets/app.css';
 import Categories from './components/Categories';
+import GameDetails from './components/GameDetails';
+import { nanoid } from '@reduxjs/toolkit';
 
 function App() {
   const [gameName, setGameName] = useState('');
+  const [findgameName, setFindGameName] = useState('');
   const [games, setGames] = useState([]);
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const headers = {
@@ -43,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className= 'search-header-container'>
+      <header className='search-header-container'>
         <div className={gameName ? 'reduce' : 'header-container'}>
           <div className='options'>
             <div className='logo'>
@@ -74,10 +77,12 @@ function App() {
             <ul className={gameName ? 'find-games-container' : 'hide'}>
               {games.map(game => {
                 return (
-                  <li key={game.id} className='Game-Find-Container'>
-                    {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
-                    <span className='Game-Name'>{game.name}</span>
-                  </li>
+                  <NavLink key={nanoid()} to="/GameDetails" onClick={() => setFindGameName(game.name)}>
+                    <li key={game.id} className='Game-Find-Container'>
+                      {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
+                      <span className='Game-Name'>{game.name}</span>
+                    </li>
+                  </NavLink>
                 );
               })}
             </ul>
@@ -87,6 +92,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />} />
+        <Route path="/GameDetails" element={<GameDetails findgameName={findgameName} />} />
       </Routes>
     </div>
   );
