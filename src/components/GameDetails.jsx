@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import '../stylesheets/gamedetails.css';
 
 export const GameDetails = ({ findgameName }) => {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const body = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
-  release_dates.human,artworks.image_id,; 
+  release_dates.human,artworks.image_id; 
   where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`;
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
