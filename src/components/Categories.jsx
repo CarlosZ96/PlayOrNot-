@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/Categories.css';
 import '../stylesheets/app.css';
+import { nanoid } from 'nanoid';
 
 export default function Categories() {
   const [categoriesApi, setCategoriesApi] = useState([]);
@@ -42,7 +43,7 @@ export default function Categories() {
     <div className='Categories-container'>
       <div className='Cards-Container'>
         {categoriesApi.map(category => (
-          <div key={category.id} className='categorie-card'>
+          <div key={nanoid} className='categorie-card'>
             <div className='img-container'>
               <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
             </div>

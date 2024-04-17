@@ -41,12 +41,12 @@ function GameReleases() {
           else if (distanceToRight === 2) cardClassName += ' right-small';
 
           return (
-            <div key={release.id} className={cardClassName}>
+            <div key={nanoid} className={cardClassName}>
               <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.cover}.png`} alt="" className='game-image' />
               <h2 className='new'>Platforms</h2>
               <div className='platforms'>
                 {release.platforms.map((platform) => (
-                  <img key={platform.id} src={require(`../img/${ platform.id}.png`)} className='platforms-img' />
+                  <img key={nanoid} src={require(`../img/${ platform.id}.png`)} className='platforms-img' />
                 ))}
               </div>
             </div>
