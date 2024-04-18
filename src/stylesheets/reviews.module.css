@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-.input-game-review::placeholder{
+.input-game-review::placeholder {
   font-size: medium;
   color: #00f3ff;
   font-family: "Paytone One", sans-serif;
@@ -70,7 +70,6 @@
 }
 
 .input-games-found-expanded {
-  background-color: #CC1515;
   position: absolute;
   top: 100%;
   width: 100%;
@@ -79,9 +78,10 @@
   padding: 0;
   border: none;
   list-style: none;
+  background-color: #001b51;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -207,13 +207,14 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #CC1515;
+  background-color: #01012b;
 }
 
 .last-reviewed-container {
   height: 100%;
   width: 35%;
   background-color: #070941;
+  color: #fff;
 }
 
 .search-game-container {
@@ -239,7 +240,7 @@
 }
 
 .game-info {
-  background-color: #2b2bcf;
+  background-color: #fff;
   height: 100%;
   width: 25%;
   display: flex;
@@ -249,7 +250,7 @@
 }
 
 .game-review-info {
-  background-color: #18187a;
+  background-color: #fff;
   height: 100%;
   width: 75%;
   display: flex;
@@ -261,12 +262,16 @@
 .game-review-title {
   height: 25%;
   width: 100%;
-  background-color: #01012b;
-  color: #fff;
+  background-color: #fff;
+  color: #01012b;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 0 0 1% 0;
+  margin: 0 0 1% 0;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 300;
 }
 
 .game-rating-container {
@@ -288,8 +293,9 @@
 .game-review-rating {
   height: 100%;
   width: 45%;
-  background-color: #090956;
-
+  background-color: #01012b;
+  color: #fff;
+  text-align: center;
 }
 
 .game-rating-container .game-review-rating:nth-child(1) {
@@ -317,7 +323,8 @@
 .game-review-extra-title {
   height: 15%;
   width: 100%;
-  background-color: #01012b;
+  background-color: #fff;
+  color: #01012b;
 }
 
 .game-caratule {
@@ -355,39 +362,149 @@
   background-color: #01012b;
 }
 
-.game-info-car{
+.game-info-car {
   height: 100%;
   width: 90%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.game-info-tittle{
+.game-info-tittle {
   margin: 1% 0 0 2%;
   color: #00f3ff;
   font-size: large;
 }
 
-.game-info-txt{
+.game-genres-container{
+  display: grid;
+  grid-template-columns: 40% 40%;
+  align-items: center;
+  justify-content: start;
+}
+
+.game-info-txt {
   margin: 0;
   color: #fff;
   font-size: small;
   margin: 0 0 0 2%;
 }
 
-.game-review-extra-title{
+.game-review-extra-title {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 0;
-  color: #fff;
+  color: #01012b;
+  font-family: "Paytone One", sans-serif;
+  font-weight: bolder;
   font-size: x-large;
 }
 
-.game-extra-video-container{
+.game-extra-media-container {
+  height: 86%;
+  width: 100%;
+  background-color: #01012b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-extra-video-container {
+  height: 10%;
+  width: 90%;
+  background-color: #000;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.game-video-container {
+  display: none;
+}
+
+.game-info-video {
+  display: none;
+  height: 1%;
+  width: 1%;
+}
+
+.game-extra-image-container {
+  height: 10%;
+  width: 90%;
+  background-color: #d0cdcd;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-extre-images-cont {
+  display: none;
+}
+
+.game-extre-img {
+  height: 90%;
+  width: 80%;
+}
+
+.game-extra-dlc-container {
+  height: 10%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.game-dlc-container {
+  display: none;
+}
+
+.last-reviewed-title {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-family: "K2D", sans-serif;
+  font-weight: 600;
+  background-color: #fff;
+  color: #001b51;
+}
+
+.last-reviewed-game-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.last-reviewed-game-title {
+  width: 99%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "K2D", sans-serif;
+  font-weight: 400;
+  border-width: 0 4% 0 4%;
+  /* top right bottom left */
+  border-style: solid;
+}
+
+.last-reviewed-game-container .last-reviewed-game-title:nth-child(odd) {
+  background-color: #01012b;
+}
+
+.last-reviewed-game-container .last-reviewed-game-title:nth-child(even) {
+  background-color: #001b51;
 }

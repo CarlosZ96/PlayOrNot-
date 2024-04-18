@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getReleases } from '../redux/Games/GameSlice';
-import { nanoid } from 'nanoid';
 import '../stylesheets/gamereleases.css';
 import left from '../img/Left.png';
 import right from '../img/right.png';
@@ -41,12 +40,12 @@ function GameReleases() {
           else if (distanceToRight === 2) cardClassName += ' right-small';
 
           return (
-            <div key={nanoid} className={cardClassName}>
+            <div key={release.gameId} className={cardClassName}>
               <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.cover}.png`} alt="" className='game-image' />
               <h2 className='new'>Platforms</h2>
               <div className='platforms'>
                 {release.platforms.map((platform) => (
-                  <img key={nanoid} src={require(`../img/${ platform.id}.png`)} className='platforms-img' />
+                  <img key={(release.gameId-1)} src={require(`../img/${ platform.id}.png`)} className='platforms-img' />
                 ))}
               </div>
             </div>

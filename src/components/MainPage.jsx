@@ -7,7 +7,6 @@ import ANDROID from '../img/mobile.png';
 import SWITCH from '../img/console.png';
 import PLAY from '../img/playstation.png';
 import XBOX from '../img/buttons.png';
-import { nanoid } from '@reduxjs/toolkit';
 import '../stylesheets/mainpage.css';
 import Search from '../img/search.png';
 import LogIn from '../img/Muhamad Ulum.png';
@@ -83,7 +82,7 @@ function MainPage() {
             <ul className={gameName ? 'find-games-container' : 'hide'}>
               {games.map(game => {
                 return (
-                  <NavLink key={nanoid()} to="/GameDetails" onClick={() => setFindGameName(game.name)}>
+                  <NavLink key={game.id} to="/GameDetails" onClick={() => setFindGameName(game.name)}>
                     <li key={game.id} className='Game-Find-Container'>
                       {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
                       <span className='Game-Name'>{game.name}</span>

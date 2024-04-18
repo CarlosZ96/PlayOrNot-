@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { nanoid } from 'nanoid';
 import '../stylesheets/gamestop.css';
 
 function GamesTop() {
@@ -42,7 +41,7 @@ function GamesTop() {
       <h1 className='top-title'>Top 10 All time</h1>
       <ul className='list-top-container'>
         {top10.map((game, index) => (
-          <li key={nanoid()} className='top-list'>
+          <li key={game.id} className='top-list'>
             <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='top-image' />
             <div className='top-info-container'>
               <div className='top-title-container'>
