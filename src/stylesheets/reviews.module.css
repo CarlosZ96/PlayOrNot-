@@ -213,7 +213,7 @@
 .last-reviewed-container {
   height: 100%;
   width: 35%;
-  background-color: #070941;
+  background-color: #01012b;
   color: #fff;
 }
 
@@ -466,7 +466,7 @@
 
 .last-reviewed-title {
   width: 100%;
-  height: 20%;
+  height: 16%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -476,6 +476,7 @@
   font-weight: 600;
   background-color: #fff;
   color: #001b51;
+  margin-top: 4%;
 }
 
 .last-reviewed-game-container {
@@ -488,7 +489,7 @@
 }
 
 .last-reviewed-game-title {
-  width: 99%;
+  width: 98%;
   height: 25%;
   display: flex;
   flex-direction: column;
@@ -496,9 +497,8 @@
   align-items: center;
   font-family: "K2D", sans-serif;
   font-weight: 400;
-  border-width: 0 4% 0 4%;
-  /* top right bottom left */
-  border-style: solid;
+  border-right: 6px #fff solid;
+  border-left: 6px #fff solid;
 }
 
 .last-reviewed-game-container .last-reviewed-game-title:nth-child(odd) {
@@ -507,4 +507,48 @@
 
 .last-reviewed-game-container .last-reviewed-game-title:nth-child(even) {
   background-color: #001b51;
+}
+
+.rating-number-container{
+  height: 68%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 9%;
+}
+
+.rating-number{
+  height: 55%;
+  width: 20%;
+  background-color: #8633f0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-txt{
+  font-size: x-large;
+  color: #8633f0;
+  font-weight: 200;
+  font-family: "Paytone One", sans-serif;
+}
+
+.rating-txt-2{
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+}
+
+.last-game-container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.last-reviewed-game-img{
+  height: 68%;
+  width: 100%;
 }

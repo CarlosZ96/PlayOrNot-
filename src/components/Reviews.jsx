@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 const Reviews = () => {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-  const body2 = `fields name,first_release_date,total_rating,total_rating_count,cover.image_id;
+  const body2 = `fields name,first_release_date,total_rating,total_rating_count,cover.image_id,artworks.image_id;
   where total_rating_count >= 40 & category = 0 & first_release_date <= 1713070800 & first_release_date >= 1704085200; sort total_rating desc;
   limit 4;`;
   const headers = {
@@ -55,7 +55,7 @@ const Reviews = () => {
           headers: headers,
           body: `fields name,rating,rating_count,total_rating,total_rating,total_rating_count,screenshots.image_id,
           cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,external_games.url,external_games.category,
-          first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category;
+          first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category,artworks.image_id;
           where name ~ *"${gameName}"* & category = 0;
           sort total_rating_count desc; limit 5;`
         });
@@ -80,7 +80,7 @@ const Reviews = () => {
           headers: headers,
           body: `fields name,rating,rating_count,total_rating,total_rating,total_rating_count,screenshots.image_id,
           cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,external_games.url,external_games.category,
-          first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category;
+          first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category,artworks.image_id;
           where name ~ *"${gameNameFiltered}"* & category = 0;
           sort total_rating_count desc; limit 1;`
         });
@@ -197,15 +197,19 @@ const Reviews = () => {
                   <h1 className={styles['game-review-title']}>{GameDetailsReview[0].name}</h1>
                   <div className={styles['game-rating-container']}>
                     <div className={styles['game-review-rating']}>
-                      <h1>{Math.round(GameDetailsReview[0].rating)}</h1>
-                      {GameDetailsReview[0].rating > 79 ? <h1>“Very Good”</h1> : <h1>“Ok”</h1>}
-                      <h4>Based on,{GameDetailsReview[0].rating_count} reviews on IGDB</h4>
+                      <div className={styles['rating-number-container']}>
+                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].rating)}</h1>
+                        {GameDetailsReview[0].rating > 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
+                      </div>
+                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].rating_count} reviews on IGDB</h4>
                     </div>
                     <div className={styles['game-review-separator']}></div>
                     <div className={styles['game-review-rating']}>
-                      <h1>{Math.round(GameDetailsReview[0].rating)}</h1>
-                      {GameDetailsReview[0].total_rating > 79 ? <h1>“Very Good”</h1> : <h1>“Ok”</h1>}
-                      <h4>Based on,{GameDetailsReview[0].total_rating_count} other external critic scores</h4>
+                      <div className={styles['rating-number-container']}>
+                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].total_rating)}</h1>
+                        {GameDetailsReview[0].total_rating >= 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
+                      </div>
+                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].total_rating_count} external reviews</h4>
                     </div>
                   </div>
                 </div>
@@ -248,9 +252,13 @@ const Reviews = () => {
         <div className={styles['last-reviewed-container']}>
           <h1 className={styles['last-reviewed-title']}>Last Reviewed</h1>
           <div className={styles['last-reviewed-game-container']}>
-          {Game.map((gamef) => (
-            <h1 key={gamef.id} className={styles['last-reviewed-game-title']}>{gamef.name}</h1>
-          ))}
+            {Game.map((gamef) => (
+              <div key={gamef.id-3} className='last-game-container'>
+                <h1 key={gamef.id} className={styles['last-reviewed-game-title']}>{gamef.name}</h1>
+                <img src={`https://images.igdb.com/igdb/image/upload/t_original/${gamef.artworks[0].image_id}.webp`} alt="game-image" className={styles['last-reviewed-game-img']} />
+              </div>
+            ))}
+            {console.log(Game)}
           </div>
         </div>
       </div>
