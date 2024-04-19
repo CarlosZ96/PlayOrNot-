@@ -58,7 +58,7 @@ function MainPage() {
               <h1 className='tittle'>Play Or Not?</h1>
             </div>
             <div className='options-buttons-container'>
-              <NavLink to="/GameDetails" className='options-button'>Category</NavLink>
+              <NavLink to="/Categories" className='options-button'>Category</NavLink>
               <button className='options-button'>Reviews</button>
               <button className='options-button'>Rankings</button>
             </div>
