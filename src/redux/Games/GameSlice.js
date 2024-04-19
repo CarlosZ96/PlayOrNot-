@@ -22,29 +22,53 @@ export const getReleases = createAsyncThunk(
       gameReleasesData.forEach(gameD => {
         const gameId = gameD.id;
         if (!uniqueGameIds.has(gameId)) {
-            const millisecondsDate = gameD.first_release_date;
-            const name = gameD.name;
-            const platforms = gameD.platforms;
-            const cover = gameD.cover.image_id;
-            const release_datesa = gameD.release_dates;
-            let date = null;
-            release_datesa.forEach(dates => {
-                if (millisecondsDate == dates.date) {
-                    date = dates.human;
-                }
-            });
-            releases.push({
-                gameId,
-                name,
-                millisecondsDate,
-                date,
-                platforms,
-                cover
-            });
-            uniqueGameIds.add(gameId);
+          const millisecondsDate = gameD.first_release_date;
+          const name = gameD.name;
+          const platforms = gameD.platforms;
+          const cover = gameD.cover.image_id;
+          const release_datesa = gameD.release_dates;
+          let date = null;
+          release_datesa.forEach(dates => {
+            if (millisecondsDate == dates.date) {
+              date = dates.human;
+            }
+          });
+          const consoles = [];
+          platforms.forEach(platform => {
+            let consolename = null;
+            if (platform.id === 3 || platform.id === 6 || platform.id === 14) {
+              consolename = 'PC';
+            } else if (platform.id === 49 || platform.id === 12 || platform.id === 169) {
+              consolename = 'XBOX';
+            } else if (platform.id === 46 || platform.id === 48 || platform.id === 167) {
+              consolename = 'PLAYSTATIONS';
+            }if (platform.id === 130) {
+              consolename = 'SWICTH';
+            }
+            if (consolename) { //not null
+              consoles.push({ consolename });
+            }
+          });
+          releases.push({
+            gameId,
+            name,
+            millisecondsDate,
+            date,
+            platforms,
+            cover,
+            consoles
+          });
+          uniqueGameIds.add(gameId);
         }
-    });
-    console.log(releases);
+      });
+      releases.forEach(platformfi => {
+        platformfi.consoles = platformfi.consoles.filter((obj, index, self) =>
+          index === self.findIndex((t) => (
+            t.consolename === obj.consolename
+          ))
+        );
+      });
+      console.log(releases);
       return releases;
     } catch (error) {
       return rejectWithValue(error.response);

@@ -104,6 +104,11 @@
   font-family: "Paytone One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .search {
@@ -210,6 +215,8 @@
   height: 120px;
   display: flex;
   flex-direction: row;
+  list-style: none;
+  text-decoration: none;
 }
 
 .Game-Name {
@@ -217,6 +224,7 @@
   font-size: 3vh;
   font-family: "Paytone One", sans-serif;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .gamef-image {

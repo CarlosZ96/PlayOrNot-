@@ -44,8 +44,8 @@ function GameReleases() {
               <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.cover}.png`} alt="" className='game-image' />
               <h2 className='new'>Platforms</h2>
               <div className='platforms'>
-                {release.platforms.map((platform) => (
-                  <img key={(release.gameId - 1)} src={require(`../img/${platform.id}.png`)} className='platforms-img' />
+                {release.consoles.map((console) => (
+                  <img key={(release.gameId - 1)} src={require(`../img/${console.consolename}.png`)} className='platforms-img' />
                 ))}
               </div>
             </div>

@@ -164,10 +164,10 @@
 
 .platforms-img {
   height: 85%;
-  width: 100%;
 }
 
 .game-data-releases{
-  font-size: medium;
-  color: #00f3ff;
+  font-size: x-large;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
 }

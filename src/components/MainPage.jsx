@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GameReleases from './GamesReleases.jsx';
 import GamesTop from './GamesTop.jsx';
-import { NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PC from '../img/computer-mouse.png';
 import ANDROID from '../img/mobile.png';
 import SWITCH from '../img/console.png';
@@ -58,7 +58,7 @@ function MainPage() {
               <h1 className='tittle'>Play Or Not?</h1>
             </div>
             <div className='options-buttons-container'>
-              <button className='options-button'>Category</button>
+              <NavLink to="/GameDetails" className='options-button'>Category</NavLink>
               <button className='options-button'>Reviews</button>
               <button className='options-button'>Rankings</button>
             </div>
