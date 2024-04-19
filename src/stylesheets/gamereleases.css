@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: row;
   height: 84%;
-  width: 80%;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -40,8 +40,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 140px;
-  height: 250px;
+  width: 15%;
+  height: 56%;
   border-radius: 10px;
   background-color: #01012b;
   gap: 2%;
@@ -75,7 +75,7 @@
   text-align: center;
   height: max-content;
   margin: 0;
-  font-size: medium;
+  font-size: 4vh;
   font-family: "Paytone One", sans-serif;
 }
 
@@ -83,6 +83,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   height: 10%;
   gap: 8%;
 }
@@ -108,6 +109,7 @@
   height: 50px;
   margin: 0;
   padding: 0;
+  border: none;
   background: none;
 }
 
@@ -117,7 +119,7 @@
 }
 
 .release-card.centered {
-  transform: scale(1.2);
+  transform: scale(1);
   background-color: #000229;
   z-index: 100;
   color: #00f3ff;
@@ -125,8 +127,8 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 140px;
-  height: 250px;
+  width: 15%;
+  height: 56%;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -136,7 +138,7 @@
   transform: translateX(-70%) scale(0.9);
   z-index: 80;
   opacity: 1;
-  filter: blur(2px);
+  filter: blur(1.5px);
 }
 
 .release-card.right {
@@ -161,6 +163,11 @@
 }
 
 .platforms-img {
-  height: 25px;
-  width: 25px;
+  height: 85%;
+  width: 100%;
+}
+
+.game-data-releases{
+  font-size: medium;
+  color: #00f3ff;
 }

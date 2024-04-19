@@ -7,7 +7,7 @@ import right from '../img/right.png';
 
 function GameReleases() {
   const [selectedCard, setSelectedCard] = useState(2);
-  const [date, setdate] = useState('');
+  const [date, setdate] = useState(2);
 
   const handleMoveLeft = () => {
     setSelectedCard((prev) => (prev === 0 ? 4 : prev - 1));
@@ -45,7 +45,7 @@ function GameReleases() {
               <h2 className='new'>Platforms</h2>
               <div className='platforms'>
                 {release.platforms.map((platform) => (
-                  <img key={(release.gameId-1)} src={require(`../img/${ platform.id}.png`)} className='platforms-img' />
+                  <img key={(release.gameId - 1)} src={require(`../img/${platform.id}.png`)} className='platforms-img' />
                 ))}
               </div>
             </div>
@@ -53,11 +53,13 @@ function GameReleases() {
         })}
       </div>
       <div className='button-container'>
-        <button className='side-button' onClick={handleMoveLeft}>
+        <button className='side-button' onClick={() => { handleMoveLeft(); setdate(date - 1 < 0 ? 0 : date - 1); }}>
           <img src={left} alt="left" className='button-img' />
         </button>
-        {date}
-        <button className='side-button' onClick={handleMoveRight}>
+        {releases[date] && (
+          <h1 className='game-data-releases'>Release on: {releases[date].date}</h1>
+        )}
+        <button className='side-button' onClick={() => { handleMoveRight(); setdate(date + 1 > 4 ? 0 : date + 1); }}>
           <img src={right} alt="right" className='button-img' />
         </button>
       </div>

@@ -253,8 +253,9 @@ const Reviews = () => {
           <h1 className={styles['last-reviewed-title']}>Last Reviewed</h1>
           <div className={styles['last-reviewed-game-container']}>
             {Game.map((gamef) => (
-              <div key={gamef.id-3} className='last-game-container'>
-                <h1 key={gamef.id} className={styles['last-reviewed-game-title']}>{gamef.name}</h1>
+              <div key={gamef.id-3} className={styles['last-game-container']}>
+                <h1 className={styles['last-reviewed-game-title']}>{gamef.name}</h1>
+                <div className={styles['last-reviewed-game-background']}></div>
                 <img src={`https://images.igdb.com/igdb/image/upload/t_original/${gamef.artworks[0].image_id}.webp`} alt="game-image" className={styles['last-reviewed-game-img']} />
               </div>
             ))}

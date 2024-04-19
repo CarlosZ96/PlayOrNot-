@@ -6,9 +6,9 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-      const body = `fields name,first_release_date,release_dates.date,platforms.name,release_dates.human,cover.image_id; 
+      const body = `fields name,total_rating,first_release_date,release_dates.date,platforms.name,release_dates.human,cover.image_id; 
       where first_release_date >= 1709269200 & first_release_date <= 1711861200 & platforms = (167,6,130,169) & total_rating_count >= 5 & category=0; 
-      sort first_release_date desc;
+      sort total_rating desc;
       limit 5;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
