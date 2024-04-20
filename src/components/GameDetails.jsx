@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../stylesheets/gamedetails.css';
+import { SearchGameByName } from '../redux/Games/SearchGameSlice';
 
 export const GameDetails = ({ findgameName }) => {
+  const dispatch = useDispatch();
+  dispatch(SearchGameByName('findgameName'));
+  const searchgames = useSelector((state) => state.searchgames.searchgames);
+  const status = useSelector((state) => state.searchgames.status);
+  const error = useSelector((state) => state.searchgames.error);
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const body = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
   release_dates.human,artworks.image_id; 
@@ -56,7 +63,7 @@ export const GameDetails = ({ findgameName }) => {
 
   }, []);
 
-  const backgroundImage = games.length > 0 ? {
+  const backgroundImage = searchgames.length > 0 ? {
     backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${games[0].background}.webp)`,
   } : null;
 
@@ -64,7 +71,7 @@ export const GameDetails = ({ findgameName }) => {
     <div style={backgroundImage} className='game-details-containerd'>
       <div className='game-details-containerd-blur'>
         <div className='game-container'>
-          {games.map(game => (
+          {searchgames.map(game => (
             <div key={game.id}>
               <h2>{game.name}</h2>
               <p>Total Rating: {game.total_rating}</p>
