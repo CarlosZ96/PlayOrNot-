@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
 export const SearchGameByName = createAsyncThunk(
   'Games/SearchGameByName',
   async (gameName, thunkAPI) => {
@@ -14,15 +13,15 @@ export const SearchGameByName = createAsyncThunk(
       };
       const body = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
       release_dates.human,artworks.image_id; 
-      where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 1;`;
+      where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 5;`;
       const response = await axios.post(url, body, { headers });
-      return response.data;
+      const agame = response.data;
+      return agame;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
-
 
 const gameSlice = createSlice({
   name: 'searchgames',
@@ -39,7 +38,7 @@ const gameSlice = createSlice({
       })
       .addCase(SearchGameByName.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.games = action.payload;
+        state.searchgames = action.payload;
       })
       .addCase(SearchGameByName.rejected, (state, action) => {
         state.status = 'failed';

@@ -45,7 +45,7 @@ export const getReleases = createAsyncThunk(
             }if (platform.id === 130) {
               consolename = 'SWICTH';
             }
-            if (consolename) { //not null
+            if (consolename) { 
               consoles.push({ consolename });
             }
           });
@@ -68,7 +68,6 @@ export const getReleases = createAsyncThunk(
           ))
         );
       });
-      console.log(releases);
       return releases;
     } catch (error) {
       return rejectWithValue(error.response);
