@@ -229,8 +229,8 @@
 }
 
 .game-info-container {
-  height: 87%;
-  width: 97%;
+  height: 85%;
+  width: 96.5%;
   background-color: #fff;
   border-radius: 2px;
   display: flex;
@@ -328,19 +328,20 @@
 }
 
 .game-caratule {
-  height: 44%;
-  width: 90%;
+  height: 47%;
+  width: 86%;
   background-color: #01012b;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding-top: 1%;
 }
 
 .game-caregory {
-  height: 8%;
+  height: 4%;
   width: 90%;
   background-color: #fff;
   color: #001b51;
@@ -358,15 +359,18 @@
 
 .game-info-details {
   height: 46%;
-  width: 90%;
+  width: 85%;
   background-color: #01012b;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .game-info-car {
   height: 100%;
-  width: 90%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 95%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: #000 5px solid;
 }
 
 .game-info-tittle {

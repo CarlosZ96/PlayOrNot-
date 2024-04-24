@@ -175,7 +175,7 @@ const Reviews = () => {
                 <div className={styles['game-caratule']}>
                   {GameDetailsReview[0].cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${GameDetailsReview[0].cover.image_id}.png`} alt="game-image" className={styles['game-info-car']} />}
                 </div>
-                <h1 className={styles['game-caregory']}>GAME</h1>
+                <h1 className={styles['game-caregory']}></h1>
                 <div className={styles['game-info-details']}>
                   <h2 className={styles['game-info-tittle']}>Genres:</h2>
                   <div className={styles['game-genres-container']}>

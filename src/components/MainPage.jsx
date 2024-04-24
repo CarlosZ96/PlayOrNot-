@@ -59,7 +59,7 @@ function MainPage() {
             </div>
             <div className='options-buttons-container'>
               <NavLink to="/Categories" className='options-button'>Category</NavLink>
-              <button className='options-button'>Reviews</button>
+              <NavLink to="/Reviews" className='options-button'>Reviews</NavLink>
               <button className='options-button'>Rankings</button>
             </div>
           </div>
