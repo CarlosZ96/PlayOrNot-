@@ -1,3 +1,10 @@
+.game-details-container-a{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .game-details-containerd {
   display: flex;
   flex-direction: column;
@@ -17,7 +24,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: #3560afa7;
+  background-color: #11189375;
 }
 
 .game-container {
@@ -26,4 +33,23 @@
   background-color: #00278a87;
   border-radius: 20px;
   text-align: center;
+}
+
+.game-details-img-container{
+  position: relative;
+}
+
+.game-details-videos-container{
+  position: relative;
+}
+
+.game-details-img{
+  position: absolute;
+}
+
+.game-details-img{
+  height: 20vh;
+  width: 18vw;
+  position: absolute;
+  left: 0;
 }

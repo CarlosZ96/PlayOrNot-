@@ -5,49 +5,37 @@ import { NavLink } from 'react-router-dom';
 import Search from '../img/search.png';
 import LogIn from '../img/Muhamad Ulum.png';
 import '../stylesheets/gamedetails.css';
-
+import { v4 as uuidv4 } from 'uuid';
 
 export const GameDetails = () => {
+  var UID = uuidv4();
   const dispatch = useDispatch();
   const [gameName, setGameName] = useState('');
   const [findgameName, setFindGameName] = useState('Stardew Valley');
   const [agame, setAGame] = useState(null);
 
   useEffect(() => {
-    dispatch(SearchGameByName(gameName));
+    dispatch(SearchGameByName(`fields name,genres.name,cover.image_id,total_rating,total_rating_count,
+    release_dates.human,artworks.image_id,screenshots.image_id,involved_companies.company,involved_companies.publisher,
+    involved_companies.developer,language_supports.language;
+    where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 5;`));
   }, [dispatch, gameName]);
 
   const searchgamesf = useSelector((state) => state.searchgames.searchgames);
   const status = useSelector((state) => state.searchgames.status);
   const error = useSelector((state) => state.searchgames.error);
 
-
   const renderGame = (findgameName) => {
-    const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
-    const headers = {
-      'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-      'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
-      'Content-Type': 'text/plain',
-    };
-    const body = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
-      release_dates.human,artworks.image_id,screenshots.image_id,involved_companies.company,involved_companies.publisher,involved_companies.developer; 
-      where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`;
-    fetch(url, {
-      method: 'POST',
-      headers: headers,
-      body: body
-    })
+    dispatch(SearchGameByName(`fields name,genres.name,cover.image_id,total_rating,total_rating_count,
+    release_dates.human,artworks.image_id,screenshots.image_id,videos.video_id,involved_companies.company,involved_companies.publisher,
+    involved_companies.developer,platforms.name,language_supports.language,multiplayer_modes.onlinecoop,
+    multiplayer_modes.campaigncoop,multiplayer_modes.offlinecoop,game_modes.name,summary; 
+    where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`))
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setAGame(data);
+        setAGame(response.payload);
       })
       .catch(error => {
-        console.error('There was a problem with fetch operation:', error);
+        console.error('There was an error fetching the game details:', error);
       });
   };
 
@@ -55,19 +43,16 @@ export const GameDetails = () => {
     if (findgameName) {
       renderGame(findgameName);
     }
-  }, [gameName, findgameName]);
+  }, [findgameName]);
 
-
-  const handleInputChange = (e, gameNamef) => {
+  const handleInputChange = (e) => {
     setGameName(e.target.value);
-    renderGame(gameNamef);
   };
 
   const handleInputChange2 = (gameNamef) => {
     setFindGameName(gameNamef);
     renderGame(gameNamef);
   };
-
 
   return (
     agame && agame.map(mgame => (
@@ -93,7 +78,7 @@ export const GameDetails = () => {
                   className="searchi"
                   placeholder="  Search.."
                   value={gameName}
-                  onChange={(e) => handleInputChange(e, findgameName)}
+                  onChange={(e) => handleInputChange(e, gameName)}
                 />
                 <button className='search-button'><img src={Search} alt="" className='search' /></button>
                 <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
@@ -118,15 +103,62 @@ export const GameDetails = () => {
         <div className='game-details-containerd-blur'>
           <div className='game-container'>
             {agame && agame.map(game => (
-              <div key={game.id}>
-                <h2>{game.name}</h2>
-                <p>Total Rating: {game.total_rating}</p>
-                <p>Date: {game.release_dates[0].human}</p>
-                <h2>Genres:</h2>
-                {game.genres.map(genre => (
-                  <h3 key={genre.id}>{genre.name}</h3>
-                ))}
-                <h2>Related Companies:</h2>
+              <div className='game-details-container-a' key={game.id - 2}>
+                <div className='game-details-info-container'>
+                  <div></div>
+                  {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
+                  <p>based on {game.total_rating_count} ratings</p>
+                  <h2>Total Rating: {game.total_rating}</h2>
+                  <h1>{game.name}</h1>
+                  <p>Date: {game.release_dates[0].human}</p>
+                  <h2>Related Companies:</h2>
+                  {game.companies.map(companie => (
+                    UID = uuidv4(),
+                    <p key={UID}>{companie.name}</p>
+                  ))}
+                  <h2>Genres:</h2>
+                  {game.genres.map(genre => (
+                    UID = uuidv4(),
+                    <p key={(UID)}>{genre.name}</p>
+                  ))}
+                  <h2>Platforms:</h2>
+                  {game.platforms.map(platform => (
+                    UID = uuidv4(),
+                    <p key={UID}>{platform.name}</p>
+                  ))}
+                  <p>{game.summary}</p>
+                  <h2>Languages:</h2>
+                  <p>
+                    {game.gamelanguages.map(gamelanguage => (
+                      gamelanguage
+                    ))}
+                  </p>
+                </div>
+                <div className='game-details-extra-container'>
+                  <div className='game-details-videos-img-container'>
+                    <div className='game-details-videos-container'>
+                      {game.videos.map(video => (
+                        UID = uuidv4(),
+                        <iframe key={UID}
+                          title={video.name}
+                          className={'game-info-video'}
+                          src={`https://www.youtube.com/embed/${video.video_id}`}
+                          allowFullScreen
+                        ></iframe>
+                      ))}
+                    </div>
+                    <div className='game-details-img-container'>
+                      {game.screenshots.map(screenshot => (
+                          UID = uuidv4(),
+                          <img key={UID}
+                            className={'game-details-img'}
+                            src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${screenshot.image_id}.png`}
+                          ></img>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+                {console.log(game)}
               </div>
             ))}
           </div>
