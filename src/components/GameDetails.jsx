@@ -1,49 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SearchGameByName } from '../redux/Games/SearchGameSlice';
+import { FindGamesByName, FindGameByName } from '../redux/Games/FindaGameSlice';
+import { v4 as uuidv4 } from 'uuid';
 import { NavLink } from 'react-router-dom';
+import '../stylesheets/gamedetails.css';
 import Search from '../img/search.png';
 import LogIn from '../img/Muhamad Ulum.png';
-import '../stylesheets/gamedetails.css';
-import { v4 as uuidv4 } from 'uuid';
 
-export const GameDetails = () => {
+const GameDetails2 = () => {
   var UID = uuidv4();
   const dispatch = useDispatch();
   const [gameName, setGameName] = useState('');
   const [findgameName, setFindGameName] = useState('Stardew Valley');
-  const [agame, setAGame] = useState(null);
+  const games = useSelector((state) => state.findgames.searchGames);
+  const body = `fields name,cover.image_id;
+  where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 5;`;
+  const body2 = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
+  release_dates.human,artworks.image_id,screenshots.image_id,videos.video_id,involved_companies.company,involved_companies.publisher,
+  involved_companies.developer,platforms.name,language_supports.language,multiplayer_modes.onlinecoop,
+  multiplayer_modes.campaigncoop,multiplayer_modes.offlinecoop,game_modes.name,summary; 
+  where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`;
 
   useEffect(() => {
-    dispatch(SearchGameByName(`fields name,genres.name,cover.image_id,total_rating,total_rating_count,
-    release_dates.human,artworks.image_id,screenshots.image_id,involved_companies.company,involved_companies.publisher,
-    involved_companies.developer,language_supports.language;
-    where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 5;`));
+    dispatch(FindGamesByName(body));
   }, [dispatch, gameName]);
 
-  const searchgamesf = useSelector((state) => state.searchgames.searchgames);
-  const status = useSelector((state) => state.searchgames.status);
-  const error = useSelector((state) => state.searchgames.error);
-
-  const renderGame = (findgameName) => {
-    dispatch(SearchGameByName(`fields name,genres.name,cover.image_id,total_rating,total_rating_count,
-    release_dates.human,artworks.image_id,screenshots.image_id,videos.video_id,involved_companies.company,involved_companies.publisher,
-    involved_companies.developer,platforms.name,language_supports.language,multiplayer_modes.onlinecoop,
-    multiplayer_modes.campaigncoop,multiplayer_modes.offlinecoop,game_modes.name,summary; 
-    where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`))
-      .then(response => {
-        setAGame(response.payload);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the game details:', error);
-      });
-  };
-
   useEffect(() => {
-    if (findgameName) {
-      renderGame(findgameName);
-    }
-  }, [findgameName]);
+    dispatch(FindGameByName(body2));
+  }, [dispatch, findgameName]);
+
+  const agame = useSelector((state) => state.findgames.searchaGame);
 
   const handleInputChange = (e) => {
     setGameName(e.target.value);
@@ -51,12 +37,12 @@ export const GameDetails = () => {
 
   const handleInputChange2 = (gameNamef) => {
     setFindGameName(gameNamef);
-    renderGame(gameNamef);
-  };
+  }
 
   return (
     agame && agame.map(mgame => (
-      <div key={mgame.id - 8} style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${mgame.artworks ? mgame.artworks[0].image_id : mgame.screenshots[0].image_id}.webp)` }} className='game-details-containerd'>
+      UID = uuidv4(),
+      <div key={UID} style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${mgame.artworks ? mgame.artworks[0].image_id : mgame.screenshots[0].image_id}.webp)` }} className='game-details-containerd'>
         <header className='search-header-container'>
           <div className={gameName ? 'reduce' : 'header-container'}>
             <div className='options'>
@@ -86,7 +72,7 @@ export const GameDetails = () => {
             </div>
             <div className='finded-games-list-container'>
               <ul className={gameName ? 'find-games-container' : 'hide'}>
-                {(searchgamesf).map(game => {
+                {(games).map(game => {
                   return (
                     <div key={game.id} className='games-input-container'>
                       <li key={game.id} className='Game-Find-Container' onClick={() => handleInputChange2(game.name)}>
@@ -105,7 +91,6 @@ export const GameDetails = () => {
             {agame && agame.map(game => (
               <div className='game-details-container-a' key={game.id - 2}>
                 <div className='game-details-info-container'>
-                  <div></div>
                   {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
                   <p>based on {game.total_rating_count} ratings</p>
                   <h2>Total Rating: {game.total_rating}</h2>
@@ -137,24 +122,16 @@ export const GameDetails = () => {
                 <div className='game-details-extra-container'>
                   <div className='game-details-videos-img-container'>
                     <div className='game-details-videos-container'>
-                      {game.videos.map(video => (
-                        UID = uuidv4(),
-                        <iframe key={UID}
-                          title={video.name}
-                          className={'game-info-video'}
-                          src={`https://www.youtube.com/embed/${video.video_id}`}
-                          allowFullScreen
-                        ></iframe>
-                      ))}
+
                     </div>
                     <div className='game-details-img-container'>
                       {game.screenshots.map(screenshot => (
-                          UID = uuidv4(),
-                          <img key={UID}
-                            className={'game-details-img'}
-                            src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${screenshot.image_id}.png`}
-                          ></img>
-                        ))}
+                        UID = uuidv4(),
+                        <img key={UID}
+                          className={'game-details-img'}
+                          src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${screenshot.image_id}.png`}
+                        ></img>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -165,7 +142,7 @@ export const GameDetails = () => {
         </div>
       </div>
     ))
-  );
+  )
 }
 
-export default GameDetails;
+export default GameDetails2;
