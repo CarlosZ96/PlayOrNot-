@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
-import { nanoid } from 'nanoid';
 
 const Reviews = () => {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';

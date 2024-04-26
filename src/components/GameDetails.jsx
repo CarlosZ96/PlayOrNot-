@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FindGamesByName, FindGameByName } from '../redux/Games/FindaGameSlice';
+import {FindGameByName } from '../redux/Games/FindaGameSlice';
 import { v4 as uuidv4 } from 'uuid';
 import { NavLink } from 'react-router-dom';
 import '../stylesheets/gamedetails.css';
@@ -12,9 +12,14 @@ const GameDetails2 = () => {
   const dispatch = useDispatch();
   const [gameName, setGameName] = useState('');
   const [findgameName, setFindGameName] = useState('Stardew Valley');
-  const games = useSelector((state) => state.findgames.searchGames);
-  const body = `fields name,cover.image_id;
-  where name ~ *"${gameName}"* & category=0; sort total_rating_count desc; limit 5;`;
+  const [games, setGames] = useState([]);
+
+  const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
+  const headers = {
+    'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
+    'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+    'Content-Type': 'text/plain',
+  };
   const body2 = `fields name,genres.name,cover.image_id,total_rating,total_rating_count,
   release_dates.human,artworks.image_id,screenshots.image_id,videos.video_id,involved_companies.company,involved_companies.publisher,
   involved_companies.developer,platforms.name,language_supports.language,multiplayer_modes.onlinecoop,
@@ -22,8 +27,27 @@ const GameDetails2 = () => {
   where name ~ *"${findgameName}"* & category=0; sort total_rating_count desc; limit 1;`;
 
   useEffect(() => {
-    dispatch(FindGamesByName(body));
-  }, [dispatch, gameName]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: headers,
+          body: `fields name,cover.image_id;
+          where name ~ *"${gameName}"* & category = 0;
+          sort total_rating_count desc; limit 5;`
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const findGames = await response.json();
+        setGames(findGames);
+        return games;
+      } catch (error) {
+        console.error('There was a problem with fetch operation:', error);
+      }
+    };
+    fetchData();
+  }, [gameName]);
 
   useEffect(() => {
     dispatch(FindGameByName(body2));
@@ -60,19 +84,19 @@ const GameDetails2 = () => {
             <div className='search-bar-container'>
               <div className='search-bar'>
                 <input
-                  type="text"
-                  className="searchi"
-                  placeholder="  Search.."
-                  value={gameName}
-                  onChange={(e) => handleInputChange(e, gameName)}
-                />
+                      type="text"
+                      className={'searchi'}
+                      placeholder="  Search.."
+                      value={gameName}
+                      onChange={handleInputChange}
+                    />
                 <button className='search-button'><img src={Search} alt="" className='search' /></button>
                 <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
               </div>
             </div>
             <div className='finded-games-list-container'>
               <ul className={gameName ? 'find-games-container' : 'hide'}>
-                {(games).map(game => {
+                {games.map(game => {
                   return (
                     <div key={game.id} className='games-input-container'>
                       <li key={game.id} className='Game-Find-Container' onClick={() => handleInputChange2(game.name)}>
