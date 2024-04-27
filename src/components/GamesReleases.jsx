@@ -52,7 +52,7 @@ function GameReleases() {
           );
         })}
       </div>
-      <div className='button-container'>
+      <div className='game-release-button-container'>
         <button className='side-button' onClick={() => { handleMoveLeft(); setdate(date - 1 < 0 ? 0 : date - 1); }}>
           <img src={left} alt="left" className='button-img' />
         </button>
