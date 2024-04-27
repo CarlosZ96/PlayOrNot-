@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/Categories.css';
 import '../stylesheets/app.css';
-import { nanoid } from 'nanoid';
+import back from '../img/categoriesback.jpg';
 
 export default function Categories() {
   const [categoriesApi, setCategoriesApi] = useState([]);
@@ -40,11 +40,12 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className='Categories-container'>
+    <div className='Categories-container' style={{ backgroundImage: `url(${back})` }}>
+      <div className='back-effect'></div>
       <div className='categories-cards-container'>
         <div className='Cards-Container'>
           {categoriesApi.map(category => (
-            <div key={category.id} className='categorie-card'>
+            <button key={category.id} className='learn-more'>
               <div className='img-container'>
                 <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
               </div>
@@ -53,12 +54,14 @@ export default function Categories() {
                   {category.name === 'Role-playing (RPG)' ? 'RPG' : category.name}
                 </h1>
               </div>
-            </div>
+            </button>
           ))}
         </div>
+        <div className='back'>
+        </div>
       </div>
-      <div className='Categories-Container'>
-        <h2 className='categories-title'>Game Categories</h2>
+      <div className='caregorie-container'>
+        <h1>CATEGORIES</h1>
       </div>
     </div>
   );
