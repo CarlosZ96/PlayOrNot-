@@ -6,7 +6,6 @@ import Categories from './components/Categories';
 import GameDetails from './components/GameDetails';
 import Reviews from './components/Reviews';
 
-
 function App() {
 
   return (

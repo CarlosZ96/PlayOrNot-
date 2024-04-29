@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
 import '../stylesheets/Categories.css';
 import '../stylesheets/app.css';
 import back from '../img/categoriesback.jpg';
@@ -40,28 +41,31 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className='Categories-container' style={{ backgroundImage: `url(${back})` }}>
-      <div className='back-effect'></div>
-      <div className='categories-cards-container'>
-        <div className='Cards-Container'>
-          {categoriesApi.map(category => (
-            <button key={category.id} className='learn-more'>
-              <div className='img-container'>
-                <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
-              </div>
-              <div className='categorie-name-container'>
-                <h1 className='categorie-name'>
-                  {category.name === 'Role-playing (RPG)' ? 'RPG' : category.name}
-                </h1>
-              </div>
-            </button>
-          ))}
+    <div className='Categories-container'>
+      <Header />
+      <div className='Categories-body-container' style={{ backgroundImage: `url(${back})` }}>
+        <div className='back-effect'></div>
+        <div className='categories-cards-container'>
+          <div className='Cards-Container'>
+            {categoriesApi.map(category => (
+              <button key={category.id} className='learn-more'>
+                <div className='img-container'>
+                  <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
+                </div>
+                <div className='categorie-name-container'>
+                  <h1 className='categorie-name'>
+                    {category.name === 'Role-playing (RPG)' ? 'RPG' : category.name}
+                  </h1>
+                </div>
+              </button>
+            ))}
+          </div>
+          <div className='back'>
+          </div>
         </div>
-        <div className='back'>
+        <div className='caregorie-container'>
+          <h1>CATEGORIES</h1>
         </div>
-      </div>
-      <div className='caregorie-container'>
-        <h1>CATEGORIES</h1>
       </div>
     </div>
   );

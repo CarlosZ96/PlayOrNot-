@@ -85,7 +85,7 @@
   justify-content: center;
   align-items: center;
   height: 10%;
-  gap: 18%;
+  gap: 12%;
 }
 
 .game-release-button-container {
@@ -164,7 +164,6 @@
 
 .platforms-img {
   height: 100%;
-  width: 50%;
 }
 
 .game-data-releases{
