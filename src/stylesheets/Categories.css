@@ -109,6 +109,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Paytone One", sans-serif;
+  padding-bottom: 5%;
 }
 
 .categorie-name {
@@ -188,7 +189,7 @@ button {
     }
 
     &:active {
-      background: #ffe9e9;
+      background: #fff0f0;
       transform: translate(0em, 0);
 
       &::before {
@@ -199,14 +200,18 @@ button {
 }
 
 .caregorie-container{
-  height: max-content;
+  height: 10%;
   width: 40%;
   background-color: #131129;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 100;
   color: #456dba;
   font-family: "Paytone One", sans-serif;
   font-weight: 100;
-  font-size: 2vh;
+  font-size: 1.8vh;
 }

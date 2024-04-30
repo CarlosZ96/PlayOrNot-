@@ -67,6 +67,7 @@ export default function Categories() {
           <h1>CATEGORIES</h1>
         </div>
       </div>
+      {console.log('render')}
     </div>
   );
 }

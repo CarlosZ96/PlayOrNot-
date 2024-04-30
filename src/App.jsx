@@ -5,6 +5,7 @@ import './stylesheets/app.css';
 import Categories from './components/Categories';
 import GameDetails from './components/GameDetails';
 import Reviews from './components/Reviews';
+import CategorieItem from './components/CategorieItem';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Categories" element={<Categories />} />
         <Route path="/Reviews" element={<Reviews />} />
         <Route path="/GameDetails" element={<GameDetails />} />
+        <Route path="/CategorieItem" element={<CategorieItem />} />
       </Routes>
     </div>
   );
