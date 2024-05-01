@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/categoriesitem.css';
+import g1 from '../img/street-fighter-ryu-epic-desktop-wallpaper.jpg';
 
 const CategorieItem = () => {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
@@ -35,10 +36,24 @@ const CategorieItem = () => {
 
   return (
     <div className='Categorie-item'>
-      <div className="miDiv">
-        {games && games.map(game => (
-          <div style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${game.artworks ? game.artworks[0].image_id : game.screenshots[0].image_id}.webp)` }} key={game.id} className='div-item'></div>
-        ))}
+      <div className='games-categorie-left'>
+        <div className="miDiv">
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-item'></div>
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-item'></div>
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-item'></div>
+        </div>
+      </div>
+      <div className='games-categorie'>
+        <div className='game'></div>
+        <div className='game'></div>
+        <div className='game'></div>
+      </div>
+      <div className='games-categorie-right'>
+        <div className="miDiv">
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-itemr'></div>
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-itemr'></div>
+          <div style={{ backgroundImage: `url(${g1})` }} className='div-itemr'></div>
+        </div>
       </div>
     </div>
   )

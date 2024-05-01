@@ -310,6 +310,10 @@
   height: 35%;
   width: 96%;
   background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-extra-info {
@@ -494,17 +498,20 @@
 
 .rating-number-container {
   height: 68%;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 9%;
+  background-color: #0bffa7;
+  border-radius: 5px;
+  border: 5px solid #000;
 }
 
 .rating-number {
   height: 55%;
-  width: 20%;
+  width: 40%;
   background-color: #8633f0;
   border-radius: 10px;
   display: flex;

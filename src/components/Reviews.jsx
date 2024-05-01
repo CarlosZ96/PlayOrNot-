@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
+import { v4 as uuidv4 } from 'uuid';
 
 const Reviews = () => {
+  var UID = uuidv4();
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const body2 = `fields name,first_release_date,total_rating,total_rating_count,cover.image_id,artworks.image_id;
   where total_rating_count >= 40 & category = 0 & first_release_date <= 1713070800 & first_release_date >= 1704085200; sort total_rating desc;
@@ -159,7 +161,8 @@ const Reviews = () => {
                 </div>
                 <ul className={showGameList && gameName ? styles['input-games-found-expanded'] : styles['hide']}>
                   {findgameName && findgameName.map(fgame => (
-                    <li className={styles['games-found-container-li']} key={fgame.id} onClick={() => handleGameItemClick(fgame.name)}>
+                    UID = uuidv4(),
+                    <li className={styles['games-found-container-li']} key={UID} onClick={() => handleGameItemClick(fgame.name)}>
                       {fgame.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${fgame.cover.image_id}.png`} alt="" className='gamef-image' />}
                       <h3 className={styles['games-found-name']}>{fgame.name}</h3>
                     </li>
@@ -169,7 +172,8 @@ const Reviews = () => {
             </div>
           </div>
           {GameDetailsReview && GameDetailsReview[0] && (
-            <div key={GameDetailsReview[0].id} className={styles['game-info-container']}>
+             UID = uuidv4(),
+            <div key={UID} className={styles['game-info-container']}>
               <div className={styles['game-info']}>
                 <div className={styles['game-caratule']}>
                   {GameDetailsReview[0].cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${GameDetailsReview[0].cover.image_id}.png`} alt="game-image" className={styles['game-info-car']} />}
@@ -179,7 +183,8 @@ const Reviews = () => {
                   <h2 className={styles['game-info-tittle']}>Genres:</h2>
                   <div className={styles['game-genres-container']}>
                     {GameDetailsReview[0].genres && GameDetailsReview[0].genres.map(genres => (
-                      <h3 className={styles['game-info-txt']} key={GameDetailsReview[0].id}>{genres.name}</h3>
+                      UID = uuidv4(),
+                      <h3 className={styles['game-info-txt']} key={UID}>{genres.name}</h3>
                     ))}
                   </div>
                   <h2 className={styles['game-info-tittle']}>Release Data:</h2>
@@ -187,13 +192,14 @@ const Reviews = () => {
                     GameDetailsReview[0].release_dates[0].human : 'N/A'}</h3>
                   <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
                   {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map(platforms => (
-                    <h4 className={styles['game-info-txt']} key={GameDetailsReview[0].id}>{platforms.name}</h4>
+                    UID = uuidv4(),
+                    <h4 className={styles['game-info-txt']} key={UID}>{platforms.name}</h4>
                   ))}
                 </div>
               </div>
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
-                  <h1 className={styles['game-review-title']}>{GameDetailsReview[0].name}</h1>
+
                   <div className={styles['game-rating-container']}>
                     <div className={styles['game-review-rating']}>
                       <div className={styles['rating-number-container']}>
@@ -217,27 +223,30 @@ const Reviews = () => {
                   <div className={styles['game-extra-media-container']}>
                     <div className={styles['game-extra-video-container']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (
-                        <div key={GameDetailsReview[0].id} className={styles['game-video-container']}>
-                          <iframe
+                         UID = uuidv4(),
+                        <div key={UID} className={styles['game-video-container']}>
+                          {/*<iframe
                             title={videos.name}
                             className={styles['game-info-video']}
                             src={`https://www.youtube.com/embed/${videos.video_id}`}
                             allowFullScreen
-                          ></iframe>
+                      ></iframe>*/}
                         </div>
                       ))}
                     </div>
                     <div className={styles['game-extra-image-container']}>
                       <h1 className={styles['game-extre-image-txt']}>Videos</h1>
                       {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map(screenshots => (
-                        <div key={GameDetailsReview[0].id} className={styles['game-extre-images-cont']}>
+                         UID = uuidv4(),
+                        <div key={UID} className={styles['game-extre-images-cont']}>
                           {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
                         </div>
                       ))}
                     </div>
                     <div className={styles['game-extra-dlc-container']}>
                       {GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.map(dlc => (
-                        <div key={GameDetailsReview[0].id} className={styles['game-dlc-container']}>
+                        UID = uuidv4(),
+                        <div key={UID} className={styles['game-dlc-container']}>
                           {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${dlc.cover.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
                         </div>
                       ))}
@@ -252,7 +261,8 @@ const Reviews = () => {
           <h1 className={styles['last-reviewed-title']}>Last Reviewed</h1>
           <div className={styles['last-reviewed-game-container']}>
             {Game.map((gamef) => (
-              <div key={gamef.id-3} className={styles['last-game-container']}>
+               UID = uuidv4(),
+              <div key={UID} className={styles['last-game-container']}>
                 <h1 className={styles['last-reviewed-game-title']}>{gamef.name}</h1>
                 <div className={styles['last-reviewed-game-background']}></div>
                 <img src={`https://images.igdb.com/igdb/image/upload/t_original/${gamef.artworks[0].image_id}.webp`} alt="game-image" className={styles['last-reviewed-game-img']} />
