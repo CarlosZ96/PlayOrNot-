@@ -29,7 +29,7 @@ export const FindGamesByName = createAsyncThunk(
         const url3 = 'http://localhost:8080/https://api.igdb.com/v4/languages';
         const headers = {
           'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-          'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+          'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
           'Content-Type': 'text/plain',
         };
         const body3 = `fields name;where name ~ *"Chinese (Simplified)"* | name = "English" | name ~ *"Spanish (Spain)"*| name ~ *"French"*| name ~ *"Italian"*| name ~ *"Japanese"*

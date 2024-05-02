@@ -367,6 +367,10 @@
   background-color: #01012b;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .game-info-car {
@@ -384,16 +388,45 @@
 }
 
 .game-genres-container {
-  display: grid;
-  grid-template-columns: 40% 40%;
-  align-items: center;
-  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height: 25%;
+  width: 100%;
+}
+
+.release-data-container {
+  height: 16%;
+  width: 100%;
+}
+
+.Plarforms-container {
+  height: 25%;
+  width: 100%;
+}
+
+.Stores-container{
+  height: 20%;
+  width: 100%;
 }
 
 .game-info-txt {
   margin: 0;
   color: #fff;
   font-size: small;
+  margin: 0 0 0 2%;
+}
+
+.game-info-txt-p{
+  margin: 0;
+  color: #fff;
+  width: 100%;
+  font-size: small;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: start;
   margin: 0 0 0 2%;
 }
 
@@ -571,4 +604,23 @@
   position: absolute;
   top: 0;
   z-index: 80;
+}
+
+.game-info-stores{
+  height: 100%;
+  width: 100%;
+  background-color: #01012b;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  row-gap: 5%;
+  column-gap: 5%;
+  padding-left: 5%;
+}
+
+.Store-img{
+  height: 60%;
+  width: 15%;
 }

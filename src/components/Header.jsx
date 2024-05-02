@@ -23,7 +23,7 @@ const Header = () => {
 
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-    'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+    'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
     'Content-Type': 'text/plain',
   };
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';

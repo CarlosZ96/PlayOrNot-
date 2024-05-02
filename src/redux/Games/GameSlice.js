@@ -12,7 +12,7 @@ export const getReleases = createAsyncThunk(
       limit 5;`;
       const headers = {
         'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-        'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+        'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
         'Content-Type': 'text/plain',
       };
       const response = await axios.post(url, body, { headers });

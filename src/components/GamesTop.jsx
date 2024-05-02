@@ -6,7 +6,7 @@ function GamesTop() {
   const body = `fields name,cover.image_id,total_rating,total_rating_count,release_dates.human; where total_rating >= 86 & total_rating_count >= 2000 & category=0; sort total_rating desc;limit 10;`;
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-    'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+    'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
     'Content-Type': 'text/plain',
   };
 
