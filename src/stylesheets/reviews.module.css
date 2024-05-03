@@ -72,13 +72,17 @@
 .input-games-found-expanded {
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 76%;
   list-style: none;
   margin: 0;
   padding: 0;
   border: none;
   list-style: none;
   background-color: #001b51;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
 }
 
 .hide {
@@ -118,6 +122,7 @@
   align-items: center;
   justify-content: start;
   padding-left: 2%;
+  padding-bottom: 2%;
 }
 
 .games-found-name {
@@ -223,7 +228,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10%;
+  height: 12%;
   background-color: #01012b;
   padding-top: 1.5%;
 }
@@ -293,9 +298,15 @@
 .game-review-rating {
   height: 100%;
   width: 45%;
-  background-color: #01012b;
+  background-color: #070941;
   color: #fff;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  gap: 10%;
 }
 
 .game-rating-container .game-review-rating:nth-child(1) {
@@ -392,7 +403,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  height: 25%;
+  height: max-content;
   width: 100%;
 }
 
@@ -402,12 +413,12 @@
 }
 
 .Plarforms-container {
-  height: 25%;
+  height: max-content;
   width: 100%;
 }
 
 .Stores-container{
-  height: 20%;
+  height: 25%;
   width: 100%;
 }
 
@@ -422,7 +433,7 @@
   margin: 0;
   color: #fff;
   width: 100%;
-  font-size: small;
+  font-size: medium;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -530,34 +541,42 @@
 }
 
 .rating-number-container {
-  height: 68%;
-  width: 80%;
+  height: 50%;
+  width: 93%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 9%;
-  background-color: #0bffa7;
-  border-radius: 5px;
-  border: 5px solid #000;
+  gap: 4%;
+  background-color: #070941;
+  border: 5px solid #fff;
+  border-radius: 9px 30px 9px 9px;
 }
 
 .rating-number {
-  height: 55%;
+  height: 100%;
   width: 40%;
   background-color: #8633f0;
-  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 3px 0px 0px 3px;
+  border-right: 5px #fff solid;
 }
 
 .rating-txt {
-  font-size: x-large;
+  font-size: 2.8vh;
   color: #8633f0;
   font-weight: 200;
   font-family: "Paytone One", sans-serif;
+  text-align: start;
+  width: 60%;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff; 
 }
 
 .rating-txt-2 {
@@ -607,7 +626,7 @@
 }
 
 .game-info-stores{
-  height: 100%;
+  height: max-content;
   width: 100%;
   background-color: #01012b;
   display: flex;
@@ -617,10 +636,17 @@
   align-items: center;
   row-gap: 5%;
   column-gap: 5%;
-  padding-left: 5%;
+  padding-left: 2%;
 }
 
 .Store-img{
-  height: 60%;
-  width: 15%;
+  height: 46%;
+  width: 14%;
+  padding-bottom: 3%;
+}
+
+.game-info-title{
+  margin: 1% 0 0 2%;
+  color: #00f3ff;
+  font-size: large;
 }

@@ -103,19 +103,19 @@ const Reviews = () => {
               g.category === game.category
             ));
           });
-  
+
           return {
             ...game,
             external_games: uniqueExternalGames
           };
         });
-  
+
         setGameDetailsReview(updatedGames);
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
       }
     };
-  
+
     fetchData();
   }, [gameNameFiltered]);
 
@@ -178,17 +178,17 @@ const Reviews = () => {
                       onFocus={() => setShowGameList(true)}
                     />
                     <button className={styles['input-game-button']}><img src={Search} alt="" className='search' /></button>
+                    <ul className={showGameList && gameName ? styles['input-games-found-expanded'] : styles['hide']}>
+                      {findgameName && findgameName.map(fgame => (
+                        UID = uuidv4(),
+                        <li className={styles['games-found-container-li']} key={UID} onClick={() => handleGameItemClick(fgame.name)}>
+                          {fgame.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${fgame.cover.image_id}.png`} alt="" className='gamef-image' />}
+                          <h3 className={styles['games-found-name']}>{fgame.name}</h3>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <ul className={showGameList && gameName ? styles['input-games-found-expanded'] : styles['hide']}>
-                  {findgameName && findgameName.map(fgame => (
-                    UID = uuidv4(),
-                    <li className={styles['games-found-container-li']} key={UID} onClick={() => handleGameItemClick(fgame.name)}>
-                      {fgame.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${fgame.cover.image_id}.png`} alt="" className='gamef-image' />}
-                      <h3 className={styles['games-found-name']}>{fgame.name}</h3>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>
@@ -203,10 +203,13 @@ const Reviews = () => {
                 <h1 className={styles['game-caregory']}></h1>
                 <div className={styles['game-info-details']}>
                   <div className={styles['game-genres-container']}>
-                    <h2 className={styles['game-info-tittle']}>Genres:</h2>
+                    <h2 className={styles['game-info-title']}>Genres:</h2>
                     <p className={styles['game-info-txt-p']}>
-                      {GameDetailsReview[0].genres && GameDetailsReview[0].genres.map(genres => (
-                        genres.name
+                      {GameDetailsReview[0].genres && GameDetailsReview[0].genres.map((genre, index) => (
+                        <React.Fragment key={index}>
+                          {genre.name}
+                          {index !== GameDetailsReview[0].genres.length - 1 && ', '}
+                        </React.Fragment>
                       ))}
                     </p>
                   </div>
@@ -218,12 +221,17 @@ const Reviews = () => {
                   <div className={styles['Plarforms-container']}>
                     <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
                     <p className={styles['game-info-txt']} key={UID}>
-                      {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map(platform => {
-                        UID = uuidv4();
-                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS'
-                          && platform.name !== 'iOS') {
-                          return platform.name
+                      {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map((platform, index) => {
+                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS' && platform.name !== 'Android') {
+                          return (
+                            <React.Fragment key={index}>
+                              {platform.name}
+                              {index !== GameDetailsReview[0].platforms.length - 1 && ', '}
+                              {index == GameDetailsReview[0].platforms.length - 1 && '. '}
+                            </React.Fragment>
+                          );
                         }
+                        return null;
                       })}
                     </p>
                   </div>
