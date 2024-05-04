@@ -153,8 +153,8 @@ const Reviews = () => {
               <h1 className='tittle'>Play Or Not?</h1>
             </div>
             <div className={styles['options-buttons-container']}>
+              <button className={styles['options-button']}>Home</button>
               <button className={styles['options-button']}>Category</button>
-              <button className={styles['options-button']}>Reviews</button>
               <button className={styles['options-button']}>Rankings</button>
             </div>
           </div>
@@ -167,12 +167,12 @@ const Reviews = () => {
             <div className={styles['search-game-review']}>
               <div className={styles['input-container']} ref={node}>
                 <div className={styles['input-container-tittle-button']}>
-                  <h1 className={styles['search-game-title']}>Find a Game </h1>
+                  <h1 className={styles['search-game-title']}>Find a Game : </h1>
                   <div className={styles['input-button-container']}>
                     <input
                       type="text"
                       className={styles['input-game-review']}
-                      placeholder="  Search.."
+                      placeholder="game name. . ."
                       value={gameName}
                       onChange={handleInputChange}
                       onFocus={() => setShowGameList(true)}
@@ -209,6 +209,7 @@ const Reviews = () => {
                         <React.Fragment key={index}>
                           {genre.name}
                           {index !== GameDetailsReview[0].genres.length - 1 && ', '}
+                          {index == GameDetailsReview[0].genres.length - 1 && '. '}
                         </React.Fragment>
                       ))}
                     </p>
@@ -216,13 +217,13 @@ const Reviews = () => {
                   <div className={styles['release-data-container']}>
                     <h2 className={styles['game-info-tittle']}>Release Data:</h2>
                     <h3 className={styles['game-info-txt']}>{GameDetailsReview[0].release_dates[0].human ?
-                      GameDetailsReview[0].release_dates[0].human : 'N/A'}</h3>
+                      GameDetailsReview[0].release_dates[0].human : 'N/A'}.</h3>
                   </div>
                   <div className={styles['Plarforms-container']}>
                     <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
                     <p className={styles['game-info-txt']} key={UID}>
                       {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map((platform, index) => {
-                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS' && platform.name !== 'Android') {
+                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS') {
                           return (
                             <React.Fragment key={index}>
                               {platform.name}
@@ -291,6 +292,15 @@ const Reviews = () => {
                 <div className={styles['game-extra-info']}>
                   <h1 className={styles['game-review-extra-title']}>Extra Content</h1>
                   <div className={styles['game-extra-media-container']}>
+                    <div className={styles['game-extra-image-container']}>
+                      <h1 className={styles['game-extre-image-txt']}>Sreenshots</h1>
+                      {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map(screenshots => (
+                        UID = uuidv4(),
+                        <div key={UID} className={styles['game-extre-images-cont']}>
+                          {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
+                        </div>
+                      ))}
+                    </div>
                     <div className={styles['game-extra-video-container']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (
                         UID = uuidv4(),
@@ -303,23 +313,16 @@ const Reviews = () => {
                       ></iframe>*/}
                         </div>
                       ))}
-                    </div>
-                    <div className={styles['game-extra-image-container']}>
-                      <h1 className={styles['game-extre-image-txt']}>Videos</h1>
-                      {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map(screenshots => (
-                        UID = uuidv4(),
-                        <div key={UID} className={styles['game-extre-images-cont']}>
-                          {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
-                        </div>
-                      ))}
+                      Videos
                     </div>
                     <div className={styles['game-extra-dlc-container']}>
-                      {GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.map(dlc => (
+                      {/*GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.map(dlc => (
                         UID = uuidv4(),
                         <div key={UID} className={styles['game-dlc-container']}>
                           {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${dlc.cover.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
                         </div>
-                      ))}
+                      ))*/}
+                      DLC
                     </div>
                   </div>
                 </div>
