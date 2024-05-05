@@ -273,19 +273,15 @@ const Reviews = () => {
                 <div className={styles['game-review-rating-container']}>
                   <div className={styles['game-rating-container']}>
                     <div className={styles['game-review-rating']}>
-                      <div className={styles['rating-number-container']}>
-                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].rating)}</h1>
-                        {GameDetailsReview[0].rating > 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
-                      </div>
-                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].rating_count} reviews on IGDB</h4>
+                      
                     </div>
                     <div className={styles['game-review-separator']}></div>
                     <div className={styles['game-review-rating']}>
                       <div className={styles['rating-number-container']}>
-                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].total_rating)}</h1>
-                        {GameDetailsReview[0].total_rating >= 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
+                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].rating)}</h1>
+                        {GameDetailsReview[0].rating_count >= 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
                       </div>
-                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].total_rating_count} external reviews</h4>
+                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].rating_count} external reviews</h4>
                     </div>
                   </div>
                 </div>
