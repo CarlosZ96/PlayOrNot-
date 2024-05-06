@@ -285,23 +285,62 @@
   font-weight: 300;
 }
 
-.game-rating-container {
-  background-color: #001b51;
-  height: 90%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 .game-review-separator {
   width: 8%;
   height: 100%;
   background-color: #001b51;
 }
 
-.game-review-rating {
+.game-review-rating-container {
+  height: 41%;
+  width: 96%;
+  background-color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 30px 30px;
+  margin-top: 2%;
+}
+
+.game-rating-container {
+  background-color: #324e32;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 3px 30px 30px;
+}
+
+.PR {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  font-size: 3vh;
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+}
+
+.game-rating-YMN-ccontainer {
+  height: 20%;
+  width: 96%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.game-review-rating-t {
   height: 100%;
   width: 45%;
   background-color: #fff;
@@ -321,16 +360,6 @@
 
 .game-rating-container .game-review-rating:nth-child(3) {
   border-top-right-radius: 9px;
-}
-
-.game-review-rating-container {
-  height: 29%;
-  width: 96%;
-  background-color: #001b51;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .game-extra-info {
@@ -450,6 +479,25 @@
   padding-right: 1%;
 }
 
+.Game-rating-Mncito-container{
+  height: 130%;
+  width: 14%;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: center;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #6398ff;
+  border-radius: 9px;
+}
+.Game-rating-Mncito-img{
+  height: 100%;
+  width: 65%;
+}
+
 .game-review-extra-title {
   display: flex;
   flex-direction: row;
@@ -553,37 +601,81 @@
   justify-content: center;
   align-items: center;
   gap: 4%;
-  background-color: #fff;
+  background-color: #97de1c;
   border: 5px solid #000;
   border-radius: 9px 30px 9px 9px;
 }
 
 .rating-number {
   height: 100%;
-  width: 40%;
-  background-color: #8633f0;
+  width: 100%;
+  background-color: #33f04c;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  border-radius: 9px 0 0 9px;
+  border-right: 3px #000 solid;
+  padding-right: 1%;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vh;
+}
+
+.game-rating-Y-container{
+  height: 100%;
+  width: 100%;
+  background-color: #6398ff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 3px 0px 0px 3px;
-  border-right: 5px #000 solid;
+  border-radius: 9px;
 }
 
 .rating-txt {
-  font-size: 2.8vh;
-  color: #8633f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  font-size: 2vh;
+  color: #000;
+  font-family: "Press Start 2P", sans-serif;
   font-weight: 200;
-  font-family: "Paytone One", sans-serif;
-  text-align: start;
-  width: 60%;
+  text-align: center;
 }
 
-.rating-txt-2 {
-  font-family: "Paytone One", sans-serif;
-  font-weight: 100;
-  color: #000;
-  font-size: larger;
+.rating-txt:nth-child(1){
+  border-width: 3px 0 3px 3px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 9px 0 0 9px;
+}
+
+.rating-txt:nth-child(3){
+  border-width: 3px 3px 3px 0;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 0 9px 9px 0;
+}
+
+.game-rating-bar-container{
+  width: 96%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+
+.game-rating-bar{
+  width: 98%;
+  height: 70%;
+  background-color: #6398ff;
+  border-radius: 9px;
+  border: 3px #000 solid;
 }
 
 .last-reviewed-game-title {

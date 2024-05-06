@@ -10,6 +10,7 @@ import amazon from '../img/Stores/amazon_pocike.png';
 import microsoft from '../img/Stores/microsoft.png';
 import googleplay from '../img/Stores/google-play.png';
 import playstore from '../img/Stores/psstore-shoppingbag.png';
+import Mncito from '../img/Mncito.png';
 import { v4 as uuidv4 } from 'uuid';
 
 const Reviews = () => {
@@ -145,6 +146,7 @@ const Reviews = () => {
   }, []);
 
   return (
+
     <div className={styles['Reviews-body']}>
       <header className={styles['search-header-container']}>
         <div className={styles['header-container']}>
@@ -272,21 +274,25 @@ const Reviews = () => {
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
                   <div className={styles['game-rating-container']}>
-                    <div className={styles['game-review-rating']}>
-                      
-                    </div>
-                    <div className={styles['game-review-separator']}></div>
-                    <div className={styles['game-review-rating']}>
-                      <div className={styles['rating-number-container']}>
-                        <h1 className={styles['rating-number']}>{Math.round(GameDetailsReview[0].rating)}</h1>
-                        {GameDetailsReview[0].rating_count >= 89 ? <h1 className={styles['rating-txt']}>“Legendary”</h1> : <h1 className={styles['rating-txt']}>“Very Good”</h1>}
+                    <h1 className={styles['PR']}>Play or Not?</h1>
+                    <div className={styles['game-rating-YMN-ccontainer']}>
+                      <div className={styles['game-rating-Y-container']}>
+                        <h1 className={styles['rating-txt']}>Yes!!</h1>
+                        <div className={styles['Game-rating-Mncito-container']}>
+                          <img className={styles['Game-rating-Mncito-img']} src={Mncito} alt="approving image" />
+                        </div>
+                        <h1 className={styles['rating-txt']}>This game is..</h1>
                       </div>
-                      <h4 className={styles['rating-txt-2']}>Based on {GameDetailsReview[0].rating_count} external reviews</h4>
+                    </div>
+                    <div className={styles['game-rating-bar-container']}>
+                      <div className={styles['game-rating-bar']}>
+                        <h1 style={{ width: `${Math.round(GameDetailsReview[0].rating)}%` }} className={styles['rating-number']}>
+                          “Very Good” {Math.round(GameDetailsReview[0].rating)}%</h1>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className={styles['game-extra-info']}>
-                  <h1 className={styles['game-review-extra-title']}>Extra Content</h1>
                   <div className={styles['game-extra-media-container']}>
                     <div className={styles['game-extra-image-container']}>
                       <h1 className={styles['game-extre-image-txt']}>Sreenshots</h1>
