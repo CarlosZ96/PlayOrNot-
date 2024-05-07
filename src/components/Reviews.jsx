@@ -31,7 +31,8 @@ const Reviews = () => {
   const [GameDetailsReview, setGameDetailsReview] = useState('');
   const [gameNameFiltered, setGameNameFiltered] = useState('');
   const [showGameList, setShowGameList] = useState(false);
-
+  let distanceToLeft = 0;
+  let distanceToRight = 0;
   const handleInputChange = (e) => {
     setGameName(e.target.value);
   };
@@ -145,6 +146,21 @@ const Reviews = () => {
       });
   }, []);
 
+  const ImgTotalLenght = GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].screenshots
+    ? (GameDetailsReview[0].screenshots.length - 1) : 0;
+
+  const ImghalfLenght = GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].screenshots
+    ? Math.floor(ImgTotalLenght / 2) : 0;
+
+  const [selectedCard, setSelectedCard] = useState(ImghalfLenght);
+
+  const handleMoveLeft = () => {
+    setSelectedCard((prev) => (prev === 0 ? ImgTotalLenght : prev - 1));
+  };
+
+  const handleMoveRight = () => {
+    setSelectedCard((prev) => (prev === ImgTotalLenght ? 0 : prev + 1));
+  };
   return (
 
     <div className={styles['Reviews-body']}>
@@ -196,6 +212,7 @@ const Reviews = () => {
           </div>
           {GameDetailsReview && GameDetailsReview[0] && (
             console.log(GameDetailsReview),
+            console.log('longitud', ImghalfLenght),
             UID = uuidv4(),
             <div key={UID} className={styles['game-info-container']}>
               <div className={styles['game-info']}>
@@ -295,13 +312,23 @@ const Reviews = () => {
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
                     <div className={styles['game-extra-image-container']}>
-                      <h1 className={styles['game-extre-image-txt']}>Sreenshots</h1>
-                      {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map(screenshots => (
-                        UID = uuidv4(),
-                        <div key={UID} className={styles['game-extre-images-cont']}>
-                          {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
-                        </div>
-                      ))}
+                      {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
+                        const UID = uuidv4();
+                        const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
+                        const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
+                        let cardClassName = '';
+
+                        if (distanceToLeft === 0) cardClassName += ' centered';
+                        else if (distanceToLeft === 1) cardClassName += ' left';
+                        else if (distanceToRight === 1) cardClassName += ' right';
+                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += ' hide';
+
+                        return (
+                          <div key={UID} className={`${styles['game-extre-images-cont']} ${cardClassName}`}>
+                            <img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className={styles['game-extra-video-container']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (

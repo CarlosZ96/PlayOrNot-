@@ -540,6 +540,7 @@
   width: 1%;
 }
 
+
 .game-extra-image-container {
   height: 75%;
   width: 100%;
@@ -550,8 +551,45 @@
   align-items: center;
 }
 
+.centered {
+  width: 20px;
+  height: 20px;
+  background-color: #000229;
+  z-index: 100;
+  color: #00f3ff;
+  border: 8px #456dba solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  width: 20px;
+  height: 20px;
+  z-index: 80;
+  opacity: 1;
+  filter: blur(1.5px);
+}
+
+.right {
+  width: 60%;
+  height: 40%;
+  z-index: 80;
+  opacity: 1;
+  filter: blur(1.5px);
+}
+
 .game-extre-images-cont {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  background-color: #1f3154;
 }
 
 .game-extre-img {
