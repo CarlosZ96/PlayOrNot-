@@ -90,7 +90,7 @@ const Reviews = () => {
           method: 'POST',
           headers: headers,
           body: `fields name,rating,rating_count,total_rating,total_rating,total_rating_count,screenshots.image_id,
-          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,external_games.url,external_games.category,
+          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,dlcs.screenshots.image_id,external_games.url,external_games.category,
           first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category,artworks.image_id;
           where name ~ *"${gameNameFiltered}"* & category = 0;
           sort total_rating_count desc; limit 1;`
@@ -309,6 +309,7 @@ const Reviews = () => {
                     </div>
                   </div>
                 </div>
+                <div><h1>Extra Content</h1></div>
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
                     <div className={styles['game-extra-image-container']}>
@@ -318,17 +319,19 @@ const Reviews = () => {
                         const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
                         let cardClassName = '';
 
-                        if (distanceToLeft === 0) cardClassName += ' centered';
-                        else if (distanceToLeft === 1) cardClassName += ' left';
-                        else if (distanceToRight === 1) cardClassName += ' right';
-                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += ' hide';
+                        if (distanceToLeft === 0) cardClassName += 'centered';
+                        else if (distanceToLeft === 1) cardClassName += 'left';
+                        else if (distanceToRight === 1) cardClassName += 'right';
+                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
 
                         return (
-                          <div key={UID} className={`${styles['game-extre-images-cont']} ${cardClassName}`}>
+                          <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
                             <img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />
                           </div>
                         );
                       })}
+                      <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
+                      <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
                     </div>
                     <div className={styles['game-extra-video-container']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (
@@ -345,13 +348,14 @@ const Reviews = () => {
                       Videos
                     </div>
                     <div className={styles['game-extra-dlc-container']}>
-                      {/*GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.map(dlc => (
-                        UID = uuidv4(),
-                        <div key={UID} className={styles['game-dlc-container']}>
-                          {<img src={`https://images.igdb.com/igdb/image/upload/t_original/${dlc.cover.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />}
+                      {GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.length > 0 && (
+                        <div className={styles['game-dlc-container']}>
+                          {GameDetailsReview[0].dlcs[0].screenshots && GameDetailsReview[0].dlcs[0].screenshots[0] && (
+                            <div className={styles['game-extre-dlc-img-container']} style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${GameDetailsReview[0].dlcs[0].screenshots[0].image_id}.webp)` }}>
+                            </div>
+                          )}
                         </div>
-                      ))*/}
-                      DLC
+                      )}
                     </div>
                   </div>
                 </div>
