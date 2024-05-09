@@ -298,7 +298,7 @@
 
 .game-review-rating-container {
   height: 41%;
-  width: 75%;
+  width: 85%;
   background-color: #000;
   display: flex;
   flex-direction: row;
@@ -325,7 +325,7 @@
   justify-content: center;
   align-items: center;
   height: 20%;
-  font-size: 3vh;
+  font-size: 4vh;
   font-family: "Press Start 2P", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -414,7 +414,7 @@
 
 .game-info-details {
   height: 46%;
-  width: 90%;
+  width: 96%;
   background-color: #001b51;
   border-radius: 15px;
   display: flex;
@@ -471,6 +471,17 @@
   padding-right: 1%;
 }
 
+.game-extra-content-txt-container {
+  height: 7%;
+  width: 100%;
+}
+
+.game-extra-content-txt {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
 .game-info-txt-p {
   margin: 0;
   color: #fff;
@@ -484,12 +495,12 @@
   padding-right: 1%;
 }
 
-.Game-rating-Mncito-container{
+.Game-rating-Mncito-container {
   height: 130%;
   width: 14%;
   background: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   justify-content: center;
   border-width: 3px;
@@ -498,9 +509,12 @@
   background-color: #6398ff;
   border-radius: 9px;
 }
-.Game-rating-Mncito-img{
-  height: 80%;
-  width: 65%;
+
+.Game-rating-Mncito-img {
+  height: 140%;
+  width: 130%;
+  padding-left: 12%;
+  z-index: 110;
 }
 
 .game-review-extra-title {
@@ -523,6 +537,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  border-radius: 9px;
 }
 
 .game-extra-video-container {
@@ -548,7 +563,7 @@
 .game-extra-image-container {
   height: 100%;
   width: 100%;
-  background-color: #1f3154;
+  background-color: #001b51;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -579,6 +594,10 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  mask-image: linear-gradient(
+    #142e61 90%,
+    transparent
+  );
 }
 
 .left {
@@ -589,6 +608,10 @@
   opacity: 1;
   filter: blur(1px);
   transform: translateX(-30%);
+  mask-image: linear-gradient(
+    black 90%,
+    transparent
+  );
 }
 
 .right {
@@ -599,6 +622,10 @@
   opacity: 1;
   filter: blur(1px);
   transform: translateX(30%);
+  mask-image: linear-gradient(
+    black 80%,
+    transparent
+  );
 }
 
 .game-extre-img {
@@ -606,7 +633,7 @@
   width: 100%;
 }
 
-.game-extra-screenshots-button-l{
+.game-extra-screenshots-button-l {
   height: 40%;
   width: 4%;
   top: 30%;
@@ -617,7 +644,7 @@
   border-radius: 0px 50px 50px 0px;
 }
 
-.game-extra-screenshots-button-r{
+.game-extra-screenshots-button-r {
   height: 40%;
   width: 4%;
   top: 30%;
@@ -629,7 +656,7 @@
 }
 
 .game-extra-dlc-container {
-  height: 15%;
+  height: 10%;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -690,7 +717,7 @@
   font-size: 2vh;
 }
 
-.game-rating-Y-container{
+.game-rating-Y-container {
   height: 100%;
   width: 100%;
   background-color: #6398ff;
@@ -715,21 +742,21 @@
   text-align: center;
 }
 
-.rating-txt:nth-child(1){
+.rating-txt:nth-child(1) {
   border-width: 3px 0 3px 3px;
   border-style: solid;
   border-color: #000;
   border-radius: 9px 0 0 9px;
 }
 
-.rating-txt:nth-child(3){
+.rating-txt:nth-child(3) {
   border-width: 3px 3px 3px 0;
   border-style: solid;
   border-color: #000;
   border-radius: 0 9px 9px 0;
 }
 
-.game-rating-bar-container{
+.game-rating-bar-container {
   width: 96%;
   height: 50%;
   display: flex;
@@ -739,7 +766,7 @@
   background: none;
 }
 
-.game-rating-bar{
+.game-rating-bar {
   width: 98%;
   height: 70%;
   background-color: #6398ff;
@@ -747,22 +774,22 @@
   border: 3px #000 solid;
 }
 
-.game-dlc-container{
+.game-dlc-container {
   width: 100%;
   height: 100%;
   background-color: #070941;
 }
 
-.game-extre-dlc-img-container{
+.game-extre-dlc-img-container {
   width: 100%;
   height: 100%;
-  background-position:initial;
+  background-position: initial;
   background-repeat: no-repeat;
   background-size: calc(100%, 10%);
   background-position-y: top;
 }
 
-.game-extre-dlc-img{
+.game-extre-dlc-img {
   width: 100%;
   height: 100%;
   color: #6398ff;
@@ -810,14 +837,14 @@
 .game-info-stores {
   height: max-content;
   width: 100%;
-  background-color: #001b51;
+  background: none;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: start;
   align-items: center;
   row-gap: 5%;
-  column-gap: 5%;
+  column-gap: 3%;
   padding-left: 2%;
 }
 

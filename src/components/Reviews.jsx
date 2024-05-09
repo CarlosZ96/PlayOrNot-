@@ -242,7 +242,9 @@ const Reviews = () => {
                     <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
                     <p className={styles['game-info-txt']} key={UID}>
                       {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map((platform, index) => {
-                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS') {
+                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS'
+                        && platform.name !== 'Windows Phone'
+                        ) {
                           return (
                             <React.Fragment key={index}>
                               {platform.name}
@@ -309,7 +311,9 @@ const Reviews = () => {
                     </div>
                   </div>
                 </div>
-                <div><h1>Extra Content</h1></div>
+                <div className={styles['game-extra-content-txt-container']}>
+                  <h1 className={styles['game-extra-content-txt']}>Extra Content</h1>
+                </div>
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
                     <div className={styles['game-extra-image-container']}>
@@ -341,8 +345,8 @@ const Reviews = () => {
                             title={videos.name}
                             className={styles['game-info-video']}
                             src={`https://www.youtube.com/embed/${videos.video_id}`}
-                            allowFullScreen
-                      ></iframe>*/}
+                            allowFullScreen>
+                          </iframe>*/}
                         </div>
                       ))}
                       Videos
@@ -356,6 +360,7 @@ const Reviews = () => {
                           )}
                         </div>
                       )}
+                      DLC
                     </div>
                   </div>
                 </div>
