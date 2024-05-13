@@ -12,6 +12,7 @@ import googleplay from '../img/Stores/google-play.png';
 import playstore from '../img/Stores/psstore-shoppingbag.png';
 import Mncito from '../img/Mncito.png';
 import { v4 as uuidv4 } from 'uuid';
+import ReactPlayer from 'react-player';
 
 const Reviews = () => {
   var UID = uuidv4();
@@ -31,8 +32,9 @@ const Reviews = () => {
   const [GameDetailsReview, setGameDetailsReview] = useState('');
   const [gameNameFiltered, setGameNameFiltered] = useState('');
   const [showGameList, setShowGameList] = useState(false);
-  let distanceToLeft = 0;
-  let distanceToRight = 0;
+  const nodecla = useRef();
+  const nodecla2 = useRef();
+
   const handleInputChange = (e) => {
     setGameName(e.target.value);
   };
@@ -57,6 +59,22 @@ const Reviews = () => {
     setGameName(gameName);
     setShowGameList(false);
   };
+
+  const showMediaSection = () => {
+    const container = nodecla.current;
+    const container2 = nodecla2.current;
+    if (container.classList.contains(styles['game-extra-image-container'])) {
+      container.classList.remove(styles['game-extra-image-container']);
+      container.classList.add(styles['hide']);
+      container2.classList.add(styles['hidden']);
+      container2.classList.remove(styles['hide']);
+    } else {
+      container.classList.remove(styles['hide']);
+      container2.classList.remove(styles['hidden']);
+      container.classList.add(styles['game-extra-image-container']);
+      container2.classList.add(styles['hide']);
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -243,7 +261,7 @@ const Reviews = () => {
                     <p className={styles['game-info-txt']} key={UID}>
                       {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map((platform, index) => {
                         if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS'
-                        && platform.name !== 'Windows Phone'
+                          && platform.name !== 'Windows Phone'
                         ) {
                           return (
                             <React.Fragment key={index}>
@@ -316,7 +334,8 @@ const Reviews = () => {
                 </div>
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
-                    <div className={styles['game-extra-image-container']}>
+                    <div onClick={showMediaSection}  ref={nodecla2} className={styles['hide']}>Screenshots</div>
+                    <div ref={nodecla} className={styles['game-extra-image-container']}>
                       {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
                         const UID = uuidv4();
                         const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
@@ -337,19 +356,14 @@ const Reviews = () => {
                       <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
                       <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
                     </div>
-                    <div className={styles['game-extra-video-container']}>
+                    <div onClick={showMediaSection} className={styles['hide']}>Videos</div>
+                    <div className={styles['videos']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (
                         UID = uuidv4(),
                         <div key={UID} className={styles['game-video-container']}>
-                          {/*<iframe
-                            title={videos.name}
-                            className={styles['game-info-video']}
-                            src={`https://www.youtube.com/embed/${videos.video_id}`}
-                            allowFullScreen>
-                          </iframe>*/}
+                          <ReactPlayer className={styles['game-video-container']} url={`https://youtu.be/${videos.video_id}`} />
                         </div>
                       ))}
-                      Videos
                     </div>
                     <div className={styles['game-extra-dlc-container']}>
                       {GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.length > 0 && (

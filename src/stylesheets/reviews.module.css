@@ -94,6 +94,16 @@
   display: none;
 }
 
+.hidden {
+  height: 10%;
+  width: 100%;
+  background-color: #333232;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .input-container-tittle-button {
   height: 80%;
   width: 100%;
@@ -551,13 +561,24 @@
 }
 
 .game-video-container {
-  display: none;
+  height: 20%;
+  width: 30%;
 }
 
 .game-info-video {
   display: none;
   height: 1%;
   width: 1%;
+}
+
+.videos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #001b51;
 }
 
 .game-extra-image-container {
