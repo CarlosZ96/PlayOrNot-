@@ -334,7 +334,7 @@ const Reviews = () => {
                 </div>
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
-                    <div onClick={showMediaSection}  ref={nodecla2} className={styles['hide']}>Screenshots</div>
+                    <div onClick={showMediaSection} ref={nodecla2} className={styles['hide']}>Screenshots</div>
                     <div ref={nodecla} className={styles['game-extra-image-container']}>
                       {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
                         const UID = uuidv4();
@@ -357,13 +357,26 @@ const Reviews = () => {
                       <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
                     </div>
                     <div onClick={showMediaSection} className={styles['hide']}>Videos</div>
-                    <div className={styles['videos']}>
-                      {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map(videos => (
-                        UID = uuidv4(),
-                        <div key={UID} className={styles['game-video-container']}>
-                          <ReactPlayer className={styles['game-video-container']} url={`https://youtu.be/${videos.video_id}`} />
-                        </div>
-                      ))}
+                    <div ref={nodecla} className={styles['game-extra-videos-container']}>
+                      {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map((videos, index) => {
+                        const UID = uuidv4();
+                        const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
+                        const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
+                        let cardClassName = '';
+
+                        if (distanceToLeft === 0) cardClassName += 'centered';
+                        else if (distanceToLeft === 1) cardClassName += 'left';
+                        else if (distanceToRight === 1) cardClassName += 'right';
+                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
+
+                        return (
+                          <div key={UID} className={styles['game-video-container']}>
+                            <ReactPlayer className={styles['game-video-img-container']} url={`https://youtu.be/${videos.video_id}`} />
+                          </div>
+                        );
+                      })}
+                      <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
+                      <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
                     </div>
                     <div className={styles['game-extra-dlc-container']}>
                       {GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.length > 0 && (
