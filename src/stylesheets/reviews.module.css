@@ -482,7 +482,7 @@
 }
 
 .game-extra-content-txt-container {
-  height: 7%;
+  height: 5%;
   width: 100%;
 }
 
@@ -490,6 +490,9 @@
   height: 100%;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .game-info-txt-p {
@@ -540,7 +543,7 @@
 }
 
 .game-extra-media-container {
-  height: 99%;
+  height: 98%;
   width: 100%;
   background-color: #01012b;
   display: flex;
@@ -561,14 +564,11 @@
 }
 
 .game-video-container {
-  height: 20%;
-  width: 30%;
-}
-
-.game-info-video {
-  display: none;
-  height: 1%;
-  width: 1%;
+  height: 100%;
+  width: 100%;
+  background-color: #324e32;
+  position: relative;
+  overflow: hidden;
 }
 
 .videos {
@@ -605,9 +605,9 @@
 }
 
 .game-extra-videos-container {
-  height: 100%;
+  height: 80%;
   width: 100%;
-  background-color: #001b51;
+  background-color: #f8742d;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -659,11 +659,6 @@
 .game-extre-img {
   height: 100%;
   width: 100%;
-}
-
-.game-video-img-container {
-  height: 30%;
-  width: 60%;
 }
 
 .game-extra-screenshots-button-l {

@@ -335,7 +335,7 @@ const Reviews = () => {
                 <div className={styles['game-extra-info']}>
                   <div className={styles['game-extra-media-container']}>
                     <div onClick={showMediaSection} ref={nodecla2} className={styles['hide']}>Screenshots</div>
-                    <div ref={nodecla} className={styles['game-extra-image-container']}>
+                    <div ref={nodecla} className={styles['hide']}>
                       {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
                         const UID = uuidv4();
                         const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
@@ -356,7 +356,7 @@ const Reviews = () => {
                       <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
                       <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
                     </div>
-                    <div onClick={showMediaSection} className={styles['hide']}>Videos</div>
+                    <div onClick={showMediaSection} className={styles['hidden']}>Videos</div>
                     <div ref={nodecla} className={styles['game-extra-videos-container']}>
                       {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map((videos, index) => {
                         const UID = uuidv4();
@@ -370,8 +370,8 @@ const Reviews = () => {
                         else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
 
                         return (
-                          <div key={UID} className={styles['game-video-container']}>
-                            <ReactPlayer className={styles['game-video-img-container']} url={`https://youtu.be/${videos.video_id}`} />
+                          <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
+                            <ReactPlayer className={styles['game-video-rep']} url={`https://youtu.be/${videos.video_id}`} />
                           </div>
                         );
                       })}
