@@ -2,17 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
-import Steam from '../img/Stores/steam.png';
-import gog from '../img/Stores/gog.png';
-import xboxs from '../img/Stores/xbox_store.jpg';
-import epic from '../img/Stores/Epic_Games.png';
-import amazon from '../img/Stores/amazon_pocike.png';
-import microsoft from '../img/Stores/microsoft.png';
-import googleplay from '../img/Stores/google-play.png';
-import playstore from '../img/Stores/psstore-shoppingbag.png';
 import Mncito from '../img/Mncito.png';
 import { v4 as uuidv4 } from 'uuid';
-import ReactPlayer from 'react-player';
+import  GameInfo from './reviews/GameInfo';
+import  MediaContainer from './reviews/media/MediaContainer';
 
 const Reviews = () => {
   var UID = uuidv4();
@@ -229,8 +222,6 @@ const Reviews = () => {
             </div>
           </div>
           {GameDetailsReview && GameDetailsReview[0] && (
-            console.log(GameDetailsReview),
-            console.log('longitud', ImghalfLenght),
             UID = uuidv4(),
             <div key={UID} className={styles['game-info-container']}>
               <div className={styles['game-info']}>
@@ -238,75 +229,7 @@ const Reviews = () => {
                   {GameDetailsReview[0].cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${GameDetailsReview[0].cover.image_id}.png`} alt="game-image" className={styles['game-info-car']} />}
                 </div>
                 <h1 className={styles['game-caregory']}></h1>
-                <div className={styles['game-info-details']}>
-                  <div className={styles['game-genres-container']}>
-                    <h2 className={styles['game-info-title']}>Genres:</h2>
-                    <p className={styles['game-info-txt-p']}>
-                      {GameDetailsReview[0].genres && GameDetailsReview[0].genres.map((genre, index) => (
-                        <React.Fragment key={index}>
-                          {genre.name}
-                          {index !== GameDetailsReview[0].genres.length - 1 && ', '}
-                          {index == GameDetailsReview[0].genres.length - 1 && '. '}
-                        </React.Fragment>
-                      ))}
-                    </p>
-                  </div>
-                  <div className={styles['release-data-container']}>
-                    <h2 className={styles['game-info-tittle']}>Release Data:</h2>
-                    <h3 className={styles['game-info-txt']}>{GameDetailsReview[0].release_dates[0].human ?
-                      GameDetailsReview[0].release_dates[0].human : 'N/A'}.</h3>
-                  </div>
-                  <div className={styles['Plarforms-container']}>
-                    <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
-                    <p className={styles['game-info-txt']} key={UID}>
-                      {GameDetailsReview[0].platforms && GameDetailsReview[0].platforms.map((platform, index) => {
-                        if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS'
-                          && platform.name !== 'Windows Phone'
-                        ) {
-                          return (
-                            <React.Fragment key={index}>
-                              {platform.name}
-                              {index !== GameDetailsReview[0].platforms.length - 1 && ', '}
-                              {index == GameDetailsReview[0].platforms.length - 1 && '. '}
-                            </React.Fragment>
-                          );
-                        }
-                        return null;
-                      })}
-                    </p>
-                  </div>
-                  <div className={styles['Stores-container']}>
-                    <h2 className={styles['game-info-tittle']}>Available in:</h2>
-                    <div className={styles['game-info-stores']}>
-                      {GameDetailsReview[0].external_games && GameDetailsReview[0].external_games.map(external_game => {
-                        if (external_game.category == '1') {
-                          return <img key={uuidv4()} src={Steam} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '5') {
-                          return <img key={uuidv4()} src={gog} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '31') {
-                          return <img key={uuidv4()} src={xboxs} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '26') {
-                          return <img key={uuidv4()} src={epic} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '20') {
-                          return <img key={uuidv4()} src={amazon} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '11') {
-                          return <img key={uuidv4()} src={microsoft} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '15') {
-                          return <img key={uuidv4()} src={googleplay} alt="" className={styles['Store-img']} />;
-                        }
-                        if (external_game.category == '36') {
-                          return <img key={uuidv4()} src={playstore} alt="" className={styles['Store-img']} />;
-                        }
-                      })}
-                    </div>
-                  </div>
-                </div>
+                <GameInfo game={GameDetailsReview} />
               </div>
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
@@ -332,65 +255,7 @@ const Reviews = () => {
                 <div className={styles['game-extra-content-txt-container']}>
                   <h1 className={styles['game-extra-content-txt']}>Extra Content</h1>
                 </div>
-                <div className={styles['game-extra-info']}>
-                  <div className={styles['game-extra-media-container']}>
-                    <div onClick={showMediaSection} ref={nodecla2} className={styles['hide']}>Screenshots</div>
-                    <div ref={nodecla} className={styles['hide']}>
-                      {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
-                        const UID = uuidv4();
-                        const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
-                        const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
-                        let cardClassName = '';
-
-                        if (distanceToLeft === 0) cardClassName += 'centered';
-                        else if (distanceToLeft === 1) cardClassName += 'left';
-                        else if (distanceToRight === 1) cardClassName += 'right';
-                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
-
-                        return (
-                          <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
-                            <img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />
-                          </div>
-                        );
-                      })}
-                      <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
-                      <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
-                    </div>
-                    <div onClick={showMediaSection} className={styles['hidden']}>Videos</div>
-                    <div ref={nodecla} className={styles['game-extra-videos-container']}>
-                      {GameDetailsReview[0].videos && GameDetailsReview[0].videos.map((videos, index) => {
-                        const UID = uuidv4();
-                        const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
-                        const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
-                        let cardClassName = '';
-
-                        if (distanceToLeft === 0) cardClassName += 'centered';
-                        else if (distanceToLeft === 1) cardClassName += 'left';
-                        else if (distanceToRight === 1) cardClassName += 'right';
-                        else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
-
-                        return (
-                          <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
-                            <ReactPlayer className={styles['game-video-rep']} url={`https://youtu.be/${videos.video_id}`} />
-                          </div>
-                        );
-                      })}
-                      <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
-                      <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
-                    </div>
-                    <div className={styles['game-extra-dlc-container']}>
-                      {GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].dlcs && GameDetailsReview[0].dlcs.length > 0 && (
-                        <div className={styles['game-dlc-container']}>
-                          {GameDetailsReview[0].dlcs[0].screenshots && GameDetailsReview[0].dlcs[0].screenshots[0] && (
-                            <div className={styles['game-extre-dlc-img-container']} style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${GameDetailsReview[0].dlcs[0].screenshots[0].image_id}.webp)` }}>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                      DLC
-                    </div>
-                  </div>
-                </div>
+                <MediaContainer />
               </div>
             </div>
           )}
