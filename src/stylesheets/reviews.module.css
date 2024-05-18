@@ -422,63 +422,12 @@
   font-size: x-large;
 }
 
-.game-info-details {
-  height: 46%;
-  width: 96%;
-  background-color: #001b51;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding-top: 2%;
-  padding-left: 1%;
-}
-
 .game-info-car {
   height: 100%;
   width: 92%;
   border-radius: 15px;
   border: 10px double black;
   border-spacing: 10px;
-}
-
-.game-info-tittle {
-  margin: 1% 0 0 2%;
-  color: #6398ff;
-  font-size: large;
-}
-
-.game-genres-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  height: max-content;
-  width: 100%;
-}
-
-.release-data-container {
-  height: 16%;
-  width: 100%;
-}
-
-.Plarforms-container {
-  height: max-content;
-  width: 100%;
-}
-
-.Stores-container {
-  height: 25%;
-  width: 100%;
-}
-
-.game-info-txt {
-  margin: 0;
-  color: #fff;
-  font-size: small;
-  margin: 0 0 0 2%;
-  padding-right: 1%;
 }
 
 .game-extra-content-txt-container {
@@ -493,19 +442,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.game-info-txt-p {
-  margin: 0;
-  color: #fff;
-  width: 100%;
-  font-size: medium;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-content: start;
-  margin: 0 0 0 2%;
-  padding-right: 1%;
 }
 
 .Game-rating-Mncito-container {
@@ -860,30 +796,4 @@
   position: absolute;
   top: 0;
   z-index: 80;
-}
-
-.game-info-stores {
-  height: max-content;
-  width: 100%;
-  background: none;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  row-gap: 5%;
-  column-gap: 3%;
-  padding-left: 2%;
-}
-
-.Store-img {
-  height: 42%;
-  width: 10%;
-  padding-bottom: 3%;
-}
-
-.game-info-title {
-  margin: 1% 0 0 2%;
-  color: #6398ff;
-  font-size: large;
 }

@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+import styles from '../../../stylesheets/reviews.module.css';
 
-const Image = () => {
+const Image = ({ dynamiClass, reference, reference2, game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
   return (
-    <div>
-      <div onClick={showMediaSection} ref={nodecla2} className={styles['hide']}>Screenshots</div>
-      <div ref={nodecla} className={styles['hide']}>
-        {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
+    <div className={styles['game-extra-image-container']}>
+      <div onClick={dynamiClass} ref={reference2} className={styles['hide']}>Screenshots</div>
+      <div ref={reference} className={styles['game-extra-image-container']}>
+        {game[0].screenshots && game[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();
           const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
           const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
@@ -22,11 +25,22 @@ const Image = () => {
             </div>
           );
         })}
-        <button className={styles['game-extra-screenshots-button-r']} onClick={() => { handleMoveRight(); }}></button>
-        <button className={styles['game-extra-screenshots-button-l']} onClick={() => { handleMoveLeft(); }}></button>
+        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
+        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
     </div>
   )
 }
 
-export default Image
+Image.propTypes = {
+  dynamiClass: PropTypes.func.isRequired,
+  handleMoveRight: PropTypes.func.isRequired,
+  handleMoveLeft: PropTypes.func.isRequired,
+  reference: PropTypes.object.isRequired,
+  reference2: PropTypes.object.isRequired,
+  game: PropTypes.array.isRequired,
+  selectedCard: PropTypes.number.isRequired,
+  ImgTotalLenght: PropTypes.number.isRequired,
+};
+
+export default Image;

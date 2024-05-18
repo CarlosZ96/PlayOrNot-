@@ -1,0 +1,75 @@
+.game-info-details {
+  height: 46%;
+  width: 98%;
+  background-color: #001b51;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 4% 2% 2% 4%;
+}
+
+.game-genres-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height: max-content;
+  width: 100%;
+}
+
+.game-info-title {
+  margin: 1% 0 0 2%;
+  color: #6398ff;
+  font-size: large;
+}
+
+.release-data-container {
+  height: max-content;
+  width: 100%;
+}
+
+.game-info-tittle {
+  color: #6398ff;
+  font-size: 2.4vh;
+  font-family: "K2D", sans-serif;
+}
+
+.game-info-txt {
+  margin: 0;
+  color: #fff;
+  font-size: 1.6vh;
+  font-family: 'Courier New', monospace;
+  padding-left: 1%;
+}
+
+.Plarforms-container {
+  height: max-content;
+  width: 100%;
+}
+
+.Stores-container {
+  height: 25%;
+  width: 100%;
+}
+
+.game-info-stores {
+  height: max-content;
+  width: 100%;
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  row-gap: 5%;
+  column-gap: 3%;
+  padding-left: 2%;
+}
+
+.Store-img {
+  height: 42%;
+  width: 10%;
+  padding-bottom: 3%;
+}

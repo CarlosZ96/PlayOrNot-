@@ -3,6 +3,7 @@ import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
 import Mncito from '../img/Mncito.png';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import  GameInfo from './reviews/GameInfo';
 import  MediaContainer from './reviews/media/MediaContainer';
@@ -25,8 +26,6 @@ const Reviews = () => {
   const [GameDetailsReview, setGameDetailsReview] = useState('');
   const [gameNameFiltered, setGameNameFiltered] = useState('');
   const [showGameList, setShowGameList] = useState(false);
-  const nodecla = useRef();
-  const nodecla2 = useRef();
 
   const handleInputChange = (e) => {
     setGameName(e.target.value);
@@ -52,22 +51,6 @@ const Reviews = () => {
     setGameName(gameName);
     setShowGameList(false);
   };
-
-  const showMediaSection = () => {
-    const container = nodecla.current;
-    const container2 = nodecla2.current;
-    if (container.classList.contains(styles['game-extra-image-container'])) {
-      container.classList.remove(styles['game-extra-image-container']);
-      container.classList.add(styles['hide']);
-      container2.classList.add(styles['hidden']);
-      container2.classList.remove(styles['hide']);
-    } else {
-      container.classList.remove(styles['hide']);
-      container2.classList.remove(styles['hidden']);
-      container.classList.add(styles['game-extra-image-container']);
-      container2.classList.add(styles['hide']);
-    }
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -157,21 +140,6 @@ const Reviews = () => {
       });
   }, []);
 
-  const ImgTotalLenght = GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].screenshots
-    ? (GameDetailsReview[0].screenshots.length - 1) : 0;
-
-  const ImghalfLenght = GameDetailsReview && GameDetailsReview[0] && GameDetailsReview[0].screenshots
-    ? Math.floor(ImgTotalLenght / 2) : 0;
-
-  const [selectedCard, setSelectedCard] = useState(ImghalfLenght);
-
-  const handleMoveLeft = () => {
-    setSelectedCard((prev) => (prev === 0 ? ImgTotalLenght : prev - 1));
-  };
-
-  const handleMoveRight = () => {
-    setSelectedCard((prev) => (prev === ImgTotalLenght ? 0 : prev + 1));
-  };
   return (
 
     <div className={styles['Reviews-body']}>
@@ -255,7 +223,7 @@ const Reviews = () => {
                 <div className={styles['game-extra-content-txt-container']}>
                   <h1 className={styles['game-extra-content-txt']}>Extra Content</h1>
                 </div>
-                <MediaContainer />
+                <MediaContainer agame={GameDetailsReview}/>
               </div>
             </div>
           )}

@@ -8,7 +8,7 @@ import amazon from './../../img/Stores/amazon_pocike.png';
 import microsoft from './../../img/Stores/microsoft.png';
 import googleplay from './../../img/Stores/google-play.png';
 import playstore from './../../img/Stores/psstore-shoppingbag.png';
-import styles from '../../stylesheets/reviews.module.css';
+import styles from '../../stylesheets/reviews/gameinfo.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const GameInfo = ({ game }) => {
@@ -16,8 +16,8 @@ const GameInfo = ({ game }) => {
   return (
     <div className={styles['game-info-details']}>
       <div className={styles['game-genres-container']}>
-        <h2 className={styles['game-info-title']}>Genres:</h2>
-        <p className={styles['game-info-txt-p']}>
+        <h2 className={styles['game-info-tittle']}>Genres:</h2>
+        <p className={styles['game-info-txt']}>
           {game[0].genres && game[0].genres.map((genre, index) => (
             <React.Fragment key={index}>
               {genre.name}
@@ -29,8 +29,8 @@ const GameInfo = ({ game }) => {
       </div>
       <div className={styles['release-data-container']}>
         <h2 className={styles['game-info-tittle']}>Release Data:</h2>
-        <h3 className={styles['game-info-txt']}>{game[0].release_dates[0].human ?
-          game[0].release_dates[0].human : 'N/A'}.</h3>
+        <p className={styles['game-info-txt']}>{game[0].release_dates[0].human ?
+          game[0].release_dates[0].human : 'N/A'}.</p>
       </div>
       <div className={styles['Plarforms-container']}>
         <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
@@ -52,7 +52,7 @@ const GameInfo = ({ game }) => {
         </p>
       </div>
       <div className={styles['Stores-container']}>
-        <h2 className={styles['game-info-tittle']}>Available in:</h2>
+        <h2 className={styles['game-info-tittle']}>Available on:</h2>
         <div className={styles['game-info-stores']}>
           {game[0].external_games && game[0].external_games.map(ext => {
             if (ext.category == '1') {
