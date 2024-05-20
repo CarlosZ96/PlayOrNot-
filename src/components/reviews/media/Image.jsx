@@ -6,7 +6,6 @@ import styles from '../../../stylesheets/reviews.module.css';
 const Image = ({ dynamiClass, reference, reference2, game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
   return (
     <div className={styles['game-extra-image-container']}>
-      <div onClick={dynamiClass} ref={reference2} className={styles['hide']}>Screenshots</div>
       <div ref={reference} className={styles['game-extra-image-container']}>
         {game[0].screenshots && game[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();

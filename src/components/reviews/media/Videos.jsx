@@ -3,7 +3,6 @@ import React from 'react'
 const Videos = () => {
   return (
     <div>
-      <div onClick={showMediaSection} ref={nodecla2} className={styles['hide']}>Screenshots</div>
       <div ref={nodecla} className={styles['hide']}>
         {GameDetailsReview[0].screenshots && GameDetailsReview[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();

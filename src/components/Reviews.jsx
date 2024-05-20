@@ -5,8 +5,8 @@ import Search from '../img/search.png';
 import Mncito from '../img/Mncito.png';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import  GameInfo from './reviews/GameInfo';
-import  MediaContainer from './reviews/media/MediaContainer';
+import GameInfo from './reviews/GameInfo';
+import MediaContainer from './reviews/media/MediaContainer';
 
 const Reviews = () => {
   var UID = uuidv4();
@@ -221,9 +221,11 @@ const Reviews = () => {
                   </div>
                 </div>
                 <div className={styles['game-extra-content-txt-container']}>
-                  <h1 className={styles['game-extra-content-txt']}>Extra Content</h1>
+                  <div className={styles['Screenshots-button']}>Screenshots</div>
+                  <div className={styles['Videos-button']}>Videos</div>
+                  <div className={styles['DLC-button']}>DLC</div>
                 </div>
-                <MediaContainer agame={GameDetailsReview}/>
+                <MediaContainer agame={GameDetailsReview} />
               </div>
             </div>
           )}
