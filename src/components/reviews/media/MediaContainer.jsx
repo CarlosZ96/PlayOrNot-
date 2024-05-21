@@ -24,28 +24,12 @@ const MediaContainer = ({ agame }) => {
     setSelectedCard((prev) => (prev === ImgTotalLenght ? 0 : prev + 1));
   };
 
-  const showMediaSection = () => {
-    const container = nodecla.current;
-    const container2 = nodecla2.current;
-    if (container.classList.contains(styles['game-extra-image-container'])) {
-      container.classList.remove(styles['game-extra-image-container']);
-      container.classList.add(styles['hide']);
-      container2.classList.add(styles['hidden']);
-      container2.classList.remove(styles['hide']);
-    } else {
-      container.classList.remove(styles['hide']);
-      container2.classList.remove(styles['hidden']);
-      container.classList.add(styles['game-extra-image-container']);
-      container2.classList.add(styles['hide']);
-    }
-  }
 
   return (
     <div className={styles['game-extra-info']}>
       <div className={styles['game-extra-media-container']}>
-        <ImageCont dynamiClass={showMediaSection} game={agame} selectedCard={selectedCard}
-          ImgTotalLenght={ImgTotalLenght} handleMoveRight={handleMoveRight} handleMoveLeft={handleMoveLeft}
-          reference={nodecla} reference2={nodecla2}/>
+        <ImageCont game={agame} selectedCard={selectedCard}
+          ImgTotalLenght={ImgTotalLenght} handleMoveRight={handleMoveRight} handleMoveLeft={handleMoveLeft}/>
       </div>
     </div>
   )

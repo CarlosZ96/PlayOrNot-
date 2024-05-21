@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../../../stylesheets/reviews.module.css';
+import MediaButtons from './../media/MediaButtons';
 
-const Image = ({ dynamiClass, reference, reference2, game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
+const Image = ({ reference, game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
+  const nodecla = useRef();
+  const showMediaSection = () => {
+    const container = nodecla.current;
+    if (container) {
+      if (container.classList.contains(styles['game-extra-image-container'])) {
+        container.classList.remove(styles['game-extra-image-container']);
+        container.classList.add(styles['hidden']);
+      } else {
+        container.classList.remove(styles['hidden']);
+        container.classList.add(styles['game-extra-image-container']);
+      }
+    }
+  }
+
   return (
-    <div className={styles['game-extra-image-container']}>
+    <div className={styles['game-extra-image-container']} ref={nodecla}>
+      <MediaButtons dinamicClass={showMediaSection} />
       <div ref={reference} className={styles['game-extra-image-container']}>
         {game[0].screenshots && game[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();
@@ -19,7 +35,7 @@ const Image = ({ dynamiClass, reference, reference2, game, handleMoveRight, hand
           else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
 
           return (
-            <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
+            <div key={UID} className={`${styles[cardClassName]}`}>
               <img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />
             </div>
           );
@@ -32,11 +48,9 @@ const Image = ({ dynamiClass, reference, reference2, game, handleMoveRight, hand
 }
 
 Image.propTypes = {
-  dynamiClass: PropTypes.func.isRequired,
+  reference: PropTypes.object.isRequired,
   handleMoveRight: PropTypes.func.isRequired,
   handleMoveLeft: PropTypes.func.isRequired,
-  reference: PropTypes.object.isRequired,
-  reference2: PropTypes.object.isRequired,
   game: PropTypes.array.isRequired,
   selectedCard: PropTypes.number.isRequired,
   ImgTotalLenght: PropTypes.number.isRequired,

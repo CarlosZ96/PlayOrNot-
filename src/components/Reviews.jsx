@@ -45,6 +45,24 @@ const Reviews = () => {
   }, []);
 
   const node = useRef();
+  const imgRef = useRef();
+  const nodecla2 = useRef();
+
+  const showMediaSection = () => {
+    const imgContaineRef = imgRef.current;
+    const container2 = nodecla2.current;
+    if (imgContaineRef.classList.contains(styles['game-extra-image-container'])) {
+      imgContaineRef.classList.remove(styles['game-extra-image-container']);
+      imgContaineRef.classList.add(styles['hide']);
+      container2.classList.add(styles['hidden']);
+      container2.classList.remove(styles['hide']);
+    } else {
+      imgContaineRef.classList.remove(styles['hide']);
+      container2.classList.remove(styles['hidden']);
+      imgContaineRef.classList.add(styles['game-extra-image-container']);
+      container2.classList.add(styles['hide']);
+    }
+  }
 
   const handleGameItemClick = (gameName) => {
     setGameNameFiltered(gameName);
@@ -219,11 +237,6 @@ const Reviews = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className={styles['game-extra-content-txt-container']}>
-                  <div className={styles['Screenshots-button']}>Screenshots</div>
-                  <div className={styles['Videos-button']}>Videos</div>
-                  <div className={styles['DLC-button']}>DLC</div>
                 </div>
                 <MediaContainer agame={GameDetailsReview} />
               </div>

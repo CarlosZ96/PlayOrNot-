@@ -105,6 +105,13 @@
   color: #fff;
 }
 
+.Screenshots-buttonh{
+  background-color: #3d5afe;
+  color: #fff;
+  height: 100%;
+  width: 15%;
+}
+
 .Screenshots-button{
   height: 100%;
   width: 70%;
@@ -550,7 +557,7 @@
   width: 100%;
   background-color: #001b51;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
