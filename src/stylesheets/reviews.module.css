@@ -565,6 +565,19 @@
   transition: transform 0.5s ease;
 }
 
+.game-image-container {
+  height: 100%;
+  width: 100%;
+  background-color: #001b51;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 9px;
+  transition: transform 0.5s ease;
+}
+
 .game-extre-images-cont {
   display: flex;
   flex-direction: row;
@@ -576,7 +589,7 @@
 }
 
 .game-extra-videos-container {
-  height: 80%;
+  height: 100%;
   width: 100%;
   background-color: #f8742d;
   display: flex;

@@ -10,22 +10,25 @@ const MediaButtons = ({ dinamicClass }) => {
   const handleMediaSectionToggle = (ref) => {
     const container = ref.current;
     if (container) {
-      const isActive = container.classList.contains('selected');
-      if (!isActive) {
-        container.classList.add('selected');
-        container.classList.remove('unselected');
-      } else {
-        container.classList.add('unselected');
-        container.classList.remove('selected');
+      if (!container.classList.contains(styles['selected'])) {
+        screenshotsRef.current.classList.remove(styles['selected']);
+        videosRef.current.classList.remove(styles['selected']);
+        dlcRef.current.classList.remove(styles['selected']);
+        screenshotsRef.current.classList.add(styles['unselected']);
+        videosRef.current.classList.add(styles['unselected']);
+        dlcRef.current.classList.add(styles['unselected']);
+        container.classList.remove(styles['unselected']);
+        container.classList.add(styles['selected']);
+        dinamicClass();
       }
     }
   };
 
   return (
     <div className={styles['game-extra-content-txt-container']}>
-      <div onClick={() => { handleMediaSectionToggle(screenshotsRef); dinamicClass(); }} ref={screenshotsRef} className={styles['selected']}>Screenshots</div>
-      <div onClick={() => { handleMediaSectionToggle(videosRef); dinamicClass(); }} ref={videosRef} className={styles['unselected']}>Videos</div>
-      <div onClick={() => { handleMediaSectionToggle(dlcRef); dinamicClass(); }} ref={dlcRef} className={styles['unselected']}>DLC</div>
+      <div onClick={() => { handleMediaSectionToggle(screenshotsRef); }} ref={screenshotsRef} className={styles['selected']}>Screenshots</div>
+      <div onClick={() => { handleMediaSectionToggle(videosRef); }} ref={videosRef} className={styles['unselected']}>Videos</div>
+      <div onClick={() => { handleMediaSectionToggle(dlcRef); }} ref={dlcRef} className={styles['unselected']}>DLC</div>
     </div>
   )
 }
