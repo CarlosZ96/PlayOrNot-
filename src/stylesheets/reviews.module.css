@@ -105,14 +105,14 @@
   color: #fff;
 }
 
-.Screenshots-buttonh{
-  background-color: #3d5afe;
+.unselected{
+  background-color: #2542ec;
   color: #fff;
   height: 100%;
   width: 15%;
 }
 
-.Screenshots-button{
+.selected{
   height: 100%;
   width: 70%;
   display: flex;

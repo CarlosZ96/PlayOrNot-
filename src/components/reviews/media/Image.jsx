@@ -6,16 +6,27 @@ import MediaButtons from './../media/MediaButtons';
 
 const Image = ({ reference, game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
   const nodecla = useRef();
+  const nodecla2 = useRef();
   const showMediaSection = () => {
     const container = nodecla.current;
-    if (container) {
-      if (container.classList.contains(styles['game-extra-image-container'])) {
-        container.classList.remove(styles['game-extra-image-container']);
-        container.classList.add(styles['hidden']);
-      } else {
-        container.classList.remove(styles['hidden']);
-        container.classList.add(styles['game-extra-image-container']);
-      }
+    const container2 = nodecla2.current;
+    
+
+    if (container.classList.contains(styles['game-extra-image-container'])) {
+      container.classList.remove(styles['game-extra-image-container']);
+      container.classList.add(styles['hide']);
+    } else {
+      container.classList.remove(styles['hide']);
+      container.classList.add(styles['game-extra-image-container']);
+    }
+  
+
+    if (container2.classList.contains(styles['game-extra-image-container'])) {
+      container2.classList.remove(styles['game-extra-image-container']);
+      container2.classList.add(styles['hide']);
+    } else {
+      container2.classList.remove(styles['hide']);
+      container2.classList.add(styles['game-extra-image-container']);
     }
   }
 
@@ -43,6 +54,28 @@ const Image = ({ reference, game, handleMoveRight, handleMoveLeft, selectedCard,
         <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
+      <div ref={nodecla2} className={styles['hide']}>
+        {game[0].videos && game[0].videos.map((screenshots, index) => {
+          const UID = uuidv4();
+          const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
+          const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
+          let cardClassName = '';
+
+          if (distanceToLeft === 0) cardClassName += 'centered';
+          else if (distanceToLeft === 1) cardClassName += 'left';
+          else if (distanceToRight === 1) cardClassName += 'right';
+          else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
+
+          return (
+            <div key={UID} className={`${styles[cardClassName]} ${cardClassName}`}>
+              <img src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshots.image_id}.webp`} alt="game-image" className={styles['game-extre-img']} />
+            </div>
+          );
+        })}
+        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
+        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
+      </div>
+
     </div>
   )
 }
