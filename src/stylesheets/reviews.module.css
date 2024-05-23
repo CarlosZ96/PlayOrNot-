@@ -148,7 +148,6 @@
   gap: 1%;
 }
 
-
 .input-button-container {
   height: 100%;
   width: 75%;
@@ -200,7 +199,6 @@
   padding: 0;
   margin: 0;
   border-width: 0 0 0 3px;
-  /* top right bottom left */
   border-style: solid;
   border-color: #fff;
   background-color: #001b51;
@@ -214,7 +212,7 @@
   height: 100%;
 }
 
-.options-buttons-container>button:hover {
+.options-buttons-container > button:hover {
   outline: solid #3d5afe;
   color: #3d5afe;
   background-color: #070941;
@@ -622,8 +620,10 @@
   opacity: 1;
   filter: blur(1px);
   transform: translateX(-30%);
-  mask-image: linear-gradient(black 90%,
-      transparent);
+  mask-image:
+  linear-gradient(
+    black 90%,
+    transparent);
 }
 
 .right {
@@ -634,8 +634,10 @@
   opacity: 1;
   filter: blur(1px);
   transform: translateX(30%);
-  mask-image: linear-gradient(black 80%,
-      transparent);
+  mask-image:
+  linear-gradient(
+  black 80%,
+  transparent);
 }
 
 .game-extre-img {
@@ -651,7 +653,7 @@
   z-index: 110;
   position: absolute;
   background-color: #bcbcbca9;
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0 50px 50px 0;
 }
 
 .game-extra-screenshots-button-r {
