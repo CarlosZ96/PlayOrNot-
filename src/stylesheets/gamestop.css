@@ -3,8 +3,8 @@
 }
 
 .Ranking {
-  width: 35%;
-  height: 95%;
+  width: 40%;
+  height: 100%;
 }
 
 .top-title {
@@ -15,17 +15,27 @@
   background-color: #01012b;
   color: #00f3ff;
   margin: 0;
-  height: 12%;
+  height: 10%;
   text-align: center;
   border: 5px #00f3ff solid;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-size: 3.5vh;
 }
 
 .list-top-container {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 5px #00f3ff solid;
-  height: 85%;
+  border-width: 0 5px 0 5px;
+  border-style: solid;
+  border-color: #00f3ff;
+  height: 88%;
+  overflow-y: scroll;
+  gap: 2%;
+  background-color: #16397d;
 }
 
 .top-list {
@@ -34,27 +44,73 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  height: 10%;
-  padding: 0 3% 0 3%;
+  height: 30%;
+  padding: 0 1% 0 1%;
+  background-color: #01012b;
+}
+
+.top-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  background-color: #001b51;
+  width: 100%;
+  border-bottom-right-radius: 100px;
 }
 
 .list-item {
   padding: 0;
   margin: 0;
-  color: #00f3ff;
+  color: #6398ff;
+  font-size: 2.7vh;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  text-align: start;
 }
 
-.list-item-r {
+.top-info-container {
+  width: 74%;
+  height: 100%;
+  padding-left: 1%;
+}
+
+.game-rating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 90%;
   padding: 0;
   margin: 0;
-  color: #00f3ff;
   font-size: larger;
 }
 
-.top-list:nth-child(odd) {
-  background-color: #001b51;
+.list-item-r {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #8633f0;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 6vh;
+  font-family: "Paytone One", sans-serif;
+  border-radius: 5px;
 }
 
-.top-list:nth-child(even) {
-  background-color: #1f3154;
+.top-image {
+  height: 95%;
+  width: 11%;
+}
+
+.game-date {
+  color: #fff;
+  font-family: "Paytone One", sans-serif;
+  font-size: 2vh;
+  text-align: start;
+  padding-top: 2%;
 }

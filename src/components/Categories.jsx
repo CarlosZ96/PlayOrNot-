@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Shooter from '../img/Duck_Hunt.gif';
+import Header from '../components/Header';
 import '../stylesheets/Categories.css';
+import '../stylesheets/app.css';
+import back from '../img/categoriesback.jpg';
 
 export default function Categories() {
   const [categoriesApi, setCategoriesApi] = useState([]);
@@ -14,7 +16,7 @@ export default function Categories() {
         limit 30;`;
         const headers = {
           'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-          'Authorization': 'Bearer yol7xd1r00hd58t8i081u1a2yzjcsm',
+          'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
           'Content-Type': 'text/plain',
         };
 
@@ -40,12 +42,32 @@ export default function Categories() {
 
   return (
     <div className='Categories-container'>
-      {categoriesApi.map(category => (
-        <div key={category.id} className='categorie-card'>
-          <img src={Shooter} alt="" className='cat-img' />
-          <h1 className='categorie-name'>{category.name}</h1>
+      <Header />
+      <div className='Categories-body-container' style={{ backgroundImage: `url(${back})` }}>
+        <div className='back-effect'></div>
+        <div className='categories-cards-container'>
+          <div className='Cards-Container'>
+            {categoriesApi.map(category => (
+              <button key={category.id} className='learn-more'>
+                <div className='img-container'>
+                  <img src={require(`../img/${category.name}.gif`)} alt="" className='cat-img' />
+                </div>
+                <div className='categorie-name-container'>
+                  <h1 className='categorie-name'>
+                    {category.name === 'Role-playing (RPG)' ? 'RPG' : category.name}
+                  </h1>
+                </div>
+              </button>
+            ))}
+          </div>
+          <div className='back'>
+          </div>
         </div>
-      ))}
+        <div className='caregorie-container'>
+          <h1>CATEGORIES</h1>
+        </div>
+      </div>
+      {console.log('render')}
     </div>
   );
 }

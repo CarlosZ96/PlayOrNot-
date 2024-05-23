@@ -1,0 +1,205 @@
+.t-header-container {
+  width: 100%;
+  height: 100%;
+}
+
+.h-container {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #131129;
+}
+
+.options-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  height: 100%;
+  width: 63%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3%;
+}
+
+.h-options-button {
+  background-color: #211c49;
+  width: 33%;
+  height: 80%;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 200;
+  font-size: 4vh;
+  border-radius: 8px;
+}
+
+.h-options-button:hover {
+  background-color: #211c49;
+  color: #3d5afe;
+  font-size: 4.2vh;
+  outline: solid #3d5afe;
+}
+
+.input-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #131129;
+}
+
+.input-game-review {
+  width: 100%;
+  height: 80%;
+  background-color: #131129;
+  border-radius: 10px;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 200;
+  font-size: 2.5vh;
+  border: none;
+}
+
+.input-game-review:focus {
+  border: none;
+  outline: none;
+  color: #3d5afe;
+}
+
+.input-game-button {
+  width: 20%;
+  height: 74%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.input-game-review::placeholder {
+  font-size: medium;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+  opacity: 0.8;
+}
+
+.search-containerd {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #131129;
+  border: 3px #456dba solid;
+  border-radius: 10px;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 200;
+  padding-left: 4%;
+  font-size: 2.5vh;
+}
+
+.search-containerd:hover {
+  outline: thick double #3d5afe;
+  border: none;
+}
+
+.search-containerd::placeholder:focus {
+  color: #0026ff;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.LogIn {
+  width: 10%;
+  height: 100%;
+}
+
+.search-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  background: #131129;
+  position: relative;
+}
+
+.input-games-found-expanded {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 360px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  background-color: #131129;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow-y: scroll;
+  z-index: 101;
+}
+
+.input-games-found-expanded::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #211c49;
+}
+
+.input-games-found-expanded::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 8px;
+  background-color: #3d5afe;
+}
+
+.hide {
+  display: none;
+}
+
+.games-found-container-li {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  padding-left: 4%;
+  padding-bottom: 3%;
+  cursor: pointer;
+}
+
+.games-found-name {
+  color: #fff;
+  padding: 0;
+  border: none;
+  width: 80%;
+  text-align: start;
+}
+
+.search-img {
+  height: 30px;
+  width: 30px;
+}

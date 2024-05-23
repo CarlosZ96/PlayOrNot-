@@ -1,42 +1,52 @@
 .releases-container {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  border-left: 5px #00f3ff solid;
 }
 
 .releases-title {
   color: #00f3ff;
-  margin: 0;
   text-align: center;
-  font-size: 45px;
-  border: 5px #00f3ff solid;
+  justify-content: center;
+  font-size: 25px;
+  border-width: 5px 0 5px 0;
+  border-style: solid;
+  border-color: #00f3ff;
   background-color: #01012b;
   font-family: "Paytone One", sans-serif;
   font-weight: 300;
   font-style: normal;
+  margin: 0;
+  padding: 0;
+  height: 8%;
+  width: 100%;
 }
 
 .releases {
   display: flex;
   flex-direction: row;
-  height: 500px;
+  height: 84%;
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 2%;
 }
 
 .release-card {
   display: flex;
   flex-direction: column;
-  width: 150px;
-  height: 300px;
-  border-radius: 10px;
-  background-color: #00f3ff;
   justify-content: center;
   align-items: center;
-  padding: 0.5%;
+  width: 15%;
+  height: 56%;
+  border-radius: 10px;
+  background-color: #01012b;
   gap: 2%;
+  transition: transform 0.5s ease;
+  position: absolute;
+  border: 10px #456dba solid;
 }
 
 .card-container {
@@ -51,15 +61,109 @@
 }
 
 .game-image {
-  width: 95%;
-  height: 95%;
+  width: 87%;
+  height: 69%;
+  border-radius: 12px;
 }
 
 .new {
   width: 100%;
-  height: 50px;
-  background-color: #01012b;
-  color: #00f3ff;
+  background-color: #456dba;
+  color: #01012b;
   text-align: center;
+  height: max-content;
   margin: 0;
+  font-size: 4vh;
+  font-family: "Paytone One", sans-serif;
+}
+
+.platforms {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  gap: 12%;
+}
+
+.game-release-button-container {
+  display: flex;
+  width: 50%;
+  height: 10%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #12122e;
+  border-width: 5px 5px 5px 5px;
+  border-style: solid;
+  border-color: #456dba;
+  border-radius: 10px;
+  margin-bottom: 2%;
+}
+
+.side-button {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.button-img {
+  height: 100%;
+  width: 100%;
+}
+
+.release-card.centered {
+  transform: scale(0.9);
+  background-color: #000229;
+  z-index: 100;
+  color: #00f3ff;
+  border: 8px #456dba solid;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 56%;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.release-card.left {
+  transform: translateX(-70%) scale(0.8);
+  z-index: 80;
+  opacity: 1;
+  filter: blur(1.5px);
+}
+
+.release-card.right {
+  transform: translateX(70%) scale(0.8);
+  z-index: 80;
+  opacity: 1;
+  filter: blur(1.5px);
+}
+
+.release-card.left-small {
+  transform: translateX(-110%) scale(0.7);
+  z-index: 70;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.release-card.right-small {
+  transform: translateX(110%) scale(0.7);
+  z-index: 70;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.platforms-img {
+  height: 100%;
+}
+
+.game-data-releases {
+  font-size: x-large;
+  color: #456dba;
+  font-family: "Paytone One", sans-serif;
 }

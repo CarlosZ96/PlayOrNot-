@@ -1,10 +1,234 @@
 .mid {
   display: flex;
   flex-direction: column;
-  height: 90%;
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #001b51;
+  justify-content: center;
+}
+
+.search-header-container {
+  width: 100%;
+  display: flex;
+  height: 10%;
+}
+
+.reduce {
+  display: flex;
+  width: 65%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  background-color: #01012b;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.header-container {
+  display: flex;
+  width: 65%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  background-color: #01012b;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #01012b;
+  margin: 0;
+  width: 35%;
+  height: 100%;
+}
+
+.expand {
+  display: flex;
+  flex-direction: column;
+  background-color: #01012bf5;
+  margin: 0;
+  width: 35%;
+  height: max-content;
+  position: fixed;
+  left: 65%;
+  border-radius: 10px;
+}
+
+.tittle {
+  color: #00f3ff;
+  width: 200px;
+  margin: 0;
+  font-size: 4vh;
+}
+
+.options-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  width: 80%;
+  height: 100%;
+}
+
+.search-button {
+  width: 45px;
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  border: 5px #00f3ff solid;
+  color: #00f3ff;
+  background-color: #01012b;
+  border-top-right-radius: 23px;
+  border-bottom-right-radius: 23px;
+}
+
+.options-button {
+  background-color: #1f3154;
+  color: #0bffa7;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  height: 7vh;
+  width: 90%;
+  font-size: 3vh;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+}
+
+.searchi {
+  height: 45px;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  border: 5px #00f3ff solid;
+  background-color: #01012b;
+  border-top-left-radius: 23px;
+  border-bottom-left-radius: 23px;
+  color: #00f3ff;
+  padding-left: 10px;
+}
+
+.searchi::placeholder {
+  font-size: medium;
+  color: #00f3ff;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+  opacity: 0.5;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: #01012b;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  gap: 10%;
+}
+
+.LogIn {
+  background: none;
+  border: none;
 }
 
 .Consoles {
   display: flex;
-  height: 20%;
+  height: 10%;
+}
+
+.platform {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px #00f3ff solid;
+  background-color: #01012b;
+  padding: 5px;
+}
+
+.platform-img {
+  width: 20%;
+  height: 85%;
+}
+
+.find-games-container {
+  height: 240px;
+  color: #00f3ff;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 4%;
+  overflow-y: scroll;
+}
+
+.find-games-container::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+.find-games-container::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 8px;
+  background-color: #153fd7;
+  border-radius: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.Game-Find-Container {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  text-decoration: none;
+}
+
+.Game-Name {
+  color: #153fd7;
+  font-size: 3vh;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.gamef-image {
+  width: 80px;
+  height: 100px;
+  margin-right: 4%;
 }
