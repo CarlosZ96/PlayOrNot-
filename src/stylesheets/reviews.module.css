@@ -106,10 +106,13 @@
 }
 
 .unselected{
-  background-color: #2542ec;
-  color: #fff;
+  background-color: #1f3154;
+  color: #6398ff;
   height: 100%;
   width: 15%;
+  padding: 1%;
+  text-align: center;
+  font-family: "K2D", sans-serif;
 }
 
 .selected{
@@ -119,8 +122,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #3d5afe;
-  color: #fff;
+  background-color: #000229;
+  color: #3d5afe;
+  font-family: "K2D", sans-serif;
+  font-weight: 600;
 }
 
 .DLC-button{
@@ -462,8 +467,8 @@
 }
 
 .game-extra-content-txt-container {
-  height: 5%;
-  width: 96%;
+  height: 10%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -843,4 +848,24 @@
   position: absolute;
   top: 0;
   z-index: 80;
+}
+
+.game-dlcs-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.game-dlc-container{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #6398ff;
+  max-height: 60%;
 }

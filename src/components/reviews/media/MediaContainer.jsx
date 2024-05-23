@@ -2,11 +2,8 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../../stylesheets/reviews.module.css';
 import ImageCont from '../../reviews/media/Image';
-import { v4 as uuidv4 } from 'uuid';
 
 const MediaContainer = ({ agame }) => {
-  const nodecla = useRef();
-  const nodecla2 = useRef();
 
   const ImgTotalLenght = agame && agame[0] && agame[0].screenshots
     ? (agame[0].screenshots.length - 1) : 0;

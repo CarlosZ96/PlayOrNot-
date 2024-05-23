@@ -77,7 +77,7 @@ const Reviews = () => {
           method: 'POST',
           headers: headers,
           body: `fields name,rating,rating_count,total_rating,total_rating,total_rating_count,screenshots.image_id,
-          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,external_games.url,external_games.category,
+          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,dlcs.release_dates.human,external_games.url,external_games.category,
           first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category,artworks.image_id;
           where name ~ *"${gameName}"* & category = 0;
           sort total_rating_count desc; limit 5;`
@@ -102,7 +102,7 @@ const Reviews = () => {
           method: 'POST',
           headers: headers,
           body: `fields name,rating,rating_count,total_rating,total_rating,total_rating_count,screenshots.image_id,
-          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,dlcs.screenshots.image_id,external_games.url,external_games.category,
+          cover.image_id,videos.video_id,dlcs.name,dlcs.cover.image_id,dlcs.screenshots.image_id,dlcs.release_dates.human,external_games.url,external_games.category,
           first_release_date,release_dates.human,release_dates.date,genres.name,platforms.name,category,artworks.image_id;
           where name ~ *"${gameNameFiltered}"* & category = 0;
           sort total_rating_count desc; limit 1;`
