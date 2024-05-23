@@ -72,7 +72,7 @@
   font-size: 4vh;
 }
 
-.options-buttons-container{
+.options-buttons-container {
   display: flex;
   flex-direction: row;
   gap: 2%;
@@ -129,7 +129,7 @@
   padding-left: 10px;
 }
 
-.searchi::placeholder{
+.searchi::placeholder {
   font-size: medium;
   color: #00f3ff;
   font-family: "Paytone One", sans-serif;
@@ -203,7 +203,7 @@
 .find-games-container::-webkit-scrollbar-thumb {
   width: 8px;
   height: 8px;
-  background-color:#153fd7;
+  background-color: #153fd7;
   border-radius: 10px;
 }
 

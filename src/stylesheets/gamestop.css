@@ -30,7 +30,6 @@
   padding: 0;
   margin: 0;
   border-width: 0 5px 0 5px;
-  /* top right bottom left */
   border-style: solid;
   border-color: #00f3ff;
   height: 88%;
@@ -63,7 +62,7 @@
 .list-item {
   padding: 0;
   margin: 0;
-  color: #6398FF;
+  color: #6398ff;
   font-size: 2.7vh;
   font-family: "Paytone One", sans-serif;
   font-weight: 400;

@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent
 }
-
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .Categories-container {
   display: flex;

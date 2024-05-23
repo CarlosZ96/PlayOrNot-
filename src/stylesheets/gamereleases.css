@@ -13,7 +13,6 @@
   justify-content: center;
   font-size: 25px;
   border-width: 5px 0 5px 0px;
-  /* top right bottom left */
   border-style: solid;
   border-color: #00f3ff;
   background-color: #01012b;
@@ -166,7 +165,7 @@
   height: 100%;
 }
 
-.game-data-releases{
+.game-data-releases {
   font-size: x-large;
   color: #456dba;
   font-family: "Paytone One", sans-serif;

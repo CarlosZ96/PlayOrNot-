@@ -67,24 +67,21 @@
   font-family: "Paytone One", sans-serif;
   font-weight: 200;
   font-size: 2.5vh;
-  border: none;  
+  border: none;
 }
 
 .input-game-review:focus {
   border: none;
   outline: none;
-}
-
-.input-game-review:focus {
   color: #3d5afe;
 }
 
 .input-game-button {
   width: 20%;
   height: 74%;
-  border: none;
-  margin: none;
-  padding: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .input-game-review::placeholder {
@@ -95,16 +92,7 @@
   opacity: 0.8;
 }
 
-.search-containerd::placeholder:focus {
-  color: #0026ff;
-}
-
-.search-containerd:hover {
-  outline: thick double #3d5afe;
-  border: none;
-}
-
-.search-containerd{
+.search-containerd {
   width: 100%;
   height: 80%;
   display: flex;
@@ -122,6 +110,15 @@
   font-size: 2.5vh;
 }
 
+.search-containerd:hover {
+  outline: thick double #3d5afe;
+  border: none;
+}
+
+.search-containerd::placeholder:focus {
+  color: #0026ff;
+}
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -135,7 +132,7 @@
   height: 100%;
 }
 
-.search-game-container{
+.search-game-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,7 +169,7 @@
 .input-games-found-expanded::-webkit-scrollbar-thumb {
   width: 6px;
   height: 8px;
-  background-color:#3d5afe;
+  background-color: #3d5afe;
 }
 
 .hide {
@@ -202,7 +199,7 @@
   text-align: start;
 }
 
-.search-img{
+.search-img {
   height: 30px;
   width: 30px;
 }

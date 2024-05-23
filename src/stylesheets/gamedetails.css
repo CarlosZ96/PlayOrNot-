@@ -1,4 +1,4 @@
-.game-details-container-a{
+.game-details-container-a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -35,19 +35,15 @@
   text-align: center;
 }
 
-.game-details-img-container{
+.game-details-img-container {
   position: relative;
 }
 
-.game-details-videos-container{
+.game-details-videos-container {
   position: relative;
 }
 
-.game-details-img{
-  position: absolute;
-}
-
-.game-details-img{
+.game-details-img {
   height: 20vh;
   width: 18vw;
   position: absolute;
