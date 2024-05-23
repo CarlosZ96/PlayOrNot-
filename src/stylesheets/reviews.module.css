@@ -621,9 +621,10 @@
   filter: blur(1px);
   transform: translateX(-30%);
   mask-image:
-  linear-gradient(
-  black 90%,
-  transparent);
+      linear-gradient(
+      black 90%,
+      transparent
+  );
 }
 
 .right {
@@ -635,9 +636,10 @@
   filter: blur(1px);
   transform: translateX(30%);
   mask-image:
-  linear-gradient(
-  black 80%,
-  transparent);
+      linear-gradient(
+      black 80%,
+        transparent
+  );
 }
 
 .game-extre-img {
