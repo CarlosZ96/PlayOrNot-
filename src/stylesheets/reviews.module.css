@@ -622,8 +622,8 @@
   transform: translateX(-30%);
   mask-image:
   linear-gradient(
-    black 90%,
-    transparent);
+  black 90%,
+  transparent);
 }
 
 .right {
