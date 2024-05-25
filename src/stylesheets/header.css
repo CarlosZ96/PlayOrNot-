@@ -37,14 +37,15 @@
   color: #456dba;
   font-family: "Paytone One", sans-serif;
   font-weight: 200;
-  font-size: 4vh;
+  font-size: 3.5vh;
   border-radius: 8px;
+  padding: 1.2% 2% 4% 2%;
 }
 
 .h-options-button:hover {
   background-color: #211c49;
   color: #3d5afe;
-  font-size: 4.2vh;
+  font-size: 3.6vh;
   outline: solid #3d5afe;
 }
 

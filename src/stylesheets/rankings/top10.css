@@ -1,0 +1,24 @@
+.Ranking-games-container{
+  height: 80%;
+}
+
+.Ranking-game-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Rankings-game-info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
+
+.Rankings-game-rating{
+  text-align: center;
+  background-color: blueviolet;
+  border-radius: 9px;
+}

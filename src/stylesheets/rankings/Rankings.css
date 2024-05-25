@@ -1,0 +1,66 @@
+.All-rankings-Container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: #061466;
+}
+
+.rankings-body{
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Rankings-Container{
+  height: 95%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: aliceblue;
+  overflow-y: scroll;
+  margin: 0 1% 0 1%;
+}
+
+.rankings-consoles-container{
+  height: 95%;
+  width: 35%;
+  background-color: dodgerblue;
+  margin-right: 1%;
+}
+
+.Rankings-years-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.rankings-consoles-title{
+  height: 20%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+}
+.rankings-consoles-console-name{
+  height: 16%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  color: aliceblue;
+}

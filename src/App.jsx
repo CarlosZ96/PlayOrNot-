@@ -6,6 +6,7 @@ import Categories from './components/Categories';
 import GameDetails from './components/GameDetails';
 import Reviews from './components/Reviews';
 import CategorieItem from './components/CategorieItem';
+import Rankings from './components/Rankings';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/Reviews" element={<Reviews />} />
+        <Route path="/Rankings" element={<Rankings />} />
         <Route path="/GameDetails" element={<GameDetails />} />
         <Route path="/CategorieItem" element={<CategorieItem />} />
       </Routes>
