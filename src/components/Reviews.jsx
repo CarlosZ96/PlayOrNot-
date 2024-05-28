@@ -3,7 +3,7 @@ import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
 import Mncito from '../img/Mncito.png';
-import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import GameInfo from './reviews/GameInfo';
 import MediaContainer from './reviews/media/MediaContainer';
@@ -168,9 +168,9 @@ const Reviews = () => {
               <h1 className='tittle'>Play Or Not?</h1>
             </div>
             <div className={styles['options-buttons-container']}>
-              <button className={styles['options-button']}>Home</button>
-              <button className={styles['options-button']}>Category</button>
-              <button className={styles['options-button']}>Rankings</button>
+              <NavLink to="/" className={styles['options-button']}>Home</NavLink>
+              <NavLink to="/Categories" className={styles['options-button']}>Category</NavLink>
+              <NavLink to="/Rankings" className={styles['options-button']}>Rankings</NavLink>
             </div>
           </div>
           <button className='LogIn'><img src={LogIn} alt="LogIn" className='Mar' /></button>

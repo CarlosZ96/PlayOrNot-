@@ -1,24 +1,83 @@
-.Ranking-games-container{
-  height: 80%;
-}
-
-.Ranking-game-container{
+.Ranking-game-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 99%;
+  height: 24vh;
+  background-color: #fff;
+  margin-bottom: 1%;
+  border-radius: 9px;
 }
 
-.Rankings-game-info-container{
+.Ranking-game-container:nth-child(1) {
+  margin-top: 1%;
+}
+
+.Rankings-game-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: blue;
+  width: 86%;
 }
 
-.Rankings-game-rating{
+.Rankings-game-info-details-container{
+  height: 64%;
+  max-width: 80%;
+  color: #000229;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+  padding-left: 1%;
+}
+
+.Rankings-game-info-details-container:nth-child(1){
+  padding-top: 1%;
+}
+
+.Rankings-game-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: blueviolet;
+  color: #fff;
+  font-size: 6vh;
   border-radius: 9px;
+  height: 70%;
+  width: 13%;
+  margin: 2% 1.5% 2% 1%;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+}
+
+.rankings-image {
+  height: 98%;
+  width: 14%;
+  border: 3px solid #000;
+  margin-left: 0.8%;
+}
+
+.Rankings-game-title {
+  height: 35%;
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+  background-color: #061466;
+  color: #6398ff;
+  border-bottom-right-radius: 50px;
+  padding-left: 1%;
+  font-size: x-large;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
+}
+
+.ratings-name-txt{
+  color: #000229;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 100;
 }

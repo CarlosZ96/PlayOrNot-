@@ -3,35 +3,33 @@ import PropTypes from 'prop-types';
 import Top10 from '../components/Top10';
 import '../stylesheets/rankings/Rankings.css';
 import Header from '../components/Header';
+import wuarrow from '../img/Left.png';
 
 const Rankings = () => {
-  const [currentYearIndex, setCurrentYearIndex] = useState(0);
-  const years = ['2020', '2021', '2022', '2023', 'AllTimes'];
+  const [selectedYear, setSelectedYear] = useState('2021');
+  const years = ['2021', '2022', '2023', 'AllTimes'];
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     const fetchGames = async () => {
-      let timeFrame;
-      switch (years[currentYearIndex]) {
-        case '2020':
-          timeFrame = "where first_release_date >= 1577854800 & first_release_date <= 1609390800  &";
-          break;
-        case '2021':
-          timeFrame = "where first_release_date >= 1609477200 & first_release_date <= 1640926800  &";
-          break;
-        case '2022':
-          timeFrame = "where first_release_date >= 1641013200 & first_release_date <= 1672462800  &";
-          break;
-        case '2023':
-          timeFrame = "where first_release_date >= 1672549200 & first_release_date <= 1703998800  &";
-          break;
-        default:
-          timeFrame = "where";
-          break;
+      let start, end;
+      console.log('render');
+      if (selectedYear === '2021') {
+        start = 1609477200;
+        end = 1640926800;
+      } else if (selectedYear === '2022') {
+        start = 1641013200;
+        end = 1672462800;
+      } else if (selectedYear === '2023') {
+        start = 1672549200;
+        end = 1703998800;
+      } else {
+        start = 0;
+        end = Date.now() / 1000; // AllTimes
       }
 
       const body = `fields name,release_dates.human,total_rating,total_rating_count,platforms.name,cover.image_id;
-        ${timeFrame} total_rating_count >= 110 & category=0;
+        where first_release_date >= ${start} & first_release_date <= ${end} & total_rating_count >= 110 & category=0;
         sort total_rating desc; limit 10;`;
 
       const response = await fetch('http://localhost:8080/https://api.igdb.com/v4/games/', {
@@ -47,21 +45,22 @@ const Rankings = () => {
       if (response.ok) {
         const data = await response.json();
         setGames(data);
-        console.log(games);
       } else {
         console.error('Error fetching data');
       }
     };
 
     fetchGames();
-  }, [currentYearIndex, years]);
+  }, [selectedYear]);
 
   const handleNextYear = () => {
-    setCurrentYearIndex((prevIndex) => (prevIndex + 1) % years.length);
+    const currentIndex = years.indexOf(selectedYear);
+    setSelectedYear(years[(currentIndex + 1) % years.length]);
   };
 
   const handlePreviousYear = () => {
-    setCurrentYearIndex((prevIndex) => (prevIndex - 1 + years.length) % years.length);
+    const currentIndex = years.indexOf(selectedYear);
+    setSelectedYear(years[(currentIndex - 1 + years.length) % years.length]);
   };
 
   return (
@@ -70,9 +69,9 @@ const Rankings = () => {
       <div className='rankings-body'>
         <div className='Rankings-Container'>
           <div className='Rankings-years-container'>
-            <button onClick={handlePreviousYear}>&lt;</button>
-            <span>{years[currentYearIndex]}</span>
-            <button onClick={handleNextYear}>&gt;</button>
+            <button className='years-button' onClick={handlePreviousYear}>&lt;</button>
+            <span className='years-name'>{selectedYear}</span>
+            <button className='years-button' onClick={handleNextYear}>&gt;</button>
           </div>
           <Top10 games={games} />
         </div>

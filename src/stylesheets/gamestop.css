@@ -1,3 +1,10 @@
+.Rankings-games-container{
+  height: 100%;
+  width: 100%;
+  background-color: #16397d;
+  overflow-y: scroll;
+}
+
 .top-container {
   height: 100%;
 }
@@ -33,7 +40,6 @@
   border-style: solid;
   border-color: #00f3ff;
   height: 88%;
-  overflow-y: scroll;
   gap: 2%;
   background-color: #16397d;
 }

@@ -1,4 +1,4 @@
-.All-rankings-Container{
+.All-rankings-Container {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -8,7 +8,7 @@
   background-color: #061466;
 }
 
-.rankings-body{
+.rankings-body {
   height: 90%;
   width: 100%;
   display: flex;
@@ -17,33 +17,58 @@
   justify-content: center;
 }
 
-.Rankings-Container{
+.Rankings-Container {
   height: 95%;
   width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background-color: aliceblue;
-  overflow-y: scroll;
+  background-color: rgb(255, 240, 243);
   margin: 0 1% 0 1%;
 }
 
-.rankings-consoles-container{
+.rankings-consoles-container {
   height: 95%;
   width: 35%;
   background-color: dodgerblue;
   margin-right: 1%;
+  border-radius: 10px;
+  border: 3px #6398ff solid;
 }
 
-.Rankings-years-container{
+.Rankings-years-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: darkgrey;
+  height: 10%;
+  width: 100%;
 }
 
-.rankings-consoles-title{
+.years-button {
+  background-color: #000229;
+  width: 10%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: #fff;
+}
+
+.years-name{
+  background-color: #000229;
+  width: 90%;
+  height: 100%;
+  color: #6398ff;
+  text-align: center;
+  padding: 1% 2% 2% 2%;
+  font-family: "K2D", sans-serif;
+  font-size: xx-large;
+}
+
+.rankings-consoles-title {
   height: 20%;
   width: 100%;
   text-align: center;
@@ -51,9 +76,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: aliceblue;
+  color: #6398ff;
+  background-color: #000229;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 3px solid #6398ff; 
 }
-.rankings-consoles-console-name{
+
+.rankings-consoles-console-name {
   height: 16%;
   width: 100%;
   text-align: center;
@@ -61,6 +91,24 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: blue;
-  color: aliceblue;
+  background-color: #000229;
+  color: #fff;
+  border-bottom: 3px solid #6398ff;
+  font-size: 3.2vh;
+}
+
+.rankings-consoles-console-name:nth-child(6){
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: none;
+}
+
+.Rankings-game-info-container{
+  height: 99%;
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  background-color: #fff;
 }
