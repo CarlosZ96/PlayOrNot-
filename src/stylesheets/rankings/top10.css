@@ -1,3 +1,23 @@
+.years-rankings-games-container{
+  height: 100%;
+  width: 100%;
+  background-color: #000229b3;
+  overflow-y: scroll;
+}
+
+.years-rankings-games-container::-webkit-scrollbar {
+  width: 20px;
+  height: 8px;
+  background-color: #000229bc;
+}
+
+.years-rankings-games-container::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
 .Ranking-game-container {
   display: flex;
   flex-direction: row;
@@ -67,8 +87,8 @@
   align-items: start;
   justify-content: center;
   text-align: center;
-  background-color: #061466;
-  color: #6398ff;
+  background-color: #000229;
+  color: #00F3FF;
   border-bottom-right-radius: 50px;
   padding-left: 1%;
   font-size: x-large;

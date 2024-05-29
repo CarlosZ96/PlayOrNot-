@@ -5,6 +5,7 @@
   width: 60%;
   height: 100%;
   border-left: 5px #00f3ff solid;
+  background-color: #000229;
 }
 
 .releases-title {
@@ -21,7 +22,7 @@
   font-style: normal;
   margin: 0;
   padding: 0;
-  height: 8%;
+  height: 10%;
   width: 100%;
 }
 

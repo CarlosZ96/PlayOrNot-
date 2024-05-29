@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: start;
   background-color: #061466;
+  background-size: contain;
 }
 
 .rankings-body {
@@ -24,7 +25,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background-color: rgb(255, 240, 243);
+  background-color: rgba(255, 240, 243, 0.214);
   margin: 0 1% 0 1%;
 }
 
@@ -34,7 +35,8 @@
   background-color: dodgerblue;
   margin-right: 1%;
   border-radius: 10px;
-  border: 3px #6398ff solid;
+  border: 4px #00F3FF solid;
+  opacity: 0.95;
 }
 
 .Rankings-years-container {
@@ -57,14 +59,14 @@
   color: #fff;
 }
 
-.years-name{
+.years-name {
   background-color: #000229;
   width: 90%;
   height: 100%;
-  color: #6398ff;
+  color: #00F3FF;
   text-align: center;
   padding: 1% 2% 2% 2%;
-  font-family: "K2D", sans-serif;
+  font-family: "Paytone One", sans-serif;
   font-size: xx-large;
 }
 
@@ -76,11 +78,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: #6398ff;
+  color: #00F3FF;
   background-color: #000229;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-bottom: 3px solid #6398ff; 
+  border-bottom: 4px solid #00F3FF;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 580;
 }
 
 .rankings-consoles-console-name {
@@ -93,17 +97,18 @@
   justify-content: center;
   background-color: #000229;
   color: #fff;
-  border-bottom: 3px solid #6398ff;
-  font-size: 3.2vh;
+  border-bottom: 4px solid #00F3FF;
+  font-size: 3.5vh;
+  font-family: "K2D", sans-serif;
 }
 
-.rankings-consoles-console-name:nth-child(6){
+.rankings-consoles-console-name:nth-child(6) {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom: none;
 }
 
-.Rankings-game-info-container{
+.Rankings-game-info-container {
   height: 99%;
   width: 72%;
   display: flex;
@@ -111,4 +116,13 @@
   align-items: start;
   justify-content: center;
   background-color: #fff;
+}
+
+.ranking-arrow {
+  height: 65%;
+  width: 45%;
+}
+
+.Rankings-years-container .years-button:nth-child(1) {
+  transform: scaleX(-1);
 }

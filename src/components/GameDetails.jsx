@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {FindGameByName } from '../redux/Games/FindaGameSlice';
+import { FindGameByName } from '../redux/Games/FindaGameSlice';
+import { NavLink, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import { NavLink } from 'react-router-dom';
+import Header from '../components/Header';
 import '../stylesheets/gamedetails.css';
 import Search from '../img/search.png';
 import LogIn from '../img/Muhamad Ulum.png';
 
-const GameDetails2 = () => {
+const GameDetails2 = ({ headername }) => {
   var UID = uuidv4();
   const dispatch = useDispatch();
   const [gameName, setGameName] = useState('');
-  const [findgameName, setFindGameName] = useState('Stardew Valley');
+  headername = useParams();
+  console.log(headername);
+  const [findgameName, setFindGameName] = useState(`${headername.gamename}`);
   const [games, setGames] = useState([]);
-
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
@@ -67,49 +70,14 @@ const GameDetails2 = () => {
     agame && agame.map(mgame => (
       UID = uuidv4(),
       <div key={UID} style={{ backgroundImage: `url(https://images.igdb.com/igdb/image/upload/t_original/${mgame.artworks ? mgame.artworks[0].image_id : mgame.screenshots[0].image_id}.webp)` }} className='game-details-containerd'>
-        <header className='search-header-container'>
-          <div className={gameName ? 'reduce' : 'header-container'}>
-            <div className='options'>
-              <div className='logo'>
-                <h1 className='tittle'>Play Or Not?</h1>
-              </div>
-              <div className='options-buttons-container'>
-                <NavLink to="/Categories" className='options-button'>Category</NavLink>
-                <button className='options-button'>Reviews</button>
-                <button className='options-button'>Rankings</button>
-              </div>
-            </div>
-          </div>
-          <div className={gameName ? 'expand' : 'search-container'}>
-            <div className='search-bar-container'>
-              <div className='search-bar'>
-                <input
-                      type="text"
-                      className={'searchi'}
-                      placeholder="  Search.."
-                      value={gameName}
-                      onChange={handleInputChange}
-                    />
-                <button className='search-button'><img src={Search} alt="" className='search' /></button>
-                <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
-              </div>
-            </div>
-            <div className='finded-games-list-container'>
-              <ul className={gameName ? 'find-games-container' : 'hide'}>
-                {games.map(game => {
-                  return (
-                    <div key={game.id} className='games-input-container'>
-                      <li key={game.id} className='Game-Find-Container' onClick={() => handleInputChange2(game.name)}>
-                        {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
-                        <span className='Game-Name'>{game.name}</span>
-                      </li>
-                    </div>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </header>
+        <Header
+          route={"Categories"}
+          route2={"Reviews"}
+          route3={"Rankings"}
+          optioName={"Categories"}
+          optioName2={"Reviews"}
+          optioName3={"Rankings"}
+        />
         <div className='game-details-containerd-blur'>
           <div className='game-container'>
             {agame && agame.map(game => (
@@ -168,5 +136,9 @@ const GameDetails2 = () => {
     ))
   )
 }
+
+GameDetails2.propTypes = {
+  headername: PropTypes.string.isRequired,
+};
 
 export default GameDetails2;

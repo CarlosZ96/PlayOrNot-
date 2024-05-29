@@ -39,9 +39,24 @@
   border-width: 0 5px 0 5px;
   border-style: solid;
   border-color: #00f3ff;
-  height: 88%;
+  height: 90%;
   gap: 2%;
   background-color: #16397d;
+  overflow-y: scroll;
+  padding-right: 1%;
+}
+
+.list-top-container::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #000229bc;
+}
+
+.list-top-container::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 20%;
+  background-color: #fff;
+  border-radius: 4px;
 }
 
 .top-list {

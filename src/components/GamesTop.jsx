@@ -38,7 +38,7 @@ function GamesTop() {
 
   return (
     <div className='top-container'>
-      <h1 className='top-title'>Top 10 All time</h1>
+      <h1 className='top-title'>Top 10 All times</h1>
       <ul className='list-top-container'>
         {top10.map((game, index) => (
           <li key={game.id} className='top-list'>

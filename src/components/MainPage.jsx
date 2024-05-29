@@ -8,8 +8,7 @@ import SWITCH from '../img/console.png';
 import PLAY from '../img/playstation.png';
 import XBOX from '../img/buttons.png';
 import '../stylesheets/mainpage.css';
-import Search from '../img/search.png';
-import LogIn from '../img/Muhamad Ulum.png';
+import Header from '../components/Header';
 
 function MainPage() {
   const [findgameName, setFindGameName] = useState('');
@@ -51,49 +50,14 @@ function MainPage() {
 
   return (
     <div className='mid'>
-      <header className='search-header-container'>
-        <div className={gameName ? 'reduce' : 'header-container'}>
-          <div className='options'>
-            <div className='logo'>
-              <h1 className='tittle'>Play Or Not?</h1>
-            </div>
-            <div className='options-buttons-container'>
-              <NavLink to="/Categories" className='options-button'>Category</NavLink>
-              <NavLink to="/Reviews" className='options-button'>Reviews</NavLink>
-              <button className='options-button'>Rankings</button>
-            </div>
-          </div>
-        </div>
-        <div className={gameName ? 'expand' : 'search-container'}>
-          <div className='search-bar-container'>
-            <div className='search-bar'>
-              <input
-                type="text"
-                className="searchi"
-                placeholder="  Search.."
-                value={gameName}
-                onChange={handleInputChange}
-              />
-              <button className='search-button'><img src={Search} alt="" className='search' /></button>
-              <button className='LogIn'><img src={LogIn} alt="" className='Mar' /></button>
-            </div>
-          </div>
-          <div className='finded-games-list-container'>
-            <ul className={gameName ? 'find-games-container' : 'hide'}>
-              {games.map(game => {
-                return (
-                  <NavLink key={game.id} to="/GameDetails" onClick={() => setFindGameName(game.name)}>
-                    <li key={game.id} className='Game-Find-Container'>
-                      {game.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='gamef-image' />}
-                      <span className='Game-Name'>{game.name}</span>
-                    </li>
-                  </NavLink>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </header>
+      <Header
+        route={"Categories"}
+        route2={"Reviews"}
+        route3={"Rankings"}
+        optioName={"Categories"}
+        optioName2={"Reviews"}
+        optioName3={"Rankings"}
+      />
       <section className='releases-top'>
         <GameReleases />
         <div className="Ranking">

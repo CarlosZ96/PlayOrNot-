@@ -169,7 +169,7 @@ const Reviews = () => {
             </div>
             <div className={styles['options-buttons-container']}>
               <NavLink to="/" className={styles['options-button']}>Home</NavLink>
-              <NavLink to="/Categories" className={styles['options-button']}>Category</NavLink>
+              <NavLink to="/Categories" className={styles['options-button']}>Categories</NavLink>
               <NavLink to="/Rankings" className={styles['options-button']}>Rankings</NavLink>
             </div>
           </div>

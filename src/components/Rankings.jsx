@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Top10 from '../components/Top10';
 import '../stylesheets/rankings/Rankings.css';
 import Header from '../components/Header';
-import wuarrow from '../img/Left.png';
+import wuarrow from '../img/right.png';
+import back from '../img/categoriesback.jpg';
 
 const Rankings = () => {
   const [selectedYear, setSelectedYear] = useState('2021');
@@ -64,21 +65,33 @@ const Rankings = () => {
   };
 
   return (
-    <div className='All-rankings-Container'>
-      <Header />
+    <div className='All-rankings-Container' style={{ backgroundImage: `url(${back})` }}>
+      <Header
+        route={""}
+        route2={"Reviews"}
+        route3={"Categories"}
+        optioName={"Home"}
+        optioName2={"Reviews"}
+        optioName3={"Categories"}
+      />
       <div className='rankings-body'>
         <div className='Rankings-Container'>
           <div className='Rankings-years-container'>
-            <button className='years-button' onClick={handlePreviousYear}>&lt;</button>
-            <span className='years-name'>{selectedYear}</span>
-            <button className='years-button' onClick={handleNextYear}>&gt;</button>
+            <button className='years-button' onClick={handlePreviousYear}>
+              <img src={wuarrow} alt="" className='ranking-arrow' />
+            </button>
+            <span className='years-name'>Top of {selectedYear}</span>
+            <button className='years-button' onClick={handlePreviousYear}>
+              <img src={wuarrow} alt="" className='ranking-arrow' />
+            </button>
           </div>
           <Top10 games={games} />
+          {console.log(games)}
         </div>
         <div className='rankings-consoles-container'>
           <h1 className='rankings-consoles-title'>Best Games of..</h1>
           <h2 className='rankings-consoles-console-name'>Nintendo</h2>
-          <h2 className='rankings-consoles-console-name'>Playstation</h2>
+          <h2 className='rankings-consoles-console-name'>PlayStation</h2>
           <h2 className='rankings-consoles-console-name'>Xbox</h2>
           <h2 className='rankings-consoles-console-name'>PC</h2>
           <h2 className='rankings-consoles-console-name'>Mobile Devices</h2>

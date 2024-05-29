@@ -7,7 +7,7 @@ export const getReleases = createAsyncThunk(
     try {
       const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
       const body = `fields name,total_rating,first_release_date,release_dates.date,platforms.name,release_dates.human,cover.image_id; 
-      where first_release_date >= 1709269200 & first_release_date <= 1711861200 & platforms = (167,6,130,169) & total_rating_count >= 5 & category=0; 
+      where first_release_date >= 1711947600 & first_release_date <= 1716872400 & platforms = (167,6,130,169) & total_rating_count >= 5 & category=0; 
       sort total_rating desc;
       limit 5;`;
       const headers = {

@@ -10,7 +10,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #131129;
+  background-color: #01012B;
 }
 
 .options-buttons-container {
@@ -31,22 +31,23 @@
 }
 
 .h-options-button {
-  background-color: #211c49;
+  background-color: #001B51;
   width: 33%;
-  height: 80%;
-  color: #456dba;
+  height: 78%;
+  color: #00F3FF;
   font-family: "Paytone One", sans-serif;
   font-weight: 200;
   font-size: 3.5vh;
   border-radius: 8px;
   padding: 1.2% 2% 4% 2%;
+  text-decoration: none;
+  text-align: center;
 }
 
 .h-options-button:hover {
-  background-color: #211c49;
-  color: #3d5afe;
-  font-size: 3.6vh;
-  outline: solid #3d5afe;
+  background-color: #01012B;
+  font-size: 3.5vh;
+  outline: solid #00F3FF;
 }
 
 .input-button-container {
@@ -64,7 +65,7 @@
   height: 80%;
   background-color: #131129;
   border-radius: 10px;
-  color: #456dba;
+  color: #00F3FF;
   font-family: "Paytone One", sans-serif;
   font-weight: 200;
   font-size: 2.5vh;
@@ -74,7 +75,7 @@
 .input-game-review:focus {
   border: none;
   outline: none;
-  color: #3d5afe;
+  color: #00F3FF;
 }
 
 .input-game-button {
@@ -87,7 +88,7 @@
 
 .input-game-review::placeholder {
   font-size: medium;
-  color: #456dba;
+  color: #00F3FF;
   font-family: "Paytone One", sans-serif;
   font-weight: 100;
   opacity: 0.8;
@@ -102,7 +103,7 @@
   align-items: center;
   text-align: center;
   background-color: #131129;
-  border: 3px #456dba solid;
+  border: 3px #00F3FF solid;
   border-radius: 10px;
   color: #456dba;
   font-family: "Paytone One", sans-serif;
@@ -112,7 +113,7 @@
 }
 
 .search-containerd:hover {
-  outline: thick double #3d5afe;
+  outline: thick double #00F3FF;
   border: none;
 }
 

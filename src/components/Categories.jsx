@@ -42,7 +42,14 @@ export default function Categories() {
 
   return (
     <div className='Categories-container'>
-      <Header />
+      <Header
+        route={""}
+        route2={"Reviews"}
+        route3={"Rankings"}
+        optioName={"Home"}
+        optioName2={"Reviews"}
+        optioName3={"Rankings"}
+      />
       <div className='Categories-body-container' style={{ backgroundImage: `url(${back})` }}>
         <div className='back-effect'></div>
         <div className='categories-cards-container'>
