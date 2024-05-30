@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import '../stylesheets/Categories.css';
 import '../stylesheets/app.css';
-import back from '../img/categoriesback.jpg';
+import back from '../img/ConsolesBackground.png';
 
 export default function Categories() {
   const [categoriesApi, setCategoriesApi] = useState([]);

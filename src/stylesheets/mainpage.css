@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-size: contain;
+  background-color: #001b515b;
 }
 
 .App {
@@ -182,16 +184,16 @@
 }
 
 .platform:nth-child(odd) {
-  background-color: #01012b;
+  background-color: #01012be9;
 }
 
 .platform:nth-child(even) {
-  background-color: #001b51;
+  background-color: #001b51f1;
 }
 
 .platform-img {
-  width: 30%;
-  height: 85%;
+  width: 25%;
+  height: 80%;
 }
 
 .find-games-container {

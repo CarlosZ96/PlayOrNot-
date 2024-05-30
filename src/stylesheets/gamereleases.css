@@ -5,7 +5,7 @@
   width: 60%;
   height: 100%;
   border-left: 5px #00f3ff solid;
-  background-color: #000229;
+  background-color: #000229e3;
 }
 
 .releases-title {
@@ -50,6 +50,27 @@
   border: 10px #456dba solid;
 }
 
+.cardFilter {
+  display: flex;
+  width: 110%;
+  height: 106%;
+  background-color: #12122e;
+  z-index: 130;
+  position: absolute;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.fleft,
+.fright {
+  opacity: 0.88;
+}
+
+.fleft-small,
+.fright-small{
+  opacity: 0.95;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -84,6 +105,7 @@
   justify-content: center;
   align-items: center;
   height: 10%;
+  width: 100%;
   gap: 12%;
 }
 
@@ -124,7 +146,7 @@
   border: 8px #456dba solid;
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 16%;
   height: 56%;
   border-radius: 10px;
   justify-content: center;
@@ -135,28 +157,22 @@
   transform: translateX(-70%) scale(0.8);
   z-index: 80;
   opacity: 1;
-  filter: blur(1.5px);
 }
 
 .release-card.right {
   transform: translateX(70%) scale(0.8);
   z-index: 80;
   opacity: 1;
-  filter: blur(1.5px);
 }
 
 .release-card.left-small {
   transform: translateX(-110%) scale(0.7);
   z-index: 70;
-  opacity: 0.8;
-  filter: blur(2px);
 }
 
 .release-card.right-small {
   transform: translateX(110%) scale(0.7);
   z-index: 70;
-  opacity: 0.8;
-  filter: blur(2px);
 }
 
 .platforms-img {

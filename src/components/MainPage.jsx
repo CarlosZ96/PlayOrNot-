@@ -9,6 +9,7 @@ import PLAY from '../img/playstation.png';
 import XBOX from '../img/buttons.png';
 import '../stylesheets/mainpage.css';
 import Header from '../components/Header';
+import back from '../img/ConsolesBackground.png';
 
 function MainPage() {
   const [findgameName, setFindGameName] = useState('');
@@ -49,7 +50,7 @@ function MainPage() {
   };
 
   return (
-    <div className='mid'>
+    <div className='mid' style={{ backgroundImage: `url(${back})` }}>
       <Header
         route={"Categories"}
         route2={"Reviews"}

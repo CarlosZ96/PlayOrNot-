@@ -4,7 +4,7 @@ import Top10 from '../components/Top10';
 import '../stylesheets/rankings/Rankings.css';
 import Header from '../components/Header';
 import wuarrow from '../img/right.png';
-import back from '../img/categoriesback.jpg';
+import back from '../img/ConsolesBackground.png';
 
 const Rankings = () => {
   const [selectedYear, setSelectedYear] = useState('2021');
