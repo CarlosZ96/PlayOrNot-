@@ -44,7 +44,7 @@ const CategorieItem = () => {
         </div>
       </div>
       <div className='games-categorie'>
-        <div className='game'></div>
+        <div className='game'>Button</div>
         <div className='game'></div>
         <div className='game'></div>
       </div>

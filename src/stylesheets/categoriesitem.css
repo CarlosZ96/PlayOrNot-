@@ -57,5 +57,31 @@
 .game {
   width: 100%;
   height: 33%;
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(229, 13, 13);
+}
+
+.game::before {
+  content: '';
+  display: block;
+  float: left;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(229, 13, 13);
+  color:rgba(0,0,0,.2);
+  text-shadow: 1px 1px rgba(255,255,255,.15);  
+  font-family: 'Open Sans', sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  font-size:1.5rem;
+}
+
+.game::before {
+  content: '';
+  display: block;
+  float: right;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(229, 13, 13);
 }
