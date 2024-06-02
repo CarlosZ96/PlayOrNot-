@@ -4,7 +4,7 @@ import { getReleases } from '../redux/Games/GameSlice';
 import '../stylesheets/gamereleases.css';
 import left from '../img/Left.png';
 import right from '../img/right.png';
-import back from '../img/ConsolesBackground.png';
+import newi from '../img/new.png';
 
 function GameReleases() {
   const [selectedCard, setSelectedCard] = useState(2);
@@ -52,6 +52,7 @@ function GameReleases() {
                 ))}
               </div>
               <div className={cardFilterClassName}></div>
+              <img src={newi} alt="" className='new-img'/>
             </div>
           );
         })}

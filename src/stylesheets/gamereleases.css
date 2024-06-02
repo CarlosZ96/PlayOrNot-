@@ -184,3 +184,11 @@
   color: #456dba;
   font-family: "Paytone One", sans-serif;
 }
+
+.new-img{
+  width: 8vh;
+  height: 8vh;
+  position: absolute;
+  top: 0;
+  left: 76%;
+}
