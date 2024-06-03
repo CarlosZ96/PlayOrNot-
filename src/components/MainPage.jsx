@@ -6,7 +6,7 @@ import PC from '../img/computer-mouse.png';
 import ANDROID from '../img/mobile.png';
 import SWITCH from '../img/console.png';
 import PLAY from '../img/playstation.png';
-import XBOX from '../img/buttons.png';
+import XBOX from '../img/XBOX.png';
 import '../stylesheets/mainpage.css';
 import Header from '../components/Header';
 import back from '../img/ConsolesBackground.png';

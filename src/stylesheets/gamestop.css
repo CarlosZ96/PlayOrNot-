@@ -59,13 +59,12 @@
   border-radius: 4px;
 }
 
-.top-list {
+.top-list-game {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  height: 30%;
   padding: 0 1% 0 1%;
   background-color: #01012b;
 }
@@ -84,7 +83,7 @@
   padding: 0;
   margin: 0;
   color: #6398ff;
-  font-size: 2.7vh;
+  font-size: 1.2vw;
   font-family: "Paytone One", sans-serif;
   font-weight: 400;
   text-align: start;
@@ -109,7 +108,7 @@
 
 .list-item-r {
   width: 80%;
-  height: 80%;
+  height: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,7 +117,7 @@
   padding: 0;
   margin: 0;
   color: #fff;
-  font-size: 6vh;
+  font-size: 2.8vw;
   font-family: "Paytone One", sans-serif;
   border-radius: 5px;
 }
@@ -131,7 +130,7 @@
 .game-date {
   color: #fff;
   font-family: "Paytone One", sans-serif;
-  font-size: 2vh;
+  font-size: 1vw;
   text-align: start;
-  padding-top: 2%;
+  padding: 2% 0 2% 0;
 }

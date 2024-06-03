@@ -6,13 +6,14 @@ export const getReleases = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const today = new Date();
-      const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-      const startDateInSeconds = Math.floor(firstDayOfMonth.getTime() / 1000);
-      const endDateInSeconds = Math.floor(today.getTime() / 1000);
-
+      const halfMonthAgo = new Date(today.getFullYear(), today.getMonth(), 1);
+      halfMonthAgo.setDate(halfMonthAgo.getDate() - 26);
+      const startDateInSeconds = Math.floor(halfMonthAgo.getTime() / 1000);
+      const endDateInSeconds = Math.floor(today.getTime() / 1000);        
+      console.log('Dia 1:', startDateInSeconds, ' y segundo dia:', endDateInSeconds); 
       const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
       const body = `fields name,total_rating,first_release_date,release_dates.date,platforms.name,release_dates.human,cover.image_id; 
-      where first_release_date >= ${startDateInSeconds} & first_release_date <= ${endDateInSeconds} & platforms = (167,6,130,169) & total_rating_count >= 5 & category=0; 
+      where first_release_date >= ${startDateInSeconds} & first_release_date <= ${endDateInSeconds} & platforms = (167,6,130,169) & total_rating_count >= 5; 
       sort total_rating desc;
       limit 5;`;
 

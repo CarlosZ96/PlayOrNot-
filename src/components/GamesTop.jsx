@@ -41,7 +41,7 @@ function GamesTop() {
       <h1 className='top-title'>Top 10 All times</h1>
       <ul className='list-top-container'>
         {top10.map((game, index) => (
-          <li key={game.id} className='top-list'>
+          <li key={game.id} className='top-list-game'>
             <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.png`} alt="" className='top-image' />
             <div className='top-info-container'>
               <div className='top-title-container'>
