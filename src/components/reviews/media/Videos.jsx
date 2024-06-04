@@ -1,4 +1,5 @@
 import React from 'react'
+import MediaButtons from './../media/MediaButtons';
 
 const Videos = () => {
   return (
@@ -11,8 +12,8 @@ const Videos = () => {
           let cardClassName = '';
 
           if (distanceToLeft === 0) cardClassName += 'centered';
-          else if (distanceToLeft === 1) cardClassName += 'left';
-          else if (distanceToRight === 1) cardClassName += 'right';
+          else if (distanceToLeft === 1) cardClassName += 'hide';
+          else if (distanceToRight === 1) cardClassName += 'hide';
           else if (distanceToLeft >= 2 || distanceToRight >= 2) cardClassName += 'hide';
 
           return (

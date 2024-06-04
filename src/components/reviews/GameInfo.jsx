@@ -16,8 +16,8 @@ const GameInfo = ({ game }) => {
   return (
     <div className={styles['game-info-details']}>
       <div className={styles['game-genres-container']}>
-        <h2 className={styles['game-info-tittle']}>Genres:</h2>
         <p className={styles['game-info-txt']}>
+          <span className={styles['game-info-tittle']}>Genres: </span>
           {game[0].genres && game[0].genres.map((genre, index) => (
             <React.Fragment key={index}>
               {genre.name}
@@ -33,8 +33,8 @@ const GameInfo = ({ game }) => {
           game[0].release_dates[0].human : 'N/A'}.</p>
       </div>
       <div className={styles['Plarforms-container']}>
-        <h2 className={styles['game-info-tittle']}>Plarforms:</h2>
         <p className={styles['game-info-txt']} key={uuidv4()}>
+          <span className={styles['game-info-tittle']}>Plarforms: </span>
           {game[0].platforms && game[0].platforms.map((platform, index) => {
             if (platform.name !== 'Linux' && platform.name !== 'Mac' && platform.name !== 'iOS'
               && platform.name !== 'Windows Phone'

@@ -214,13 +214,12 @@ const Reviews = () => {
                 <div className={styles['game-caratule']}>
                   {GameDetailsReview[0].cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${GameDetailsReview[0].cover.image_id}.png`} alt="game-image" className={styles['game-info-car']} />}
                 </div>
-                <h1 className={styles['game-caregory']}></h1>
                 <GameInfo game={GameDetailsReview} />
               </div>
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
                   <div className={styles['game-rating-container']}>
-                    <h1 className={styles['PR']}>Play or Not?</h1>
+                    <h1 className={styles['PR']}>Play or Not?</h1>                  
                     <div className={styles['game-rating-YMN-ccontainer']}>
                       <div className={styles['game-rating-Y-container']}>
                         <h1 className={styles['rating-txt']}>Yes!!</h1>
