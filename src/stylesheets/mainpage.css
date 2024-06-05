@@ -168,12 +168,12 @@
 
 .Consoles {
   display: flex;
-  height: 20%;
+  height: 15%;
 }
 
 .platform {
-  width: 20%;
-  height: 100%;
+  width: 20vw;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

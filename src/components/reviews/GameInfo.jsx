@@ -28,9 +28,11 @@ const GameInfo = ({ game }) => {
         </p>
       </div>
       <div className={styles['release-data-container']}>
-        <h2 className={styles['game-info-tittle']}>Release Data:</h2>
-        <p className={styles['game-info-txt']}>{game[0].release_dates[0].human ?
-          game[0].release_dates[0].human : 'N/A'}.</p>
+        <h2 className={styles['game-info-tittle']}></h2>
+        <p className={styles['game-info-txt']}>
+          <span className={styles['game-info-tittle']}>Release Data: </span>
+          {game[0].release_dates[0].human ?
+            game[0].release_dates[0].human : 'N/A'}.</p>
       </div>
       <div className={styles['Plarforms-container']}>
         <p className={styles['game-info-txt']} key={uuidv4()}>
@@ -52,7 +54,7 @@ const GameInfo = ({ game }) => {
         </p>
       </div>
       <div className={styles['Stores-container']}>
-        <h2 className={styles['game-info-tittle']}>Available on:</h2>
+        <span className={styles['game-info-tittle']}>Available on: </span>
         <div className={styles['game-info-stores']}>
           {game[0].external_games && game[0].external_games.map(ext => {
             if (ext.category == '1') {

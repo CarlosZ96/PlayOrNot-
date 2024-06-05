@@ -41,7 +41,7 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
   return (
     <div className={styles['game-extra-image-container']}>
       <div ref={nodecla} className={styles['game-image-container']}>
-        <MediaButtons dinamicClass={showMediaSection} showMediaSection={showMediaSection} />
+        <MediaButtons showMediaSection={showMediaSection} />
         {game[0].screenshots && game[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();
           const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
@@ -65,7 +65,6 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
         <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
-
       <div ref={nodecla2} className={styles.hide}>
         <MediaButtons dinamicClass={showMediaSection} showMediaSection={showMediaSection} />
         {game[0].videos && game[0].videos.map((video, index) => {
@@ -96,8 +95,8 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
         <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
-
       <div ref={nodecla3} className={styles.hide}>
+      <MediaButtons dinamicClass={showMediaSection} showMediaSection={showMediaSection} />
         {game[0].dlcs && game[0].dlcs.map((dlc) => {
           const UID = uuidv4();
           return (
@@ -111,7 +110,6 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
           );
         })}
       </div>
-
     </div>
   );
 };

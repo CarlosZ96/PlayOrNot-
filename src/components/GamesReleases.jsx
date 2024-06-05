@@ -5,8 +5,10 @@ import '../stylesheets/gamereleases.css';
 import left from '../img/Left.png';
 import right from '../img/right.png';
 import newi from '../img/new.png';
+import { v4 as uuidv4 } from 'uuid';
 
 function GameReleases() {
+  var UID = uuidv4();
   const [selectedCard, setSelectedCard] = useState(2);
   const [date, setdate] = useState(2);
 
@@ -35,24 +37,24 @@ function GameReleases() {
           let cardClassName = 'release-card';
           let cardFilterClassName = 'cardFilter';
 
-          if (distanceToLeft === 0) cardClassName += ' centered',  cardFilterClassName += ' hide';
+          if (distanceToLeft === 0) cardClassName += ' centered', cardFilterClassName += ' hide';
           else if (distanceToLeft === 1) cardClassName += ' left', cardFilterClassName += ' fleft';
           else if (distanceToRight === 1) cardClassName += ' right', cardFilterClassName += ' fright';
           else if (distanceToLeft === 2) cardClassName += ' left-small', cardFilterClassName += ' fleft-small';
           else if (distanceToRight === 2) cardClassName += ' right-small', cardFilterClassName += ' fright-small';
 
-
           return (
-            <div key={release.gameId} className={cardClassName}>
+            <div key={UID} className={cardClassName}>
               <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${release.cover}.png`} alt="" className='game-image' />
               <h2 className='new'>Platforms</h2>
               <div className='platforms'>
                 {release.consoles.map((console) => (
-                  <img key={(release.gameId - 1)} src={require(`../img/${console.consolename}.png`)} className='platforms-img' />
+                  UID = uuidv4(),
+                  <img key={UID} src={require(`../img/${console.consolename}.png`)} className='platforms-img' />
                 ))}
               </div>
               <div className={cardFilterClassName}></div>
-              <img src={newi} alt="" className='new-img'/>
+              <img src={newi} alt="" className='new-img' />
             </div>
           );
         })}
