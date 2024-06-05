@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../../stylesheets/reviews.module.css';
 import ImageCont from '../../reviews/media/Image';

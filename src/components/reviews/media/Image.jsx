@@ -2,17 +2,46 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../../../stylesheets/reviews.module.css';
-import MediaButtons from './../media/MediaButtons';
 
 const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
   const nodecla = useRef();
   const nodecla2 = useRef();
   const nodecla3 = useRef();
+  const Screenshotsref = useRef();
+  const videosref = useRef();
+  const dlcref = useRef();
 
-  const showMediaSection = (section) => {
+  const showMediaSection = (section, ref) => {
     const container = nodecla.current;
     const container2 = nodecla2.current;
     const container3 = nodecla3.current;
+    const screenCont = Screenshotsref.current;
+    const vidCont = videosref.current;
+    const dlCont = dlcref.current;
+
+    const text = ref.current.innerText;
+    if (text === 'Screenshots') {
+      screenCont.classList.remove(styles['unselected']);
+      screenCont.classList.add(styles['selected']);
+      vidCont.classList.remove(styles['selected']);
+      vidCont.classList.add(styles['unselected']);
+      dlCont.classList.remove(styles['selected']);
+      dlCont.classList.add(styles['unselected']);
+    } else if (text === 'Videos') {
+      vidCont.classList.add(styles.selected);
+      vidCont.classList.remove(styles.unselected);
+      screenCont.classList.remove(styles.selected);
+      screenCont.classList.add(styles.unselected);
+      dlCont.classList.remove(styles.selected);
+      dlCont.classList.add(styles.unselected);
+    } else if (text === 'DLC') {
+      dlCont.classList.add(styles.selected);
+      dlCont.classList.remove(styles.unselected);
+      screenCont.classList.remove(styles.selected);
+      screenCont.classList.add(styles.unselected);
+      vidCont.classList.remove(styles.selected);
+      vidCont.classList.add(styles.unselected);
+    }
 
     if (section === 'screenshots') {
       container.classList.remove(styles.hide);
@@ -40,8 +69,12 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
 
   return (
     <div className={styles['game-extra-image-container']}>
+      <div className={styles['game-extra-content-txt-container']}>
+        <div onClick={() => { showMediaSection('screenshots', Screenshotsref); }} ref={Screenshotsref} className={styles['selected']}>Screenshots</div>
+        <div onClick={() => { showMediaSection('videos', videosref); }} ref={videosref} className={styles['unselected']}>Videos</div>
+        <div onClick={() => { showMediaSection('dlc', dlcref); }} ref={dlcref} className={styles['unselected']}>DLC</div>
+      </div>
       <div ref={nodecla} className={styles['game-image-container']}>
-        <MediaButtons showMediaSection={showMediaSection} />
         {game[0].screenshots && game[0].screenshots.map((screenshots, index) => {
           const UID = uuidv4();
           const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
@@ -66,7 +99,6 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
       <div ref={nodecla2} className={styles.hide}>
-        <MediaButtons dinamicClass={showMediaSection} showMediaSection={showMediaSection} />
         {game[0].videos && game[0].videos.map((video, index) => {
           const UID = uuidv4();
           const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
@@ -96,7 +128,7 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
       <div ref={nodecla3} className={styles.hide}>
-      <MediaButtons dinamicClass={showMediaSection} showMediaSection={showMediaSection} />
+
         {game[0].dlcs && game[0].dlcs.map((dlc) => {
           const UID = uuidv4();
           return (
@@ -106,9 +138,10 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
                 <p>{dlc.name}</p>
                 <p>{dlc.release_dates[0].human}</p>
               </div>
-            </div>
-          );
+            </div>);
         })}
+        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
+        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
     </div>
   );
