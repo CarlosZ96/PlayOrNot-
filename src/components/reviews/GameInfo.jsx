@@ -30,7 +30,7 @@ const GameInfo = ({ game }) => {
       <div className={styles['release-data-container']}>
         <h2 className={styles['game-info-tittle']}></h2>
         <p className={styles['game-info-txt']}>
-          <span className={styles['game-info-tittle']}>Release Data: </span>
+          <span className={styles['game-info-tittle']}>Release data: </span>
           {game[0].release_dates[0].human ?
             game[0].release_dates[0].human : 'N/A'}.</p>
       </div>

@@ -115,6 +115,8 @@
   text-align: center;
   font-size: 3vh;
   height: max-content;
+  text-shadow: 1px 1.5px rgba(255,255,255,.15);
+  color: #2c2a46;
 }
 
 .categories-title {

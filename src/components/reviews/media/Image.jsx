@@ -129,17 +129,19 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
       </div>
       <div ref={nodecla3} className={styles.hide}>
 
-        {game[0].dlcs && game[0].dlcs.map((dlc) => {
-          const UID = uuidv4();
-          return (
-            <div key={UID} className={styles['game-dlc-container']}>
-              {dlc.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${dlc.cover.image_id}.png`} alt="" className={styles['gamef-image']} />}
-              <div className={styles['game-dlc-info-container']}>
-                <p>{dlc.name}</p>
-                <p>{dlc.release_dates[0].human}</p>
-              </div>
-            </div>);
-        })}
+          {game[0].dlcs && game[0].dlcs.map((dlc) => {
+            const UID = uuidv4();
+            return (
+              <div key={UID} className={styles['game-dlc-container']}>
+                {dlc.cover && <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${dlc.cover.image_id}.png`} alt="" className={styles['gamef-image']} />}
+                <div className={styles['game-dlc-info-container']}>
+                  <p>{dlc.name}</p>
+                  <p>{dlc.release_dates[0].human}</p>
+                </div>
+              </div>);
+          })}
+
+        <div className={styles['gameboy-name']}>{game[0].name}</div>
         <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>

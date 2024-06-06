@@ -6,7 +6,7 @@
 }
 
 .years-rankings-games-container::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
   height: 8px;
   background-color: #000229bc;
 }

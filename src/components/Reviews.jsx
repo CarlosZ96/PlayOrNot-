@@ -219,7 +219,7 @@ const Reviews = () => {
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
                   <div className={styles['game-rating-container']}>
-                    <h1 className={styles['PR']}>Play or Not?</h1>                  
+                    <div><h1 className={styles['PR']}>Play or Not?</h1></div>               
                     <div className={styles['game-rating-YMN-ccontainer']}>
                       <div className={styles['game-rating-Y-container']}>
                         <h1 className={styles['rating-txt']}>Yes!!</h1>
