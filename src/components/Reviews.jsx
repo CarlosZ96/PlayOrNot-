@@ -3,6 +3,9 @@ import styles from '../stylesheets/reviews.module.css';
 import LogIn from '../img/Muhamad Ulum.png';
 import Search from '../img/search.png';
 import Mncito from '../img/Mncito.png';
+import Play from '../img/play (1).png';
+import Not from '../img/not.png';
+import pixelBack from '../img/pixel-borders.png';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import GameInfo from './reviews/GameInfo';
@@ -219,18 +222,17 @@ const Reviews = () => {
               <div className={styles['game-review-info']}>
                 <div className={styles['game-review-rating-container']}>
                   <div className={styles['game-rating-container']}>
-                    <div><h1 className={styles['PR']}>Play or Not?</h1></div>               
-                    <div className={styles['game-rating-YMN-ccontainer']}>
-                      <div className={styles['game-rating-Y-container']}>
-                        <h1 className={styles['rating-txt']}>Yes!!</h1>
-                        <div className={styles['Game-rating-Mncito-container']}>
-                          <img className={styles['Game-rating-Mncito-img']} src={Mncito} alt="approving image" />
-                        </div>
-                        <h1 className={styles['rating-txt']}>This game is..</h1>
-                      </div>
+                    <div className={styles['play-Or-Not']}>
+                      <img className={styles['tittle-img']} src={Play} alt="" />
+                      <h1 className={styles['PR']}>Play or Not?</h1>
+                      <img className={styles['tittle-img']} src={Not} alt="" />
                     </div>
-                    <div className={styles['game-rating-bar-container']}>
-                      <div className={styles['game-rating-bar']}>
+                    <div style={{ backgroundImage: `url(${pixelBack})` }} className={styles['game-rating-YMN-ccontainer']}>
+                      <h1 className={styles['rating-txt']}>Yes!! you HAVE to play it.</h1>
+                      <img className={styles['Game-rating-Mncito-img']} src={Mncito} alt="approving image" />
+                      <div className={styles['game-rating-bar-container']}>
+                        <div style={{ backgroundImage: `url(${pixelBack})` }} className={styles['game-rating-bar']}>
+                        </div>
                         <h1 style={{ width: `${Math.round(GameDetailsReview[0].rating)}%` }} className={styles['rating-number']}>
                           “Very Good” {Math.round(GameDetailsReview[0].rating)}%</h1>
                       </div>

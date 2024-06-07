@@ -128,7 +128,6 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
         <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
       </div>
       <div ref={nodecla3} className={styles.hide}>
-
           {game[0].dlcs && game[0].dlcs.map((dlc) => {
             const UID = uuidv4();
             return (

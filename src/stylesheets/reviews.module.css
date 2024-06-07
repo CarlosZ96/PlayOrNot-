@@ -104,40 +104,6 @@
   color: #fff;
 }
 
-.unselected {
-  height: 100%;
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position:relative;
-  appearance:none;
-  box-sizing:border-box;
-  font-size:calc( 2rem / 3 );
-  font-family: 'Open Sans', sans-serif;
-  background: #899095;
-  height:1.8rem;
-  width:20%;
-  border-radius:calc( 3rem / 2);
-  border:0;
-  font-weight:800;
-  text-transform:uppercase;
-  color:rgba(0,0,0,.25);
-  text-shadow: 1px 1px rgba(255,255,255,.15);
-  cursor:pointer;
-  margin:6px 6px;
-  letter-spacing:.1em;
-  transition: all 200ms ease;
-  box-shadow:
-    -1px  -1px 1px #899095, 
-    0 0 0 4px rgba(0,0,0,.1),
-    1px  1px 1px #7D878F, 
-    inset .0 .0 .0 rgba(0,0,0,.2),   
-    inset .5rem .5rem .25rem #969DA3;
-    top: 35%;
-}
-
 .selected {
   height: 100%;
   width: 70%;
@@ -157,7 +123,41 @@
   border:0;
   font-weight:800;
   text-transform:uppercase;
-  color:rgba(0,0,0,.25);
+  color:rgba(0, 0, 0, 0.467);
+  text-shadow: 1px 1px rgba(255,255,255,.15);
+  cursor:pointer;
+  margin:6px 6px;
+  letter-spacing:.1em;
+  transition: all 200ms ease;
+  box-shadow:
+    -1px  -1px 1px #899095, 
+    0 0 0 4px rgba(0,0,0,.1),
+    1px  1px 1px #7D878F, 
+    inset .0 .0 .0 rgba(0,0,0,.2),   
+    inset .5rem .5rem .25rem #969DA3;
+    top: 35%;
+}
+
+.unselected {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  appearance:none;
+  box-sizing:border-box;
+  font-size:calc( 2rem / 3 );
+  font-family: 'Open Sans', sans-serif;
+  background: #899095;
+  height:1.8rem;
+  width:20%;
+  border-radius:calc( 3rem / 2);
+  border:0;
+  font-weight:800;
+  text-transform:uppercase;
+  color:rgba(0, 0, 0, 0.467);
   text-shadow: 1px 1px rgba(255,255,255,.15);
   cursor:pointer;
   margin:6px 6px;
@@ -365,7 +365,7 @@
 }
 
 .game-review-title {
-  height: 25%;
+  height: 20%;
   width: 100%;
   background-color: #fff;
   color: #01012b;
@@ -421,23 +421,25 @@
 }
 
 .game-rating-YMN-ccontainer {
-  height: 20%;
-  width: 96%;
-  background-color: #000;
+  height: 70%;
+  width: 90%;
   color: #fff;
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
-  border-radius: 15px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 102%;
+  background-position: center;
 }
 
 .game-review-rating-t {
   height: 100%;
   width: 45%;
   background-color: #fff;
-  color: #fff;
+  color: #000;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -506,25 +508,13 @@
   justify-content: center;
 }
 
-.Game-rating-Mncito-container {
-  height: 130%;
-  width: 14%;
-  background: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #000;
-  background-color: #6398ff;
-  border-radius: 9px;
-}
-
 .Game-rating-Mncito-img {
-  height: 140%;
-  width: 130%;
-  padding-left: 12%;
+  height: 80%;
+  width: 25%;
   z-index: 110;
+  position: absolute;
+  top: 8%;
+  left: 5%;
 }
 
 .game-review-extra-title {
@@ -729,7 +719,8 @@
 
 .last-reviewed-title {
   width: 100%;
-  height: 10%;
+  height: 20%;
+  font-size: xx-large;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -742,7 +733,7 @@
 
 .last-reviewed-game-container {
   width: 100%;
-  height: 89.3%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -757,35 +748,8 @@
   justify-content: center;
   align-items: center;
   gap: 4%;
-  background-color: #97de1c;
   border: 5px solid #000;
   border-radius: 9px 30px 9px 9px;
-}
-
-.rating-number {
-  height: 100%;
-  width: 100%;
-  background-color: #33f04c;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
-  border-radius: 9px 0 0 9px;
-  border-right: 3px #000 solid;
-  padding-right: 1%;
-  font-family: "Press Start 2P", sans-serif;
-  font-size: 2vh;
-}
-
-.game-rating-Y-container {
-  height: 100%;
-  width: 100%;
-  background-color: #6398ff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 9px;
 }
 
 .rating-txt {
@@ -793,45 +757,60 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 100%;
-  font-size: 2vh;
+  width: 80%;
+  height: max-content;
+  font-size: 2.3vh;
   color: #000;
   font-family: "Press Start 2P", sans-serif;
   font-weight: 200;
-  text-align: center;
-}
-
-.rating-txt:nth-child(1) {
-  border-width: 3px 0 3px 3px;
-  border-style: solid;
-  border-color: #000;
-  border-radius: 9px 0 0 9px;
-}
-
-.rating-txt:nth-child(3) {
-  border-width: 3px 3px 3px 0;
-  border-style: solid;
-  border-color: #000;
-  border-radius: 0 9px 9px 0;
+  text-align: start;
+  position: absolute;
+  z-index: 110;
+  top: 18%;
+  left: 20%;
 }
 
 .game-rating-bar-container {
-  width: 96%;
-  height: 50%;
+  width: 59%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  position: relative;
+  left: 30%;
+}
+
+.game-rating-bar {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 11px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 28%;
+  z-index: 5;
+}
+
+.rating-number {
+  position: absolute;
+  min-width: 51%;
+  min-height: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: none;
-}
-
-.game-rating-bar {
-  width: 98%;
-  height: 70%;
-  background-color: #6398ff;
-  border-radius: 9px;
-  border: 3px #000 solid;
+  background-color: #97de1c;
+  color: #000;
+  border-radius: 15px 0 0 15px;
+  border-right: 5px #000 solid;
+  padding-right: 1%;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vh;
+  top: 30%;
+  left: 0;
+  z-index: 1;
 }
 
 .game-extre-dlc-img {
@@ -853,6 +832,8 @@
   background: none;
   position: absolute;
   z-index: 100;
+  border-left: 5px #fff solid;
+  border-right: 5px #fff solid;
 }
 
 .last-game-container {
@@ -908,4 +889,30 @@
   border: solid #141414;
   border-width: 10px 18px 10px 18px;
   overflow-y: scroll;
+}
+
+.play-Or-Not{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  gap: 3%;
+}
+
+.tittle-img{
+  width: 7.5%;
+  height: 80%;
+  border: 3px solid #141414;
+  padding: 0.8%;
+  border-radius: 6px;
+}
+
+.tittle-img:nth-child(1) {
+  background-color: #30ba0e;
+}
+
+.tittle-img:nth-child(3) {
+  background-color: #ff4433;
 }
