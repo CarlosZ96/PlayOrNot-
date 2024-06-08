@@ -20,21 +20,25 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
     const dlCont = dlcref.current;
 
     const text = ref.current.innerText;
-    if (text === 'Screenshots') {
-      screenCont.classList.remove(styles['unselected']);
-      screenCont.classList.add(styles['selected']);
-      vidCont.classList.remove(styles['selected']);
-      vidCont.classList.add(styles['unselected']);
-      dlCont.classList.remove(styles['selected']);
-      dlCont.classList.add(styles['unselected']);
-    } else if (text === 'Videos') {
-      vidCont.classList.add(styles.selected);
-      vidCont.classList.remove(styles.unselected);
-      screenCont.classList.remove(styles.selected);
-      screenCont.classList.add(styles.unselected);
-      dlCont.classList.remove(styles.selected);
-      dlCont.classList.add(styles.unselected);
-    } else if (text === 'DLC') {
+    if (section === 'screenshots') {
+      if (screenCont && screenCont.classList.contains(styles.unselected)) {
+        screenCont.classList.remove(styles['unselected']);
+        screenCont.classList.add(styles['selected']);
+        vidCont.classList.remove(styles['selected']);
+        vidCont.classList.add(styles['unselected']);
+        dlCont.classList.remove(styles['selected']);
+        dlCont.classList.add(styles['unselected']);
+      }
+    } else if (section === 'videos') {
+      if (vidCont && vidCont.classList.contains(styles.unselected)) {
+        vidCont.classList.remove(styles['unselected']);
+        vidCont.classList.add(styles['selected']);
+        screenCont.classList.remove(styles['selected']);
+        screenCont.classList.add(styles['unselected']);
+        dlCont.classList.remove(styles['selected']);
+        dlCont.classList.add(styles['unselected']);
+      }
+    } else if (section === 'dlc') {
       dlCont.classList.add(styles.selected);
       dlCont.classList.remove(styles.unselected);
       screenCont.classList.remove(styles.selected);
