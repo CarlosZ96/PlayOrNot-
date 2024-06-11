@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../../../stylesheets/reviews.module.css';
 
 const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLenght }) => {
+  const [selectedVideo, setSelectedVideo] = useState(0);
+
   const nodecla = useRef();
   const nodecla2 = useRef();
   const nodecla3 = useRef();
@@ -19,7 +21,6 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
     const vidCont = videosref.current;
     const dlCont = dlcref.current;
 
-    const text = ref.current.innerText;
     if (section === 'screenshots') {
       if (screenCont && screenCont.classList.contains(styles.unselected)) {
         screenCont.classList.remove(styles['unselected']);
@@ -71,6 +72,14 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
     }
   }
 
+  const handleMoveRightVideo = () => {
+    setSelectedVideo((prevSelectedVideo) => (prevSelectedVideo + 1) % game[0].videos.length);
+  };
+
+  const handleMoveLeftVideo = () => {
+    setSelectedVideo((prevSelectedVideo) => (prevSelectedVideo - 1 + game[0].videos.length) % game[0].videos.length);
+  };
+
   return (
     <div className={styles['game-extra-image-container']}>
       <div className={styles['game-extra-content-txt-container']}>
@@ -105,8 +114,8 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
       <div ref={nodecla2} className={styles.hide}>
         {game[0].videos && game[0].videos.map((video, index) => {
           const UID = uuidv4();
-          const distanceToLeft = (selectedCard - index + ImgTotalLenght) % ImgTotalLenght;
-          const distanceToRight = (index - selectedCard + ImgTotalLenght) % ImgTotalLenght;
+          const distanceToLeft = (selectedVideo - index + ImgTotalLenght) % ImgTotalLenght;
+          const distanceToRight = (index - selectedVideo + ImgTotalLenght) % ImgTotalLenght;
           let cardClassName = '';
 
           if (distanceToLeft === 0) cardClassName += 'centered';
@@ -128,11 +137,12 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
           );
         })}
         <div className={styles['gameboy-name']}>{game[0].name}</div>
-        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
-        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
+        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRightVideo}></button>
+        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeftVideo}></button>
       </div>
-      <div ref={nodecla3} className={styles.hide}>
-          {game[0].dlcs && game[0].dlcs.map((dlc) => {
+      {game[0].dlcs && game[0].dlcs.length > 0 ? (
+        <div ref={nodecla3} className={styles.hide}>
+          {game[0].dlcs.map((dlc) => {
             const UID = uuidv4();
             return (
               <div key={UID} className={styles['game-dlc-container']}>
@@ -141,13 +151,23 @@ const Image = ({ game, handleMoveRight, handleMoveLeft, selectedCard, ImgTotalLe
                   <p>{dlc.name}</p>
                   <p>{dlc.release_dates[0].human}</p>
                 </div>
-              </div>);
+              </div>
+            );
           })}
-
-        <div className={styles['gameboy-name']}>{game[0].name}</div>
-        <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
-        <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
-      </div>
+          <div className={styles['gameboy-name']}>{game[0].name}</div>
+          <button className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
+          <button className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
+        </div>
+      ) : (
+        <div ref={nodecla3} className={styles.hide}>
+          <div style={{ overflowY: 'hidden' }} className={styles['game-dlc-container']}>
+            <p>{`No DLC available`}</p>
+          </div>
+          <div className={styles['gameboy-name']}>{game[0].name}</div>
+          <button disabled className={styles['game-extra-screenshots-button-r']} onClick={handleMoveRight}></button>
+          <button disabled className={styles['game-extra-screenshots-button-l']} onClick={handleMoveLeft}></button>
+        </div>
+      )}
     </div>
   );
 };
