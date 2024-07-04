@@ -30,7 +30,7 @@ const Header = ({ route, route2, route3, optioName, optioName2, optioName3 }) =>
 
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-    'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
+    'Authorization': 'Bearer ld39wm9mmwhugmjva9zk95qu34ab5c',
     'Content-Type': 'text/plain',
   };
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';

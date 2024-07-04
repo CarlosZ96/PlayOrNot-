@@ -6,7 +6,7 @@ const CategorieItem = () => {
   const url = 'http://localhost:8080/https://api.igdb.com/v4/games/';
   const headers = {
     'Client-ID': 'jeqorghffhp2lzx25w4hjazivbkahe',
-    'Authorization': 'Bearer xgs56m0we1a96ipiu3zrfk684qrymn',
+    'Authorization': 'Bearer ld39wm9mmwhugmjva9zk95qu34ab5c',
     'Content-Type': 'text/plain',
   };
 
